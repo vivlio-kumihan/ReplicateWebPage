@@ -1,27 +1,13 @@
-Vue.createApp({
-  // vueの中で使う共通の変数定義場所
-  data() {
-    return {
-      activeTrue: true
-    }
-  },
-  methods: {
-    styleChange() {
-      return {
-        color: this.activeTrue ? "red" : "blue"
-      }
-    }
-  },
-  // ライフサイクルメソッド
-  // アプリがマウントされてから動く部分
-  // とりあえず、ここで自由にJS書いて徐々にVueへ移していくための場所として使える。
-  mounted() {
-    function greet(name="takahiro") {
-      console.log(`hello ${ name }. here is js free!`)
-    }
-    greet("nobuyuki")
-    // thisを使えば、Vueの変数を垣根を超える。
-    console.log(this.text)
+// 任意の文字数を超えたら文字数＋『...』と表示させる。
+function truncateText(str, maxLength) {
+  if (str.textContent.length >= maxLength) {
+    return str.textContent.substr(0, maxLength) + '...';
+  } else {
+    return str.textContent
   }
+}
 
-}).mount("#app")
+let inputTexts = document.querySelectorAll(".topics dd p")
+for (text of inputTexts) {
+  text.textContent = truncateText(text, 22)
+}
