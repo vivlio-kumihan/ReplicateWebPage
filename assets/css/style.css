@@ -188,7 +188,8 @@ p {
 
 .header-container.sub a:lang(en),
 .header-container.sub dd:lang(en),
-.header-container.sub li:lang(en) {
+.header-container.sub li:lang(en),
+.instagram {
   font-family: 'Open Sans', sans-serif;
   text-transform: uppercase;
 }
@@ -384,12 +385,18 @@ p {
 }
 
 .topics figure,
-.feature-article figure {
+.feature-article figure,
+#main-guide figure,
+#sub-guide figure,
+.guide > dl:last-of-type figure {
   position: relative;
 }
 
 .topics figure::before,
-.feature-article figure::before {
+.feature-article figure::before,
+#main-guide figure::before,
+#sub-guide figure::before,
+.guide>dl:last-of-type figure::before {
   position: absolute;
   content: "";
   top: 0;
@@ -404,7 +411,10 @@ p {
 }
 
 .topics figure:hover::before,
-.feature-article figure:hover::before {
+.feature-article figure:hover::before,
+#main-guide figure:hover::before,
+#sub-guide figure:hover::before,
+.guide>dl:last-of-type figure:hover::before {
   visibility: visible;
   opacity: .5;
 }
@@ -465,17 +475,22 @@ p {
   margin-top: 2rem;
 }
 
-#main-guide {
+#main-guide,
+#sub-guide {
   margin-bottom: 7rem;
   padding-bottom: 10rem;
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid #ccc;
 }
+
+#sub-guide {
+  padding-bottom: 6rem;
+}
+
 #main-guide > .wrapper {
   position: relative;
 }
 
 #main-guide dd:last-of-type {
-  display: inline-block;
   position: absolute;
   bottom: -4rem;
   left: 50%;
@@ -488,4 +503,77 @@ p {
 }
 
 /* sub-guide */
+#sub-guide {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 2rem 4rem
+}
 
+#sub-guide > .wrapper > a {
+  display: flex;
+}
+
+#sub-guide a > figure {
+  flex: 3;
+}
+
+#sub-guide a > .inner-wrapper {
+  flex: 4;
+}
+
+#sub-guide .inner-wrapper >dt{
+  margin: 1.5rem 0 0 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  list-style: 1em;
+  text-align: left;
+  letter-spacing: .2rem;
+}
+#sub-guide .inner-wrapper >dd {
+  margin: 1rem 0 0 1rem;
+  font-size: .85rem;
+  line-height: 2;
+}
+
+/* annual event */
+.guide > dl:last-of-type {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.guide > dl:last-of-type > dt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  margin: 0;
+  color: #fff;
+  z-index: 1;
+}
+
+.guide > dl:last-of-type > dt,
+.guide > dl:last-of-type > dd {
+  margin-top: 0;
+}
+
+.guide > dl:last-of-type > dt {
+  padding-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: .5rem;
+  border-bottom: 2px solid #fff;
+}
+
+.guide > dl:last-of-type > dd {
+  padding: .5rem;
+  width: 70%;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+
+.guide>dl:last-of-type img {
+  width: 100%;
+}
