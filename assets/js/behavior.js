@@ -19,3 +19,17 @@ for (let heading of headingTwo) {
   let lastChar = orgText.slice(-1)
   heading.innerHTML = orgText.replace(lastChar, `<span class="remove-letter-spacing">${lastChar}</span>`)
 }
+
+let articles = document.querySelectorAll("#instagram article")
+for (let article of articles) {
+  article.addEventListener("mouseenter", function() {
+    let information = this.firstElementChild.lastElementChild
+    this.classList.add("active")
+    information.classList.add("active")
+  })
+  article.addEventListener("mouseleave", function() {
+    let information = this.firstElementChild.lastElementChild
+    this.classList.remove("active")
+    information.classList.remove("active")
+  })
+}
