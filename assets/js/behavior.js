@@ -33,3 +33,4 @@ for (let article of articles) {
     information.classList.remove("active")
   })
 }
+

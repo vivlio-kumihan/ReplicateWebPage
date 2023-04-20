@@ -33,7 +33,9 @@ section:nth-of-type(even) {
   background-color: rgba(210, 150, 135, .1);
 }
 
-h2 {
+.feature-article > h2,
+.guide > h2,
+#instagram > h2 {
   position: relative;
   margin-bottom: 5rem;
   text-align: center;
@@ -43,7 +45,9 @@ h2 {
   letter-spacing: .5em;
 }
 
-h2::after {
+.feature-article>h2::after,
+.guide>h2::after,
+#instagram>h2::after {
   position: absolute;
   bottom: -1.5rem;
   right: 50%;
@@ -194,7 +198,8 @@ p {
 .header-container.sub a:lang(en),
 .header-container.sub dd:lang(en),
 .header-container.sub li:lang(en),
-#instagram h2:lang(en) {
+#instagram h2:lang(en),
+#more-info h2:lang(en) {
   font-family: 'Open Sans', sans-serif;
   text-transform: uppercase;
 }
@@ -728,3 +733,98 @@ nav.sns li:nth-of-type(3)::before {
   content: "\f431";
 }
 
+/* ////////// more-info ////////// */
+#more-info > dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  width: 100%;
+}
+
+#more-info dt {
+  position: relative;
+  background: linear-gradient(#777 0 0) top,
+              linear-gradient(#777 0 0) left,
+              linear-gradient(#777 0 0) bottom,
+              linear-gradient(#777 0 0) right;
+  background-size: var(--d, 0) 1px, 1px var(--d, 0);
+  background-repeat: no-repeat;
+  border: 1px solid #ccc;
+  transition: 0.5s;
+}
+
+#more-info dt:hover {
+  --d: 100%;
+}
+
+#more-info h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  /* なんでセンター？ */
+  text-align: center;
+  letter-spacing: .3rem;
+  color: #fff;
+}
+
+#more-info picture {
+  position: relative;
+  display: block;
+  padding: .25rem;
+  width: 100%;
+}
+
+#more-info picture::before {
+  position: absolute;
+  top: .25rem;
+  left: .25rem;
+  content: "";
+  width: calc(100% - 0.5rem);
+  height: calc(100% - 0.5rem);
+  background-color: rgba(50, 50, 50, .6);
+  transition: .3s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+#more-info picture:hover::before {
+  visibility: visible;
+  opacity: 1;
+}
+
+#more-info h2::after {
+  display: none;
+}
+
+#more-info > dl img {
+  display: inline-block;
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+#more-info dd {
+  margin-top: .8rem;
+  font-size: .9rem;
+  font-weight: 400;
+  line-height: 2;
+  color: #777;
+}
+
+/* ////////// footer ////////// */
+footer {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  padding: 0 3rem;
+  width: 100%;
+  height: 5vh;
+  color: #ddd;
+  background-color: #111;
+}
+
+footer small:not(:first-of-type) {
+  margin-left: 2rem;
+}
