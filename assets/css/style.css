@@ -118,9 +118,32 @@ p {
 }
 
 .header-container.main li {
+  position: relative;
   text-align: center;
   width: 100%;
-  height: 12rem;
+  margin-top: 3rem;
+  height: 9rem;
+}
+
+.header-container.main li::after {
+  position: absolute;
+  top: -4.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  content: "";
+  width: .75rem;
+  height: 100%;
+  border-bottom: 1px solid #333;
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+  transition: .5s;
+}
+
+.header-container.main li:hover::after {
+  top: -5rem;
+  visibility: visible;
+  opacity: 1;
 }
 
 .header-container.main > .left-nav a,
@@ -128,7 +151,7 @@ p {
   display: inline-block;
   width: inherit;
   height: inherit;
-  padding-top: 7rem;
+  padding-top: 2rem;
   letter-spacing: .25rem;
 }
 
@@ -152,7 +175,6 @@ p {
 .anchor-wrapper:first-child a {
   position: relative;
   padding: 0 2rem .5rem 0;
-  border-bottom: 1.5px solid #333;
 }
 
 .anchor-wrapper:last-child {
@@ -184,12 +206,46 @@ p {
   border: 1px solid #aaa;
 }
 
+.anchor-wrapper:first-child a > .ornament-rectangle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+               /* 色          幅      領域上からの位置 高さ            線幅 どうする */
+  linear-gradient(#333 0 0) var(--p, 100%) 100% / var(--d, 100%) 1px no-repeat;
+  transition: .5s, background-position 0s .5s;
+}
+
+.anchor-wrapper:first-child a>.ornament-rectangle:hover {
+  --d: 0;
+  --p: 0;
+}
+
+.anchor-wrapper:first-child a > .ornament-rectangle::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background:
+  linear-gradient(#ccc 0 0) var(--p, 0) 100% /var(--d, 0) 1px no-repeat;
+  transition: .5s, background-position 0s .5s;  
+}
+
+.anchor-wrapper:first-child a>.ornament-rectangle:hover::after {
+  --d: 100%;
+  --p: 100%;
+}
+
 .header-container.sub a,
 .header-container.sub dt,
 .header-container.sub dd,
 .header-container.sub li,
 #instagram > sub > a {
-  font-size: .8rem;
+  font-size: .7rem;
   line-height: 1;
   font-weight: 500;
   letter-spacing: .2em;
@@ -239,9 +295,52 @@ p {
   font-weight: 900;
 }
 
-.header-container.sub li {
-  display: none;
+.header-container.sub .anchor-wrapper {
+  z-index: 10;
 }
+.header-container.sub .list-wrapper {
+  position: absolute;
+  top: 175%;
+  left: 1rem;
+}
+
+.vertical-menu {
+  flex-direction: column;
+  align-items: self-start;
+  justify-content: center;
+  font-size: .8em;
+
+}
+
+.menu-active {
+  visibility: visible;
+  opacity: .7;
+}
+
+.vertical-menu > li {
+  transition: .5s;
+  opacity: 0;
+  transform: translateY(-0.75rem);
+}
+
+.vertical-menu > li:not(:first-of-type) {
+  margin-top: .5rem;
+}
+
+
+.menu-active > li {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vertical-menu > li:nth-of-type(2) {
+  transition-delay: .1s;
+}
+.vertical-menu > li:nth-of-type(3) {
+  transition-delay: .2s;
+}
+
+
 
 /* ////////// header-end ////////// */
 
