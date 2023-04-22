@@ -183,8 +183,8 @@ p {
 
 .anchor-wrapper:first-child a::before,
 .anchor-wrapper:first-child a::after,
-#instagram > sub > a::before,
-#instagram > sub > a::after {
+#instagram > sub a::before,
+#instagram > sub a::after {
   position: absolute;
   content: "";
   width: 1.2rem;
@@ -193,17 +193,25 @@ p {
 }
 
 .anchor-wrapper:first-child a::before,
-#instagram > sub > a::before {
+#instagram > sub a::before {
   top: 25%;
   right: .2rem;
   border: 1px solid #333;
 }
 
+#instagram > sub a::before {
+  top: 18%;
+}
+
 .anchor-wrapper:first-child a::after,
-#instagram > sub > a::after {
+#instagram > sub a::after {
   top: 10%;
   right: 0rem;
   border: 1px solid #aaa;
+}
+
+#instagram > sub a::after {
+  top: 3%;
 }
 
 .anchor-wrapper:first-child a > .ornament-rectangle {
@@ -244,11 +252,17 @@ p {
 .header-container.sub dt,
 .header-container.sub dd,
 .header-container.sub li,
-#instagram > sub > a {
+#instagram > sub a {
   font-size: .7rem;
   line-height: 1;
   font-weight: 500;
   letter-spacing: .2em;
+}
+
+#instagram > sub a {
+  font-size: .8rem;
+  font-weight: 300;
+  margin-left: 2rem;
 }
 
 .header-container.sub a:lang(en),
@@ -362,6 +376,24 @@ p {
 
 .topics > .newest-image {
   flex: 3;
+  position: relative;
+}
+
+.topics > .newest-image > time {
+  display: flex;
+  align-items: flex-end;
+  position: absolute;
+  top: 1rem;
+  left: -3.5rem;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+
+  width: 2.5rem;
+  padding-top: 1rem;
+  font-size: .8rem;
+  letter-spacing: .3em;
+  
+  border-top: 1px solid #ccc;
 }
 
 .topics > .information {
@@ -608,7 +640,16 @@ p {
   padding-bottom: .75rem;
   font-size: .8rem;
   letter-spacing: .1em;
-  border-bottom: 1px solid #d13239;
+}
+
+#main-guide dd:last-of-type {
+  background: linear-gradient(#d13239 0 0) var(--p, 100%) 100%/var(--d, 100%) 1px no-repeat;
+  transition: .3s, background-position 0s 0.3s;
+}
+
+#main-guide dd:last-of-type:hover {
+  --d: 0%;
+  --p: 0%;
 }
 
 /* sub-guide */
@@ -631,16 +672,30 @@ p {
   flex: 4;
 }
 
-#sub-guide .inner-wrapper >dt{
+#sub-guide .inner-wrapper > dt{
+  display: inline-block;
   margin: 1.5rem 0 0 1rem;
+  padding-bottom: .5rem;
   font-size: 1rem;
   font-weight: 600;
   list-style: 1em;
   text-align: left;
   letter-spacing: .2rem;
 }
-#sub-guide .inner-wrapper >dd {
-  margin: 1rem 0 0 1rem;
+
+#sub-guide .inner-wrapper > dt {
+  background: linear-gradient(#cccc 0 0) var(--p, 0%) 100%/var(--d, 0%) 1px no-repeat;
+  transition: .5s, background-position 0s 0.5s;
+}
+
+#sub-guide .inner-wrapper > dt:hover {
+  --d: 100%;
+  --p: 100%;
+}
+
+
+#sub-guide .inner-wrapper > dd {
+  margin: .5rem 0 0 1rem;
   font-size: .85rem;
   line-height: 2;
 }
@@ -679,13 +734,39 @@ p {
 .guide > dl:last-of-type > dd {
   padding: .5rem;
   width: 70%;
+  background: linear-gradient(#777 0 0) top,
+    linear-gradient(#777 0 0) left,
+    linear-gradient(#777 0 0) bottom,
+    linear-gradient(#777 0 0) right;
+  background-size: var(--d, 0) 1px, 1px var(--d, 0);
+  background-repeat: no-repeat;
   border: 1px solid #ccc;
+  transition: 0.5s;
   overflow: hidden;
 }
 
+.guide>dl:last-of-type>dd:hover {
+  --d: 100%;
+}
 .guide>dl:last-of-type img {
   width: 100%;
 }
+
+/* #more-info dt {
+  position: relative;
+  background: linear-gradient(#777 0 0) top,
+    linear-gradient(#777 0 0) left,
+    linear-gradient(#777 0 0) bottom,
+    linear-gradient(#777 0 0) right;
+  background-size: var(--d, 0) 1px, 1px var(--d, 0);
+  background-repeat: no-repeat;
+  border: 1px solid #ccc;
+  transition: 0.5s;
+}
+
+#more-info dt:hover {
+  --d: 100%;
+} */
 
 /* ////////// instagram ////////// */
 #instagram > main {
@@ -779,16 +860,41 @@ p {
   margin: 3rem auto;
 }
 
-#instagram > sub > a {
+#instagram > sub > p:first-of-type {
+  position: relative;
+  width: 7rem;
+}
+
+#instagram > sub > p:first-of-type::before {
+  position: absolute;
+  bottom: -0.25rem;
+  left: 0;
+  content: "";
+  width: 100%;
+  border-bottom: 1px solid #d13239;
+  transform: translateY(0.25rem);
+  transition: .5s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+#instagram > sub > p:first-of-type:hover::before {
+  transform: translateY(0);
+  visibility: visible;
+  opacity: 1;
+}
+#instagram > sub a {
   position: relative;
 }
 
-#instagram > sub > a::before {
-  left: 5rem;
+#instagram > sub a::before {
+  top: .5rem;
+  left: -1.75rem;
 }
 
-#instagram > sub > a::after {
-  left: 5.2rem;
+#instagram > sub a::after {
+  top: .3rem;
+  left: -1.4rem;
 }
 
 #instagram > sub > p {

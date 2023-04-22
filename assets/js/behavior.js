@@ -22,12 +22,19 @@ for (text of inputTexts) {
 // }
 
 // 改良版
-let headingTwo = document.querySelectorAll("h2")
-for (let heading of headingTwo) {
-  let lastChar = heading.textContent.slice(-1)
-  let preText = heading.textContent.slice(0, -1)
-  heading.innerHTML = `${preText}<span class="remove-letter-spacing">${lastChar}</span>`
+let headingTwo = Array.from(document.querySelectorAll("h2"))
+for (let head of headingTwo) {
+  let lastChar = head.textContent.slice(-1)
+  let preText = head.textContent.slice(0, -1)
+  head.innerHTML = `${preText}<span class="remove-letter-spacing">${lastChar}</span>`
 }
+
+let heading = Array.from(document.querySelectorAll("#sub-guide .inner-wrapper > dt"))
+heading.forEach(head => {
+  let lastChar = head.textContent.slice(-1)
+  let preText = head.textContent.slice(0, -1)
+  head.innerHTML = `${ preText }<span class="remove-letter-spacing">${ lastChar }</span>`
+})
 
 let articles = document.querySelectorAll("#instagram article")
 for (let article of articles) {
@@ -55,3 +62,6 @@ for (let areaDd of dd) {
     if (verticalMenu) { verticalMenu.classList.remove("menu-active") }
   })
 }
+
+const moreInfo = document.querySelectorAll("#main-guide dd:last-of-type")
+console.log(moreInfo)
