@@ -72,6 +72,22 @@ p {
   height: 16rem;
 }
 
+@media screen and (max-width: 600px) {
+  body > #main-header {
+    display: none;
+    /* position: relative; */
+  }
+
+  #main-header > .header-container.main,
+  #main-header > .header-container.sub {
+    display: none;
+    /* visibility: hidden; */
+    /* position: absolute;
+    top: 0;
+    left: 0%; */
+  }
+}
+
 #main-header,
 #main-header ul,
 .header-container.main,
@@ -368,6 +384,13 @@ p {
   display: flex;
   gap: 2rem;
   margin-top: 5rem;
+}
+
+@media screen and (max-width: 600px) {
+  .topics {
+    flex-direction: column;
+    margin-top: 0;
+  }
 }
 
 .topics a {
