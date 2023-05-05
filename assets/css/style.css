@@ -9,6 +9,7 @@
 
 html {
   font-size: 14px;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -29,11 +30,8 @@ section:not(:first-of-type) {
   padding-bottom: 5rem;
 }
 
-@media screen and (max-width: 600px) {
-  section:last-of-type {
-    margin-top: 0;
-  }
-  
+section:last-of-type {
+  margin-top: 0;
 }
 
 section:nth-of-type(even) {
@@ -52,7 +50,7 @@ section:nth-of-type(even) {
   letter-spacing: .5em;
 }
 
-.feature-article>h2::after,
+.feature-article > h2::after,
 .guide>h2::after,
 #instagram>h2::after {
   position: absolute;
@@ -72,6 +70,7 @@ section:nth-of-type(even) {
 p {
   line-height: 2;
 }
+
 
 /* ////////// header ////////// */
 #main-header {
@@ -603,6 +602,26 @@ p {
   position: relative;
 }
 
+@media screen and (max-width: 600px) {
+  #main-guide figure {
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+  }
+
+  #main-guide figure > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: 50% 50%;
+    transform: scale(1.4);
+  }
+
+  #main-guide > .wrapper {
+    margin-top: 4.5rem;
+  }
+}
+
 .topics figure::before,
 .feature-article figure::before,
 #main-guide figure::before,
@@ -652,8 +671,10 @@ p {
   gap: 1.2rem;
 }
 
-.feature-article > dl {
-  flex-direction: column;
+@media screen and (max-width: 600px) {
+  .feature-article > dl {
+    flex-direction: column;
+  }
 }
 
 .feature-article > dl img,
@@ -690,17 +711,19 @@ p {
   margin-top: 2rem;
 }
 
+@media screen and (max-width: 600px) {
+  .guide dt {
+    letter-spacing: 1em;
+  }
+  
+}
+
+
 #main-guide,
 #sub-guide {
   margin-bottom: 7rem;
   padding-bottom: 10rem;
   border-bottom: 1px solid #ccc;
-}
-
-@media screen and (max-width: 600px) {
-  #main-guide {
-    flex-direction: column;
-  }
 }
 
 #sub-guide {
@@ -720,6 +743,12 @@ p {
   padding-bottom: .75rem;
   font-size: .8rem;
   letter-spacing: .1em;
+}
+
+@media screen and (max-width: 600px) {
+  #main-guide dd:last-of-type {
+    bottom: -3rem;
+  }
 }
 
 #main-guide dd:last-of-type {
@@ -745,10 +774,21 @@ p {
 }
 
 @media screen and (max-width: 600px) {
+  #main-guide {
+    flex-direction: column;
+    margin-bottom: 5rem;
+    padding-bottom: 8rem;
+  }
+
+  #sub-guide {
+    margin-bottom: 5rem;
+    padding-bottom: 4rem;
+    gap: 1rem 1.5rem;
+  }
+
   #sub-guide > .wrapper > a {
     display: block;
-  }
-  
+  } 
 }
 
 #sub-guide a > figure {
@@ -768,6 +808,14 @@ p {
   list-style: 1em;
   text-align: left;
   letter-spacing: .2rem;
+}
+
+@media screen and (max-width: 600px) {
+  #sub-guide .inner-wrapper > dt{
+    margin: .5rem 0 0 0 ;
+    font-size: .8rem;
+    letter-spacing: 0;
+  }
 }
 
 #sub-guide .inner-wrapper > dt {
@@ -821,15 +869,16 @@ p {
   font-weight: 600;
   letter-spacing: .5rem;
   border-bottom: 2px solid #fff;
+  white-space: nowrap;
 }
 
 .guide > dl:last-of-type > dd {
   padding: .5rem;
   width: 70%;
   background: linear-gradient(#777 0 0) top,
-    linear-gradient(#777 0 0) left,
-    linear-gradient(#777 0 0) bottom,
-    linear-gradient(#777 0 0) right;
+              linear-gradient(#777 0 0) left,
+              linear-gradient(#777 0 0) bottom,
+              linear-gradient(#777 0 0) right;
   background-size: var(--d, 0) 1px, 1px var(--d, 0);
   background-repeat: no-repeat;
   border: 1px solid #ccc;
@@ -837,9 +886,22 @@ p {
   overflow: hidden;
 }
 
+@media screen and (max-width: 600px) {
+  .guide > dl:last-of-type > dt {
+    padding-bottom: 0;
+    border-bottom: none;
+    font-size: 1rem;
+  }
+
+  .guide>dl:last-of-type>dd {
+    width: 100%;
+  }
+}
+
 .guide>dl:last-of-type>dd:hover {
   --d: 100%;
 }
+
 .guide>dl:last-of-type img {
   width: 100%;
 }
@@ -872,6 +934,9 @@ p {
 }
 
 @media screen and (max-width: 600px) {
+  #instagram {
+    margin-top: 0;
+  }
   #instagram > main {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -996,7 +1061,6 @@ p {
     opacity: 1;
   
   }
-  
 }
 
 #instagram > sub > p:first-of-type:hover::before {
@@ -1028,7 +1092,6 @@ p {
   #instagram > sub > p:last-of-type {
     display: none;
   }
-
 }
 
 nav.sns {
@@ -1047,6 +1110,7 @@ nav.sns > ul {
 nav.sns li {
   position: relative;
 }
+
 nav.sns li:not(:first-of-type) {
   margin-left: 5rem;
 }
@@ -1057,12 +1121,15 @@ nav.sns li::before {
   font-weight: 900;
   color: #333;
 }
+
 nav.sns li:nth-of-type(1)::before {
   content: "\f09a";
 }
+
 nav.sns li:nth-of-type(2)::before {
   content: "\e055";
 }
+
 nav.sns li:nth-of-type(3)::before {
   content: "\f431";
 }
@@ -1081,13 +1148,12 @@ nav.sns li:nth-of-type(3)::before {
   }
 }
 
-
 #more-info dt {
   position: relative;
   background: linear-gradient(#777 0 0) top,
-  linear-gradient(#777 0 0) left,
-  linear-gradient(#777 0 0) bottom,
-  linear-gradient(#777 0 0) right;
+              linear-gradient(#777 0 0) left,
+              linear-gradient(#777 0 0) bottom,
+              linear-gradient(#777 0 0) right;
   background-size: var(--d, 0) 1px, 1px var(--d, 0);
   background-repeat: no-repeat;
   border: 1px solid #ccc;
@@ -1165,7 +1231,37 @@ nav.sns li:nth-of-type(3)::before {
   #more-info dd {
     display: none;
   }
-  
+
+  #more-info > #anchor-to-top {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    margin-top: 6rem;
+    background-color: red;
+  }
+
+  #more-info > #anchor-to-top::before {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    content: "\f102";
+    font-family: "Font Awesome 6 Free";
+    font-size: .9rem;
+    font-weight: 900;
+  }
+
+  #more-info > #anchor-to-top::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    content: "";
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+  }
 }
 
 

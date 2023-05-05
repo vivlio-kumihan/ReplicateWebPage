@@ -22,6 +22,14 @@ for (text of inputTexts) {
 // }
 
 // 改良版
+function killLetterSpace(elem) {
+  for (let head of elem) {
+    let lastChar = head.textContent.slice(-1)
+    let preText = head.textContent.slice(0, -1)
+    head.innerHTML = `${preText}<span class="remove-letter-spacing">${lastChar}</span>`
+  }
+}
+
 let headingTwo = Array.from(document.querySelectorAll("h2"))
 for (let head of headingTwo) {
   let lastChar = head.textContent.slice(-1)
@@ -31,6 +39,13 @@ for (let head of headingTwo) {
 
 let heading = Array.from(document.querySelectorAll("#sub-guide .inner-wrapper > dt"))
 heading.forEach(head => {
+  let lastChar = head.textContent.slice(-1)
+  let preText = head.textContent.slice(0, -1)
+  head.innerHTML = `${ preText }<span class="remove-letter-spacing">${ lastChar }</span>`
+})
+
+let guideHeading = Array.from(document.querySelectorAll(".guide dt"))
+guideHeading.forEach(head => {
   let lastChar = head.textContent.slice(-1)
   let preText = head.textContent.slice(0, -1)
   head.innerHTML = `${ preText }<span class="remove-letter-spacing">${ lastChar }</span>`
