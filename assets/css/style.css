@@ -29,6 +29,13 @@ section:not(:first-of-type) {
   padding-bottom: 5rem;
 }
 
+@media screen and (max-width: 600px) {
+  section:last-of-type {
+    margin-top: 0;
+  }
+  
+}
+
 section:nth-of-type(even) {
   background-color: rgba(210, 150, 135, .1);
 }
@@ -377,6 +384,16 @@ p {
 .container {
   max-width: 1050px;
   margin: 0rem auto;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 100;
+    padding: 0 3rem;
+
+  }
+
+  
 }
 
 /* ////////// topics ////////// */
@@ -849,7 +866,7 @@ p {
   grid-template-columns: repeat(4, minmax(9rem, 1fr));
   grid-template-rows: repeat(2, minmax(9rem, auto));
   row-gap: 1rem;
-  gap: .25rem;
+  gap: 1rem;
   max-width: 90%;
   margin: 0 auto;
 }
@@ -948,6 +965,12 @@ p {
   margin: 3rem auto;
 }
 
+@media screen and (max-width: 600px) {
+  #instagram > sub {
+    justify-content: center;
+  }
+}
+
 #instagram > sub > p:first-of-type {
   position: relative;
   width: 7rem;
@@ -964,6 +987,16 @@ p {
   transition: .5s;
   visibility: hidden;
   opacity: 0;
+}
+
+@media screen and (max-width: 600px) {
+  #instagram > sub > p:first-of-type::before {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+  
+  }
+  
 }
 
 #instagram > sub > p:first-of-type:hover::before {
@@ -1052,9 +1085,9 @@ nav.sns li:nth-of-type(3)::before {
 #more-info dt {
   position: relative;
   background: linear-gradient(#777 0 0) top,
-              linear-gradient(#777 0 0) left,
-              linear-gradient(#777 0 0) bottom,
-              linear-gradient(#777 0 0) right;
+  linear-gradient(#777 0 0) left,
+  linear-gradient(#777 0 0) bottom,
+  linear-gradient(#777 0 0) right;
   background-size: var(--d, 0) 1px, 1px var(--d, 0);
   background-repeat: no-repeat;
   border: 1px solid #ccc;
@@ -1063,6 +1096,9 @@ nav.sns li:nth-of-type(3)::before {
 
 #more-info dt:hover {
   --d: 100%;
+}
+#more-info .wrapper:not(:first-of-type) {
+  margin-top: .5rem;
 }
 
 #more-info h2 {
@@ -1121,12 +1157,17 @@ nav.sns li:nth-of-type(3)::before {
   color: #777;
 }
 
+#more-info > #anchor-to-top {
+  display: none;
+}
+
 @media screen and (max-width: 600px) {
   #more-info dd {
     display: none;
   }
   
 }
+
 
 /* ////////// footer ////////// */
 footer {
@@ -1145,12 +1186,16 @@ footer small:not(:first-of-type) {
 }
 
 @media screen and (max-width: 600px) {
+  footer > .wrapper {
+    margin-bottom: 1rem;
+  }
   footer {
     flex-direction: column;
     justify-content: center;
-    height: 10rem;
+    height: 8rem;
     text-align: center;
   }
+
   footer small {
     display: block;
   }
@@ -1158,6 +1203,7 @@ footer small:not(:first-of-type) {
   footer small:not(:first-of-type) {
     margin-left: 0;
   }
+
   footer small:nth-of-type(2) {
     margin: .75rem 0;
   }
