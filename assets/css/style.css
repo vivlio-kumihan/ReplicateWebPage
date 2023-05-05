@@ -30,6 +30,14 @@ section:not(:first-of-type) {
   padding-bottom: 5rem;
 }
 
+@media screen and (max-width: 600px) {
+  section:not(:first-of-type) {
+    margin-top: 0rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
 section:last-of-type {
   margin-top: 0;
 }
@@ -50,6 +58,12 @@ section:nth-of-type(even) {
   letter-spacing: .5em;
 }
 
+@media screen and (max-width: 600px) {
+  .guide>h2 {
+    margin-bottom: 2rem;
+  }
+  
+}
 .feature-article > h2::after,
 .guide>h2::after,
 #instagram>h2::after {
@@ -674,6 +688,7 @@ p {
 @media screen and (max-width: 600px) {
   .feature-article > dl {
     flex-direction: column;
+    gap: 3rem;
   }
 }
 
@@ -688,6 +703,14 @@ p {
   line-height: 1;
   font-weight: 300;
   color: #d13239;
+}
+
+@media screen and (max-width: 600px) {
+  .feature-article > dl dt {
+    margin: 1rem 0 .7rem;
+
+  }
+  
 }
 
 /* ////////// guide ////////// */
