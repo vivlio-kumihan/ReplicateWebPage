@@ -547,6 +547,14 @@ p {
   height: 7rem;
 }
 
+@media screen and (max-width: 600px) {
+  .topics dl > dt {
+    position: unset;
+    width: 100%;
+    height: 2rem;
+  }
+}
+
 .topics .dt-wrapper {
   position: relative;
   width: inherit;
@@ -566,6 +574,11 @@ p {
   writing-mode: vertical-rl;
   text-orientation: upright;
   z-index: 1;
+}
+.topics .dt-wrapper > h3 {
+  writing-mode:unset;
+  text-orientation:unset;
+
 }
 
 .topics .dt-title-back {
@@ -602,6 +615,52 @@ p {
     85% 100%, 15% 100%, 
     /* 左辺　下→上 */
     0% 95%, 0% 5%);
+}
+
+@media screen and (max-width: 600px) {
+  .topics .dt-title-back {
+    position: absolute;
+    background: #ccc;
+    width: 7rem;
+    height: 2rem;
+    clip-path: polygon(
+    /* 上辺　左→右 */
+      5% 0%,
+      95% 0%,
+      /* 右辺　上→下 */
+      100% 15%,
+      100% 85%,
+      /* 下辺　右→左 */
+      95% 100%,
+      5% 100%,
+      /* 左辺　下→上 */
+      0% 85%,
+      0% 15%);
+  }
+  
+  .topics .dt-title-back::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: "";
+    background: #fff;
+    width: calc(7rem - 2px);
+    height: calc(2rem - 2px);
+    clip-path: polygon(
+    /* 上辺　左→右 */
+      5% 0%,
+      95% 0%,
+      /* 右辺　上→下 */
+      100% 15%,
+      100% 85%,
+      /* 下辺　右→左 */
+      95% 100%,
+      5% 100%,
+      /* 左辺　下→上 */
+      0% 85%,
+      0% 15%);
+  }
 }
 
 .topics img {
