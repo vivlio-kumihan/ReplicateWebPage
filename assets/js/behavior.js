@@ -78,5 +78,5 @@ for (let areaDd of dd) {
   })
 }
 
-const moreInfo = document.querySelectorAll("#main-guide dd:last-of-type")
-console.log(moreInfo)
+// const moreInfo = document.querySelectorAll("#main-guide dd:last-of-type")
+// console.log(moreInfo)

@@ -111,17 +111,25 @@ p {
   padding: 0 2rem;
 }
 
-@media screen and (max-width: 600px) {
-  #main-header {
-    flex-direction: column;
-  }
-}
-
 .header-container.main {
   max-width: 1050px;
   width: 100%;
   margin: 0 auto;
   gap: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+  #main-header,
+  #main-header ul,
+  .header-container.main,
+  .header-container.sub,
+  .header-container.sub>.anchor-wrapper {
+    display: block;
+  }
+
+  .header-container.main {
+    margin-top: 4rem;
+  }
 }
 
 .header-container.main > .logo {
@@ -148,6 +156,13 @@ p {
   border-bottom: 1px solid #ccc;
 }
 
+@media screen and (max-width: 600px) {
+  .header-container.main > .left-nav,
+  .header-container.main > .right-nav {
+    border-bottom: none;
+  }
+}
+
 .header-container.main li {
   position: relative;
   text-align: center;
@@ -156,8 +171,26 @@ p {
   height: 9rem;
 }
 
+@media screen and (max-width: 600px) {
+  .header-container.main li {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid #ccc;
+  }
+}
+
 .main-nav.right-nav li:last-of-type {
   display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .main-nav.right-nav li:last-of-type {
+    display: block;
+  }
 }
 
 .header-container.main li::after {
@@ -181,6 +214,13 @@ p {
   opacity: 1;
 }
 
+@media screen and (max-width: 600px) {
+  .header-container.main li:hover::after {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
 .header-container.main > .left-nav a,
 .header-container.main > .right-nav a {
   display: inline-block;
@@ -194,6 +234,22 @@ p {
   justify-content: space-between;
   align-items: flex-end;
   height: 4rem;
+}
+
+@media screen and (max-width: 600px) {
+  .header-container.main > .left-nav a,
+  .header-container.main > .right-nav a {
+    display: inline-block;
+    width: inherit;
+    height: inherit;
+    padding-top: 0;
+    letter-spacing: .25rem;
+  }
+
+  .header-container.sub {
+    justify-content: center;
+    height: 30vh;
+  }
 }
 
 .anchor-wrapper:first-child {
@@ -341,6 +397,15 @@ p {
   border-left: 1px solid #ddd;
 }
 
+@media screen and (max-width: 600px) {
+  .header-container.sub a:not(:first-of-type),
+  .header-container.sub dd:not(:first-of-type) {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+  }
+}
+
 .anchor-wrapper > dd:not(:first-of-type) {
   flex-direction: column;
   align-items: flex-start;
@@ -360,9 +425,52 @@ p {
   font-weight: 900;
 }
 
+@media screen and (max-width: 600px) {
+  .anchor-wrapper > dd:not(:first-of-type)::after {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    content: "";
+  }
+
+  .anchor-wrapper > dd:last-of-type::after {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    content: "\f103";
+    font-family: "Font Awesome 6 Free";
+    font-size: .7em;
+    font-weight: 900;
+  }
+}
+
 .header-container.sub .anchor-wrapper {
   z-index: 10;
 }
+
+@media screen and (max-width: 600px) {
+  .header-container.sub {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header-container.sub .anchor-wrapper:first-of-type {
+    order: 2;
+  }
+
+  .header-container.sub .anchor-wrapper:first-of-type dt,
+  .header-container.sub .anchor-wrapper:first-of-type dd {
+    margin-top: 2rem;
+  }
+
+  .header-container.sub .anchor-wrapper:last-of-type dd a {
+    display: none;
+  }
+}
+
 .header-container.sub .list-wrapper {
   position: absolute;
   top: 175%;
@@ -386,6 +494,15 @@ p {
   transition: .5s;
   opacity: 0;
   transform: translateY(-0.75rem);
+}
+
+@media screen and (max-width: 600px) {
+  .vertical-menu > li {
+    transition: 0s;
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0rem);
+  }
 }
 
 .vertical-menu > li:not(:first-of-type) {
@@ -1400,9 +1517,6 @@ nav.sns li:nth-of-type(3)::before {
 #more-info dt:hover {
   --d: 100%;
 }
-#more-info .wrapper:not(:first-of-type) {
-  margin-top: .5rem;
-}
 
 #more-info h2 {
   position: absolute;
@@ -1525,7 +1639,7 @@ footer small:not(:first-of-type) {
   footer {
     flex-direction: column;
     justify-content: center;
-    height: 8rem;
+    height: 10rem;
     text-align: center;
   }
 
