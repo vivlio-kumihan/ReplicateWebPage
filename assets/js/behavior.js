@@ -9,9 +9,6 @@ window.addEventListener("scroll", function () {
   })
 })
 
-
-
-
 // とりあえず動かしたいから設置する。リファクタリング必要。
 window.addEventListener("scroll", function () {
   let animationTarget = document.querySelector("nav.sns")
@@ -20,15 +17,31 @@ window.addEventListener("scroll", function () {
   }
 })
 
-// スクロールをして任意の地点に来たらheaderをfixさせる
+// try //////////////////////////////////////////////////////////////////////////////////////
+
 window.addEventListener("scroll", function () {
-  let animationTarget = document.querySelector(".header-container.main")
-  if (-120 > animationTarget.getBoundingClientRect().top) {
-    animationTarget.classList.add("fix-header")
-  } else if (-120 > animationTarget.getBoundingClientRect().top) {
-    animationTarget.classList.remove("fix-header")
+  let targetHeader = document.querySelector(".header-container.main")
+  if (700 > targetHeader.getBoundingClientRect().top) {
+    targetHeader.classList.add("fix-header")
+  } else {
+    targetHeader.classList.remove("fix-header")
   }
 })
+
+// const targetHeader = document.querySelector(".header-container.main")
+// scrollValue = 215
+// window.addEventListener("scroll", function () {
+//   // アップ
+//   if (scrollValue < this.scrollY) {
+//     console.log(this.scrollY)
+//     targetHeader.classList.add("fix-header")
+//   // ダウン
+//   } else {
+//     console.log(this.scrollY, "hello")
+//     targetHeader.classList.remove("fix-header")
+//   }
+//   scrollValue = this.scrollY
+// })
 
 // 任意の文字数を超えたら文字数＋『...』と表示させる。
 function truncateText(str, maxLength) {
@@ -111,6 +124,7 @@ li.forEach(function(areaLi) {
     if (verticalMenu) { verticalMenu.classList.remove("menu-active")}
   })
 })
+
 // for (let areaDd of li) {
 //   areaDd.addEventListener("mouseenter", function() {
 //     let verticalMenu = this.querySelectorAll(".vertical-menu")[0]
