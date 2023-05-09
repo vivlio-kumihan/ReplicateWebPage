@@ -9,11 +9,24 @@ window.addEventListener("scroll", function () {
   })
 })
 
+
+
+
 // とりあえず動かしたいから設置する。リファクタリング必要。
 window.addEventListener("scroll", function () {
   let animationTarget = document.querySelector("nav.sns")
   if (700 > animationTarget.getBoundingClientRect().top) {
     animationTarget.classList.add("active")
+  }
+})
+
+// スクロールをして任意の地点に来たらheaderをfixさせる
+window.addEventListener("scroll", function () {
+  let animationTarget = document.querySelector(".header-container.main")
+  if (-120 > animationTarget.getBoundingClientRect().top) {
+    animationTarget.classList.add("fix-header")
+  } else if (-120 > animationTarget.getBoundingClientRect().top) {
+    animationTarget.classList.remove("fix-header")
   }
 })
 
