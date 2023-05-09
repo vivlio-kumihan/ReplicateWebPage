@@ -1,3 +1,22 @@
+// スクロールをして任意の地点に来たら要素を出現させる
+window.addEventListener("scroll", function () {
+  let animationTarget = Array.from(document.querySelectorAll("[id^='apear'"))
+  animationTarget.forEach(function (article, idx) {
+    // console.log(article, idx, article.getBoundingClientRect().top)
+    if (700 > article.getBoundingClientRect().top) {
+      article.classList.add("active")
+    }
+  })
+})
+
+// とりあえず動かしたいから設置する。リファクタリング必要。
+window.addEventListener("scroll", function () {
+  let animationTarget = document.querySelector("nav.sns")
+  if (700 > animationTarget.getBoundingClientRect().top) {
+    animationTarget.classList.add("active")
+  }
+})
+
 // 任意の文字数を超えたら文字数＋『...』と表示させる。
 function truncateText(str, maxLength) {
   if (str.textContent.length >= maxLength) {
@@ -51,7 +70,7 @@ guideHeading.forEach(head => {
   head.innerHTML = `${ preText }<span class="remove-letter-spacing">${ lastChar }</span>`
 })
 
-let articles = document.querySelectorAll("#instagram article")
+let articles = document.querySelectorAll(".instagram article")
 for (let article of articles) {
   article.addEventListener("mouseenter", function() {
     let information = this.firstElementChild.lastElementChild
@@ -65,18 +84,18 @@ for (let article of articles) {
   })
 }
 
-const dd = document.querySelectorAll(".anchor-wrapper > dd")
-const listWrapper = document.querySelectorAll(".anchor-wrapper .list-wrapper")
-for (let areaDd of dd) {
-  areaDd.addEventListener("mouseenter", function() {
-    let verticalMenu = this.querySelectorAll(".vertical-menu")[0]
-    if (verticalMenu) { verticalMenu.classList.add("menu-active") }
-  })
-  areaDd.addEventListener("mouseleave", function() {
-    let verticalMenu = this.querySelectorAll(".vertical-menu")[0]
-    if (verticalMenu) { verticalMenu.classList.remove("menu-active") }
-  })
-}
+// const dd = document.querySelectorAll(".anchor-wrapper > dd")
+// const listWrapper = document.querySelectorAll(".anchor-wrapper .list-wrapper")
+// for (let areaDd of dd) {
+//   areaDd.addEventListener("mouseenter", function() {
+//     let verticalMenu = this.querySelectorAll(".vertical-menu")[0]
+//     if (verticalMenu) { verticalMenu.classList.add("menu-active") }
+//   })
+//   areaDd.addEventListener("mouseleave", function() {
+//     let verticalMenu = this.querySelectorAll(".vertical-menu")[0]
+//     if (verticalMenu) { verticalMenu.classList.remove("menu-active") }
+//   })
+// }
 
 // const moreInfo = document.querySelectorAll("#main-guide dd:last-of-type")
 // console.log(moreInfo)
