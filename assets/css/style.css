@@ -506,11 +506,11 @@ p {
   opacity: .7;
 }
 
-/* .vertical-menu > li {
+.vertical-menu > li {
   transition: .5s;
   opacity: 0;
   transform: translateY(-0.75rem);
-} */
+}
 
 @media screen and (max-width: 600px) {
   .vertical-menu > li {
