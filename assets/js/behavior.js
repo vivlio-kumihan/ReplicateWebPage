@@ -84,9 +84,21 @@ for (let article of articles) {
   })
 }
 
-// const dd = document.querySelectorAll(".anchor-wrapper > dd")
-// const listWrapper = document.querySelectorAll(".anchor-wrapper .list-wrapper")
-// for (let areaDd of dd) {
+const li = Array.from(document.querySelectorAll(".anchor-wrapper > li"))
+// console.log(li)
+const listWrapper = Array.from(document.querySelectorAll(".anchor-wrapper .list-wrapper"))
+// console.log(listWrapper)
+li.forEach(function(areaLi) {
+  areaLi.addEventListener("mouseenter", function() {
+    let verticalMenu = this.querySelectorAll(".vertical-menu")[0]
+    if (verticalMenu) { verticalMenu.classList.add("menu-active")}
+  })
+  areaLi.addEventListener("mouseleave", function() {
+    let verticalMenu = this.querySelectorAll(".vertical-menu")[0]
+    if (verticalMenu) { verticalMenu.classList.remove("menu-active")}
+  })
+})
+// for (let areaDd of li) {
 //   areaDd.addEventListener("mouseenter", function() {
 //     let verticalMenu = this.querySelectorAll(".vertical-menu")[0]
 //     if (verticalMenu) { verticalMenu.classList.add("menu-active") }

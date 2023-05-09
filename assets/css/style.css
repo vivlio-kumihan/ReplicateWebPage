@@ -404,14 +404,14 @@ p {
 } */
 
 /* /////////////////////////////////////////////////////////// here */
-.header-container.sub .anchor-wrapper:last-of-type > li:last-of-type {
+.header-container.sub .anchor-wrapper:nth-of-type(2) > li:last-of-type {
   margin-left: 5rem;
   padding-left: 5rem;
   border-left: 1px solid #ddd;
 }
 
 /* .header-container.sub a:not(:first-of-type), */
-.header-container.sub .anchor-wrapper:last-of-type > li:not(:first-of-type) {
+.header-container.sub .anchor-wrapper:nth-of-type(2) > li:not(:first-of-type) {
   margin-left: 1rem;
   padding-left: 1rem;
   border-left: 1px solid #ddd;
@@ -426,7 +426,7 @@ p {
   }
 }
 
-.anchor-wrapper:last-of-type > li:not(:first-of-type) {
+.anchor-wrapper:nth-of-type(2) > li:not(:first-of-type) {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
@@ -434,7 +434,7 @@ p {
   padding-right: 1rem;
 }
 
-.anchor-wrapper:last-of-type > li:not(:first-of-type)::after {
+.anchor-wrapper:nth-of-type(2) > li:not(:first-of-type)::after {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -506,11 +506,11 @@ p {
   opacity: .7;
 }
 
-/* .vertical-menu > li {
+.vertical-menu > li {
   transition: .5s;
   opacity: 0;
   transform: translateY(-0.75rem);
-} */
+}
 
 @media screen and (max-width: 600px) {
   .vertical-menu > li {
@@ -970,7 +970,7 @@ p {
 .feature-article figure::before,
 .main-guide figure::before,
 .sub-guide figure::before,
-.guide>dl:last-of-type figure::before {
+.guide > dl:last-of-type figure::before {
   position: absolute;
   content: "";
   top: 0;
@@ -988,7 +988,7 @@ p {
 .feature-article figure:hover::before,
 .main-guide figure:hover::before,
 .sub-guide figure:hover::before,
-.guide>dl:last-of-type figure:hover::before {
+.guide > dl:last-of-type figure:hover::before {
   visibility: visible;
   opacity: .5;
 }
@@ -1245,16 +1245,16 @@ p {
     font-size: 1rem;
   }
 
-  .guide>dl:last-of-type>dd {
+  .guide > dl:last-of-type>dd {
     width: 100%;
   }
 }
 
-.guide>dl:last-of-type>dd:hover {
+.guide > dl:last-of-type>dd:hover {
   --d: 100%;
 }
 
-.guide>dl:last-of-type img {
+.guide > dl:last-of-type img {
   width: 100%;
 }
 
