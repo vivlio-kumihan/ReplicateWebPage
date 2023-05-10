@@ -17,31 +17,25 @@ window.addEventListener("scroll", function () {
   }
 })
 
-// try //////////////////////////////////////////////////////////////////////////////////////
-
+// 最初はスクロールに追従するヘッダーからFIXされたヘッダーへ変化するアニメーション
+const targetHeader = document.querySelector(".header-container.main")
+const readyValue = 150
+const triggerValue = 160
 window.addEventListener("scroll", function () {
-  let targetHeader = document.querySelector(".header-container.main")
-  if (700 > targetHeader.getBoundingClientRect().top) {
-    targetHeader.classList.add("fix-header")
-  } else {
-    targetHeader.classList.remove("fix-header")
+  // 透明にする用意
+  if (readyValue < this.scrollY < triggerValue) {
+    targetHeader.classList.add("ready")
+    // 透明 => fix headerへ
+    if (triggerValue < this.scrollY) {
+      targetHeader.classList.remove("ready")
+      targetHeader.classList.add("apear")
+      // headerが原点に戻ったら元のスタイルに戻す仕掛け
+    } else if (0 === this.scrollY) {
+      targetHeader.classList.remove("ready")
+      targetHeader.classList.remove("apear")
+    }
   }
 })
-
-// const targetHeader = document.querySelector(".header-container.main")
-// scrollValue = 215
-// window.addEventListener("scroll", function () {
-//   // アップ
-//   if (scrollValue < this.scrollY) {
-//     console.log(this.scrollY)
-//     targetHeader.classList.add("fix-header")
-//   // ダウン
-//   } else {
-//     console.log(this.scrollY, "hello")
-//     targetHeader.classList.remove("fix-header")
-//   }
-//   scrollValue = this.scrollY
-// })
 
 // 任意の文字数を超えたら文字数＋『...』と表示させる。
 function truncateText(str, maxLength) {

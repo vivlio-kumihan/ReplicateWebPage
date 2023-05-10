@@ -123,16 +123,38 @@ p {
   flex-direction: column-reverse;
   padding: 0 2rem;
 }
-
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
 .header-container.main {
   max-width: 1050px;
   width: 100%;
   margin: 0 auto;
   gap: 1rem;
-  transition: 5s;
+  transition: .5s;
 }
 
-.header-container.main.fix-header {
+.header-container.main.ready {
+  transform: translate(0, -5rem);
+  visibility: hidden;
+  opacity: 0;
+}
+
+.header-container.main.apear {
+  position: fixed;
+  /* position: sticky; */
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  height: 4rem;
+  padding: 0 5rem;
+  background-color: #fff;
+  transform: translate(0, 0);
+  visibility: visible;
+  opacity: 1;
+  z-index: 100;
+}
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+
+/* .header-container.main.fix-header {
   position: fixed;
   top: 0%;
   left: 0%;
@@ -142,7 +164,7 @@ p {
   padding: 0 5rem;
   background-color: #fff;
   z-index: 15;
-}
+} */
 
 @media screen and (max-width: 600px) {
   #main-header,
@@ -167,7 +189,7 @@ p {
   z-index: 101;
 }
 
-.header-container.main.fix-header > .logo {
+.header-container.main.apear > .logo {
   width: 2.5rem;
   background-image: url(../img/logo.svg);
 }
@@ -187,8 +209,8 @@ p {
   border-bottom: 1px solid #ccc;
 }
 
-.header-container.main.fix-header > .left-nav,
-.header-container.main.fix-header > .right-nav {
+.header-container.main.apear > .left-nav,
+.header-container.main.apear > .right-nav {
   border-bottom: none;
 }
 
@@ -207,7 +229,7 @@ p {
   height: 9rem;
 }
 
-.header-container.main.fix-header li {
+.header-container.main.apear li {
   margin-top: 0rem;
   height: 4rem;
 }
@@ -251,8 +273,8 @@ p {
   visibility: visible;
   opacity: 1;
 }
-
-.header-container.main.fix-header li::after {
+/* =================================================== */
+.header-container.main.apear li::after {
   top: 0rem;
   left: 50%;
   transform: translateX(-50%);
@@ -262,11 +284,12 @@ p {
   transition: .5s;
 }
 
-.header-container.main.fix-header li:hover::after {
+.header-container.main.apear li:hover::after {
   top: -0.75rem;
   visibility: visible;
   opacity: 1;
 }
+/* =================================================== */
 
 @media screen and (max-width: 600px) {
   .header-container.main li:hover::after {
@@ -283,9 +306,9 @@ p {
   padding-top: 2rem;
   letter-spacing: .25rem;
 }
-
-.header-container.main.fix-header > .left-nav a,
-.header-container.main.fix-header > .right-nav a {
+/* ====================================================== */
+.header-container.main.apear > .left-nav a,
+.header-container.main.apear > .right-nav a {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -293,6 +316,7 @@ p {
   padding-top: 0;
   letter-spacing: .25rem;
 }
+/* ====================================================== */
 
 .header-container.sub {
   justify-content: space-between;
