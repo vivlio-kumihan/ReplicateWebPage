@@ -9,9 +9,6 @@ window.addEventListener("scroll", function () {
   })
 })
 
-
-
-
 // とりあえず動かしたいから設置する。リファクタリング必要。
 window.addEventListener("scroll", function () {
   let animationTarget = document.querySelector("nav.sns")
@@ -20,13 +17,23 @@ window.addEventListener("scroll", function () {
   }
 })
 
-// スクロールをして任意の地点に来たらheaderをfixさせる
+// 最初はスクロールに追従するヘッダーからFIXされたヘッダーへ変化するアニメーション
+const targetHeader = document.querySelector(".header-container.main")
+const readyValue = 150
+const triggerValue = 160
 window.addEventListener("scroll", function () {
-  let animationTarget = document.querySelector(".header-container.main")
-  if (-120 > animationTarget.getBoundingClientRect().top) {
-    animationTarget.classList.add("fix-header")
-  } else if (-120 > animationTarget.getBoundingClientRect().top) {
-    animationTarget.classList.remove("fix-header")
+  // 透明にする用意
+  if (readyValue < this.scrollY < triggerValue) {
+    targetHeader.classList.add("ready")
+    // 透明 => fix headerへ
+    if (triggerValue < this.scrollY) {
+      targetHeader.classList.remove("ready")
+      targetHeader.classList.add("apear")
+      // headerが原点に戻ったら元のスタイルに戻す仕掛け
+    } else if (0 === this.scrollY) {
+      targetHeader.classList.remove("ready")
+      targetHeader.classList.remove("apear")
+    }
   }
 })
 
@@ -111,6 +118,7 @@ li.forEach(function(areaLi) {
     if (verticalMenu) { verticalMenu.classList.remove("menu-active")}
   })
 })
+
 // for (let areaDd of li) {
 //   areaDd.addEventListener("mouseenter", function() {
 //     let verticalMenu = this.querySelectorAll(".vertical-menu")[0]
