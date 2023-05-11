@@ -1,3 +1,30 @@
+const btnCover = document.getElementById("for-sp-menu-switch")
+const btn = btnCover.firstElementChild
+const mainHeader = document.getElementById("main-header")
+btn.addEventListener("click", function() {
+  mainHeader.classList.toggle("active")
+})
+
+// hamberger menu
+const hamburgerMenuBtn = document.getElementById("header-menu-button")
+const btnLines = Array.from(document.querySelectorAll(".btn-line"))
+
+hamburgerMenuBtn.addEventListener("click", function () {
+  btnLines.forEach((line, idx) => {
+    switch (idx) {
+      case 0:
+        line.classList.toggle("oblique-line-dw")
+        break;
+      case 1:
+        line.classList.toggle("erase")
+        break;
+      case 2:
+        line.classList.toggle("oblique-line-up")
+        break;
+    }
+  })
+})
+
 // スクロールをして任意の地点に来たら要素を出現させる
 window.addEventListener("scroll", function () {
   let animationTarget = Array.from(document.querySelectorAll("[id^='apear'"))

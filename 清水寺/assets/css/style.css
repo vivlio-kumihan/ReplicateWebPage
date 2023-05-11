@@ -123,6 +123,8 @@ p {
   flex-direction: column-reverse;
   padding: 0 2rem;
 }
+
+
 /* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
 .header-container.main {
   max-width: 1050px;
@@ -132,39 +134,34 @@ p {
   transition: .5s;
 }
 
-.header-container.main.ready {
-  transform: translate(0, -5rem);
-  visibility: hidden;
-  opacity: 0;
+@media screen and (min-width: 601px) {
+  .header-container.main.ready {
+    transform: translate(0, -5rem);
+    visibility: hidden;
+    opacity: 0;
+  }  
+  
+  .header-container.main.apear {
+    position: fixed;
+    /* position: sticky; */
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    height: 4rem;
+    padding: 0 5rem;
+    background-color: #fff;
+    transform: translate(0, 0);
+    visibility: visible;
+    opacity: 1;
+    z-index: 100;
+  }
 }
 
-.header-container.main.apear {
-  position: fixed;
-  /* position: sticky; */
-  top: 0;
-  left: 0;
-  max-width: 100%;
-  height: 4rem;
-  padding: 0 5rem;
-  background-color: #fff;
-  transform: translate(0, 0);
-  visibility: visible;
-  opacity: 1;
-  z-index: 100;
+#for-sp-menu-switch {
+  display: none;
 }
+
 /* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
-
-/* .header-container.main.fix-header {
-  position: fixed;
-  top: 0%;
-  left: 0%;
-  transform: translateY(0%);
-  max-width: 100%;
-  height: 4rem;
-  padding: 0 5rem;
-  background-color: #fff;
-  z-index: 15;
-} */
 
 @media screen and (max-width: 600px) {
   #main-header,
@@ -177,6 +174,101 @@ p {
 
   .header-container.main {
     margin-top: 4rem;
+  }
+
+  #main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: #fff;
+    z-index: 50;
+    overflow-y: scroll;
+    transition: .5s;
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+    #main-header.active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  #for-sp-menu-switch {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 1rem;
+    width: 100%;
+    height: 4rem;
+    /* padding: 1rem; */
+    z-index: 100;
+    background-color: #fff;
+  }
+
+  #for-sp-menu-switch::before {
+    position: absolute;
+    top: .25rem;
+    left: -7rem;
+    content: "";
+    width: 100%;
+    height: 4rem;
+    background-image: url(../img/sp_logo.svg);
+    background-repeat: no-repeat;
+    transform: scale(.5);
+  }
+
+  #for-sp-menu-switch button {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    margin: 1.15rem 2.5rem 0 auto;
+  }
+
+  #for-sp-menu-switch button > .btn-line {
+    position: absolute;
+    width: 2rem;
+    height: .15rem;
+    background-color: #777;
+    transition: .2s;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  #for-sp-menu-switch button > .btn-line:nth-of-type(1) {
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%)
+  }
+
+  #for-sp-menu-switch button > .btn-line:nth-of-type(2) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #for-sp-menu-switch button > .btn-line:nth-of-type(3) {
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #for-sp-menu-switch button > .btn-line:nth-of-type(1).oblique-line-dw {
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  #for-sp-menu-switch button > .btn-line:nth-of-type(2).erase {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  #for-sp-menu-switch button > .btn-line:nth-of-type(3).oblique-line-up {
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) rotate(-45deg);
   }
 }
 
@@ -192,6 +284,8 @@ p {
 .header-container.main.apear > .logo {
   width: 2.5rem;
   background-image: url(../img/logo.svg);
+}
+@media screen and (max-width: 600px) {
 }
 
 .header-container.main > .left-nav {
@@ -209,9 +303,11 @@ p {
   border-bottom: 1px solid #ccc;
 }
 
-.header-container.main.apear > .left-nav,
-.header-container.main.apear > .right-nav {
-  border-bottom: none;
+@media screen and (min-width: 601px) {
+  .header-container.main.apear > .left-nav,
+  .header-container.main.apear > .right-nav {
+    border-bottom: none;
+  }  
 }
 
 @media screen and (max-width: 600px) {
@@ -229,16 +325,18 @@ p {
   height: 9rem;
 }
 
-.header-container.main.apear li {
-  margin-top: 0rem;
-  height: 4rem;
+@media screen and (min-width: 601px) {
+  .header-container.main.apear li {
+    margin-top: 0rem;
+    height: 4rem;
+  }
 }
 
 @media screen and (max-width: 600px) {
   .header-container.main li {
     height: 100%;
     margin: 0;
-    padding: 1.75rem 0;
+    padding: 2rem 0;
     border-bottom: 1px solid #ccc;
   }
 }
@@ -274,20 +372,22 @@ p {
   opacity: 1;
 }
 /* =================================================== */
-.header-container.main.apear li::after {
-  top: 0rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 20;
-  visibility: hidden;
-  opacity: 0;
-  transition: .5s;
-}
-
-.header-container.main.apear li:hover::after {
-  top: -0.75rem;
-  visibility: visible;
-  opacity: 1;
+@media screen and (min-width: 601px) {
+  .header-container.main.apear li::after {
+    top: 0rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    visibility: hidden;
+    opacity: 0;
+    transition: .5s;
+  }
+  
+  .header-container.main.apear li:hover::after {
+    top: -0.75rem;
+    visibility: visible;
+    opacity: 1;
+  }
 }
 /* =================================================== */
 
@@ -307,14 +407,16 @@ p {
   letter-spacing: .25rem;
 }
 /* ====================================================== */
-.header-container.main.apear > .left-nav a,
-.header-container.main.apear > .right-nav a {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -16%);
-  padding-top: 0;
-  letter-spacing: .25rem;
+@media screen and (min-width: 601px) {
+  .header-container.main.apear > .left-nav a,
+  .header-container.main.apear > .right-nav a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -16%);
+    padding-top: 0;
+    letter-spacing: .25rem;
+  }
 }
 /* ====================================================== */
 
@@ -512,7 +614,7 @@ p {
   }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 601px) {
   #main-header > .header-container.sub > .anchor-wrapper.for-sp {
     display: none;
   }
@@ -654,7 +756,7 @@ p {
 @media screen and (max-width: 600px) {
   .container {
     width: 100;
-    padding: 0 3rem;
+    padding: 0rem 3rem;
   }
 }
 
@@ -723,7 +825,7 @@ p {
   position: absolute;
   top: 1rem;
   left:-2.5rem;
-  height: 13em;
+  height: 15em;
   content: "二〇二三年四月十二日";
   font-size: .8rem;
   letter-spacing: .3em;
