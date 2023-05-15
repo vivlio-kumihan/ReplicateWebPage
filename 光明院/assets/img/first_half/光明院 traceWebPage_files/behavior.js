@@ -9,9 +9,8 @@ function killLetterSpace(arr) {
 
 // <nav id="header-nav">
 const headerNav = document.getElementById("header-nav")
-// const headerLi = Array.from(headerNav.firstElementChild.children)
-// console.log(headerLi)
-// killLetterSpace(headerLi)
+const headerLi = Array.from(headerNav.firstElementChild.children)
+killLetterSpace(headerLi)
 
 // <button href="" id="header-menu-button">
 const hamburgerMenuBtn = document.getElementById("header-menu-button")
