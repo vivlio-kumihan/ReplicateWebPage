@@ -6,20 +6,16 @@ function killLetterSpace(arr) {
     elem.innerHTML = `${preText}<span class="remove-letter-spacing">${lastChar}</span>`
   })
 }
-
-// <nav id="header-nav">
-const headerNav = document.getElementById("header-nav")
-// const headerLi = Array.from(headerNav.firstElementChild.children)
-// console.log(headerLi)
-// killLetterSpace(headerLi)
+const anchor = Array.from(document.querySelectorAll("#article-links a"))
+killLetterSpace(anchor)
 
 // <button href="" id="header-menu-button">
 const hamburgerMenuBtn = document.getElementById("header-menu-button")
-// const navi = document.querySelector("header .link-menu")
+const articleLinks = document.getElementById("article-links")
 const btnLines = Array.from(document.querySelectorAll("header .btn-line"))
 
 hamburgerMenuBtn.addEventListener("click", function() {
-  headerNav.classList.toggle("pull-up")
+  articleLinks.classList.toggle("pull-up")
   btnLines.forEach((line, idx) => {
     switch (idx) {
       case 0:

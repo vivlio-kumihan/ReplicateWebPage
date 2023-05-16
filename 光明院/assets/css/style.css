@@ -2,17 +2,57 @@
 
 /* //////////////////// 全体 */
 html {
-  font-size: 14px;
+  font-size: 15px;
   scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Noto Serif JP', serif;
-  color: #555;
+
+  color: #fff;
+  background-color: #333;
+}
+
+main h2,
+main h3 {
+  margin: 2em 0 1em;
+  text-align: center;
+  line-height: 1em;
+  font-weight: 600;
+}
+
+main h2 {
+  font-size: 1.4rem;
+}
+
+main h3 {
+  text-align: left;
+  font-size: 1.2rem;
+}
+
+main p {
+  font-weight: 400;
+  line-height: 2em;
 }
 
 .remove-letter-spacing {
   letter-spacing: 0;
+}
+
+figure {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  /* productionで取る */
+  background-color: red;
+}
+
+figure > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: 50% 50%;
+  transform: scale(1);
 }
 /* //////////////////// <= 全体 */
 
@@ -21,20 +61,13 @@ header {
   position: relative;
 }
 
-#header-nav {
-  position: relative;
+#main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
-  transition: .5s;
-  transform: translateY(5rem);
-  visibility: hidden;
-  opacity: 0;
-}
-
-#header-nav.pull-up {
-  transform: translateY(0);
-  visibility: visible;
-  opacity: 1;
+  z-index: 100;
 }
 
 #header-menu-button {
@@ -92,7 +125,23 @@ header {
   transform: translateX(-50%) rotate(-45deg);
 }
 
-#header-nav > ul {
+#article-links {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  transition: .5s;
+  transform: translateY(5rem);
+  visibility: hidden;
+  opacity: 0;
+}
+
+#article-links.pull-up {
+  transform: translateY(0);
+  visibility: visible;
+  opacity: 1;
+}
+
+#article-links > ul {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -104,10 +153,10 @@ header {
   width: calc(100% - 2rem);
   padding: 3rem 1rem;
   border-top: 1px solid #fff ;
-  z-index: 2;
+  z-index: 100;
 }
 
-#header-nav li {
+#article-links li {
   font-size: 1.2rem;
   font-weight: 600;
   line-height: 1em;
@@ -115,21 +164,21 @@ header {
   color: #fff;
 }
 
-#header-nav li:not(:first-of-type) {
+#article-links li:not(:first-of-type) {
   margin-top: 2rem;
 }
 
-#header-nav li > a {
+#article-links li > a {
   display: block;
 }
-header #header-nav-mask {
+
+header #main-nav-mask {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: #333333b5;
-  z-index: 1;
+  background-color: #333333e0;
 }
 
 header > #main-title {
@@ -137,6 +186,7 @@ header > #main-title {
   top: 6%;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 1;
 }
 
 #main-title img {
@@ -146,15 +196,88 @@ header > #main-title {
 }
 
 header > #main-visual {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;  
+  height: 100vh;  
   background-image: url("../img/first_half/s-1159x815_v-fs_webp_4e17a59e-2afc-4b78-b1c6-9639562f240f.webp");
   background-position: center;
   background-size: 290%;
   background-position: 50% 0%;
   background-repeat: no-repeat;
-  z-index: -1;
 }
+
+/* //////////////////// <= header */
+
+/* //////////////////// main */
+main {
+  padding: 0 1rem;
+}
+
+#gallery > figure:first-of-type > img {
+  transform: scale(1.2);
+}
+
+#gallery > figure:last-of-type {
+  margin: 1rem 0 2rem;
+}
+
+#news .wrapper {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #909090;
+
+}
+
+#news dt,
+#news dd {
+  font-size: 1.1rem;
+  line-height: 1.2em;
+  font-weight: 400;
+}
+
+#news dt {
+  padding-bottom: .5rem;
+  line-height: 1em;
+  font-size: .9rem;
+  color: #909090;
+}
+
+#archive > dl {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  gap: 1rem;
+}
+
+#archive .wrapper {
+  width: 50%;
+  flex-shrink: 0;
+}
+/* //////////////////// <= main */
+
+
+/* //////////////////// footer */
+footer {
+  width: 100%;
+  margin-top: 5rem;
+  text-align: center;
+}
+
+footer figure {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 2rem;
+}
+
+footer figure > img {
+  transform: scale(1.1);
+}
+
+footer p {
+  line-height: 1.5;
+}
+
+
+
+
+/* //////////////////// <= footer */
