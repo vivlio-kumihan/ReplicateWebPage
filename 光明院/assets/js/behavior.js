@@ -6,27 +6,29 @@ function killLetterSpace(arr) {
     elem.innerHTML = `${preText}<span class="remove-letter-spacing">${lastChar}</span>`
   })
 }
-const anchor = Array.from(document.querySelectorAll("#article-links a"))
+
+const anchor = document.querySelectorAll(".contents-links a")
 killLetterSpace(anchor)
 
-// <button href="" id="header-menu-button">
-const hamburgerMenuBtn = document.getElementById("header-menu-button")
-const articleLinks = document.getElementById("article-links")
-const btnLines = Array.from(document.querySelectorAll("header .btn-line"))
 
-hamburgerMenuBtn.addEventListener("click", function() {
-  articleLinks.classList.toggle("pull-up")
-  btnLines.forEach((line, idx) => {
-    switch (idx) {
-      case 0:
-        line.classList.toggle("oblique-line-dw")
-        break;
-      case 1:
-        line.classList.toggle("erase")
-        break;
-      case 2:
-        line.classList.toggle("oblique-line-up")
-        break;
-    }
+// <button class="header-menu-button">
+const mainNav = document.getElementById("main-nav")
+const headerMenuButton = mainNav.firstElementChild
+const mainNavMask = mainNav.lastElementChild
+const contentsLinks = mainNavMask.previousElementSibling
+
+headerMenuButton.addEventListener("click", function() {
+  // 記事へのリンクと黒マスクを上げ下げする。
+  [mainNavMask, contentsLinks].forEach(elem => {
+    elem.classList.toggle("pull-up")
+  })
+    
+  // ハンバーガーメニューを動作させる。
+  // この順番を上下に変えるとエラーになる。なぜ？
+  Array.from(this.children).forEach(line => {
+    line.classList.toggle("active")
   })
 })
+
+// 質問
+// ハンバーガーメニューからリンクをクリックするとハンバーガーメニューが元に戻り該当のリンクへ画面が遷移する仕様をどう書くのか？
