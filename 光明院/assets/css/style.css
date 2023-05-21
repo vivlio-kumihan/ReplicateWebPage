@@ -59,7 +59,15 @@ main p {
   object-position: 50% 50%;
   transform: scale(1);
 }
-/* //////////////////// <= 全体 */
+
+/* class="animation" */
+.animation-target {
+  transition: .5s;
+  transform: translateY(140px);
+  visibility: hidden;
+  opacity: 0;
+}
+/* //////////////////// end <= 全体 */
 
 /* //////////////////// header */
 header {
@@ -105,9 +113,14 @@ header .main-nav-mask {
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: #333333e0;
-  transform: translateY(150px);
-  transition: .5s;
+  background-color: #fff;
+  z-index: 4;
+  transition: 5s;
+  visibility: visible;
+  opacity: 1;
+}
+
+header .main-nav-mask.open {
   visibility: hidden;
   opacity: 0;
 }
@@ -198,6 +211,26 @@ header > .main-visual {
     transform: translateX(-50%) rotate(-45deg);
   }
 
+  header .main-nav-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #333333e0;
+    transform: translateY(150px);
+    transition: .5s;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .contents-links.pull-up,
+  .main-nav-mask.pull-up {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+  }
+
   header > .main-title {
     top: 45px;
   }
@@ -241,9 +274,25 @@ main .history > p {
   padding: 90px 0;
   line-height: 2.2;
   text-align: center;
+  /* 
+  transform: translateY(70px);
+  visibility: hidden;
+  opacity: 0; */
 }
-  
+
+main .history > p.active {
+  transform: translateY(0);
+  visibility: visible;
+  opacity: 1;
+}
+
 /* class="mirei-shigemori" */
+.mirei-shigemori.active {
+  transform: translateY(0);
+  visibility: visible;
+  opacity: 1;
+}
+
 .mirei-shigemori p {
   font-size: 15px;
 }
@@ -253,6 +302,17 @@ main .history > p {
   margin: 0 auto;
   width: 80%;
   aspect-ratio: 2/1;
+  /* transition: 1s;
+  transform: translateY(70px);
+  visibility: hidden;
+  opacity: 0; */
+}
+
+.gallery .frame.active {
+  transform: translateY(0);
+  visibility: visible;
+  opacity: 1;
+
 }
 
 .gallery > .frame:first-of-type > img {
@@ -263,6 +323,17 @@ main .history > p {
   max-width: 300vw;
   width: 100%;
   margin: 10px 0;
+  transform: translateX(100%);
+  transition: 1s;
+  /* 
+  visibility: hidden;
+  opacity: 0; */
+}
+
+.slide-frame.active {
+  transform: translateX(0);
+  visibility: visible;
+  opacity: 1;
 }
 
 .gallery .slide-frame > ul,
@@ -319,10 +390,24 @@ main .history > p {
 }
 
 /* class="news" */
+.news h2.active {
+  transform: translateY(0);
+  visibility: visible;
+  opacity: 1;
+}
+
 .news .wrapper {
   margin-bottom: 18.5px;
   padding-bottom: 18.5px;
   border-bottom: 1px solid #909090;
+  transition: 1s;
+  transform: translateX(100%);
+}
+
+.news .wrapper.active {
+  transform: translateX(0);
+  visibility: visible;
+  opacity: 1;
 }
 
 .news .wrapper li {
@@ -336,6 +421,12 @@ main .history > p {
   font-size: 14px;
   line-height: 1;
   color: #909090;
+}
+
+.archive h3.active {
+  transform: translateY(0);
+  visibility: visible;
+  opacity: 1;
 }
 
 .archive .wrapper > ul li:nth-of-type(2) {
@@ -364,6 +455,12 @@ footer {
   padding-top: 50px;
   text-align: center;
   border-top: 1px solid #fff;
+}
+
+footer.active {
+  transform: translateY(0);
+  visibility: visible;
+  opacity: 1;
 }
 
 footer .frame {

@@ -32,3 +32,23 @@ headerMenuButton.addEventListener("click", function() {
 
 // 質問
 // ハンバーガーメニューからリンクをクリックするとハンバーガーメニューが元に戻り該当のリンクへ画面が遷移する仕様をどう書くのか？
+
+document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("main-nav-mask").classList.add("open")
+})
+
+const targetElems = document.querySelectorAll(".animation-target")
+const windowHight = window.innerHeight
+
+document.addEventListener("scroll", function () {
+  targetElems.forEach(elem => {
+    // default setting
+    const haflElemHight = elem.clientHeight / 5
+    // const haflElemHight = elem.clientHeight
+    const setHight = windowHight - haflElemHight
+    const getElemDistance = elem.getBoundingClientRect().top
+    if (setHight > getElemDistance) {
+      elem.classList.add("active")
+    }
+  })
+})
