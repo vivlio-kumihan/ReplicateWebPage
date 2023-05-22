@@ -266,8 +266,7 @@ header > .main-visual {
 /* common use */
 .mirei-shigemori,
 .news {
-  max-width: 800px;
-  width: 100%;
+  width: 800px;
   margin: 95px auto 0;
 }
 
@@ -297,6 +296,7 @@ main .history > p.active {
 
 /* class="gallery"*/
 .gallery,
+.news,
 .archive {
   max-width: 100%;
   overflow: hidden;
@@ -469,6 +469,10 @@ main .history > p.active {
 
   .gallery li {
     min-width: 40.5vw;
+  }
+
+  .mirei-shigemori {
+    max-width: 100%;
   }
 
   .news,
