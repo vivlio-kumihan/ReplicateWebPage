@@ -3,7 +3,7 @@
 
 /* //////////////////// 全体 */
 html {
-  /* 本文: 15px */
+  /* 本文: 14px */
   font-size: 87.5%;
   scroll-behavior: smooth;
 }
@@ -212,7 +212,7 @@ header > .main-visual {
   }
 
   header .main-nav-mask {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -241,7 +241,8 @@ header > .main-visual {
   }
 
   .contents-links {
-    top: 15%;
+    top: 18%;
+    left: 14px;
     padding: 3rem 1rem;
     border-top: 1px solid #fff;
     transition: .5s;
@@ -452,7 +453,7 @@ main .history > p.active {
   }
   /* class="history" */
   main .history > p {
-    padding: 45px 0;
+    padding: 45px 14px;
     line-height: 1.8;
     text-align: left;
   }
