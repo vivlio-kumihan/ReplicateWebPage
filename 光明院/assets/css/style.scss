@@ -50,8 +50,6 @@ main p {
   width: 100%;
   aspect-ratio: 4/3;
   overflow: hidden;
-  /* productionで取る */
-  background-color: rgba(255, 0, 0, 0.285);
 }
 
 .frame > img {
@@ -117,9 +115,24 @@ header {
   height: 100vh;
   background-color: #fff;
   z-index: 4;
-  transition: 5s;
   visibility: visible;
   opacity: 1;
+  // 3秒後に3秒かけて消える。
+  animation-name: fade-out;
+  animation-delay: 2s;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-out {
+  0% {
+    visibility: visible;
+    opacity: 1;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
 }
 
 .main-nav-mask.open {
@@ -127,12 +140,12 @@ header {
   opacity: 0;
 }
 
-.contents-links.pull-up,
-.main-nav-mask.pull-up {
-  transform: translateY(0);
-  visibility: visible;
-  opacity: 1;
-}
+// .contents-links.pull-up,
+// .main-nav-mask.pull-up {
+//   transform: translateY(0);
+//   visibility: visible;
+//   opacity: 1;
+// }
 
 header > .main-title {
   position: absolute;
@@ -140,6 +153,26 @@ header > .main-title {
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+  // 1秒後に5秒かけて現れる。
+  animation-name: fade-in;
+  animation-delay: .7s;
+  animation-duration: 5.3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+    z-index: 5;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+    z-index: 5;
+  }
 }
 
 .main-title img {
@@ -225,6 +258,7 @@ header > .main-visual {
     transition: .5s;
     visibility: hidden;
     opacity: 0;
+    animation: none;
   }
 
   .contents-links.pull-up,
@@ -236,6 +270,9 @@ header > .main-visual {
 
   header > .main-title {
     top: 20px;
+    visibility: visible;
+    opacity: 1;
+    animation: none;
   }
 
   .main-title img {

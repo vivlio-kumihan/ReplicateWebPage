@@ -40,8 +40,21 @@ headerMenuButton.addEventListener("click", function() {
 
 ////////////
 // オープニング
+const mask = document.getElementById("main-nav-mask")
+const title = document.getElementById("main-title")
+
 document.addEventListener("DOMContentLoaded", function() {
-  document.getElementById("main-nav-mask").classList.add("open")
+  // maskは3秒後にスタイルをつける。
+  // setTimeout(() => {
+  //   mask.style.visibility = 'hidden';
+  //   mask.style.opacity = '0';
+  // }, 3000);
+  
+  // titleは1秒後にスタイルをつける。
+  // setTimeout(() => {
+  //   title.style.visibility = 'visible';
+  //   title.style.opacity = '1';
+  // }, 700);
 })
 
 
