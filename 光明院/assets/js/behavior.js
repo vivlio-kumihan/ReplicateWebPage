@@ -21,40 +21,22 @@ const contentsLinks = mainNavMask.previousElementSibling
 
 headerMenuButton.addEventListener("click", function() {
   // 記事へのリンクと黒マスクを上げ下げする。
-  [mainNavMask, contentsLinks].forEach(elem => {
+  [contentsLinks, mainNavMask].forEach(elem => {
     elem.classList.toggle("pull-up")
+    if (elem.hasAttribute("id")) {
+      Array.from(elem.children).forEach(li => {
+        li.addEventListener("click", () => {
+          elem.classList.remove("pull-up")
+          mainNavMask.classList.remove("pull-up")
+        })
+      })
+    }
   })
-  
   // ハンバーガーメニューを動作させる。
   // この順番を上下に変えるとエラーになる。なぜ？
   Array.from(this.children).forEach(line => {
     line.classList.toggle("active")
   })
-})
-
-
-////////////
-// 質問
-// ハンバーガーメニューからリンクをクリックするとハンバーガーメニューが元に戻り該当のリンクへ画面が遷移する仕様をどう書くのか？
-
-
-////////////
-// オープニング
-const mask = document.getElementById("main-nav-mask")
-const title = document.getElementById("main-title")
-
-document.addEventListener("DOMContentLoaded", function() {
-  // maskは3秒後にスタイルをつける。
-  // setTimeout(() => {
-  //   mask.style.visibility = 'hidden';
-  //   mask.style.opacity = '0';
-  // }, 3000);
-  
-  // titleは1秒後にスタイルをつける。
-  // setTimeout(() => {
-  //   title.style.visibility = 'visible';
-  //   title.style.opacity = '1';
-  // }, 700);
 })
 
 
