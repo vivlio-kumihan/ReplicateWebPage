@@ -135,6 +135,7 @@ header > .main-title {
   top: 50px;
   left: 50%;
   transform: translateX(-50%);
+  width: 180px;
   z-index: 5;
   visibility: hidden;
   opacity: 0;
@@ -157,7 +158,7 @@ header > .main-title {
   }
 }
 .main-title img {
-  width: 73%;
+  width: 100%;
 }
 
 header > .main-visual {
@@ -238,14 +239,12 @@ header > .main-visual {
     opacity: 1;
   }
   header > .main-title {
-    top: 20px;
+    top: 100px;
+    width: 30%;
     visibility: visible;
     opacity: 1;
     animation: none;
     z-index: 1;
-  }
-  .main-title img {
-    transform: scale(0.55);
   }
   .contents-links {
     top: 18%;
