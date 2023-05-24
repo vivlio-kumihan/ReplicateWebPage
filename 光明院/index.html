@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
   <script src="https://unpkg.com/gsap@3.11.0/dist/CSSRulePlugin.min.js"></script>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   <script src="./assets/js/behavior.js" defer></script>
 </head>
 
@@ -17,9 +18,9 @@
   <header>
     <nav id="main-nav" class="main-nav">
       <button class="header-menu-button">
-        <div class="btn-line"></div>
-        <div class="btn-line"></div>
-        <div class="btn-line"></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </button>
       <ul id="contents-links" class="contents-links">
         <li><a href="#mirei-shigemori">重森三玲</a></li>
@@ -32,7 +33,7 @@
     <div class="main-visual"></div>
   </header>
   <main>
-    <section id="history" class="history">
+    <section class="history">
       <p class="animation-target">
         室町初頭の1391年（明徳二年）、<br>
         東福寺の塔頭として金山明昶によって創建される。<br>
@@ -49,7 +50,7 @@
       </p>
     </section>
 
-    <section id="gallery" class="gallery">
+    <section class="gallery">
       <div class="frame animation-target"><img src="./assets/img/first_half/s-2400x1600_v-frms_webp_a55786f0-ee04-40e9-b0ff-f62d83fd6f20_middle.webp" alt="座敷"></div>
       <div class="slide-frame animation-target">
         <ul>
@@ -69,83 +70,65 @@
       </div>
     </section>
 
-    <section id="mirei-shigemori" class="mirei-shigemori animation-target">
-      <h2>作庭家/重森三玲</h2> 
-      <p>明治生まれ、昭和前半に活躍した作庭家。</p>
-      <p>1930年代に日本全国の庭園を丹念に測量、調査するうちに枯山水様式に心を奪われた三玲は、自ら作庭を手がけるようになる。伝統技法を重んじる一方、旧来の固定化した価値観や形式に囚われることなく、独自の審美眼で日本庭園に新たな息吹をもたらした。</p>  
-      <p>ここ、光明院においては、昭和十四年（1939）、門より入ってすぐの雲嶺庭と、主庭である波心庭を手掛けている。</p>  
-      <p>同時期に生まれた東福寺方丈庭園とは異なる州浜型を取りいれた波心庭は、三玲の信念である「生きた庭」を体現し、時の流れや風雨、自然の営みの全てを取り込み、庭の美しさに花を添えるものとしている。</p>  
-      <p>ぜひ、時と季節を変えて幾度も訪れ、庭に秘された美を堪能して欲しい。</p>  
+    <section id="mirei-shigemori" class="mirei-shigemori">
+      <dl>
+        <dt class="animation-target">作庭家／重森三玲</dt>
+        <dd class="animation-target">
+          明治生まれ、昭和前半に活躍した作庭家。<br>
+          1930年代に日本全国の庭園を丹念に測量、調査するうちに枯山水様式に心を奪われた三玲は、自ら作庭を手がけるようになる。伝統技法を重んじる一方、旧来の固定化した価値観や形式に囚われることなく、独自の審美眼で日本庭園に新たな息吹をもたらした。<br>
+          ここ、光明院においては、昭和十四年（1939）、門より入ってすぐの雲嶺庭と、主庭である波心庭を手掛けている。<br>
+          同時期に生まれた東福寺方丈庭園とは異なる州浜型を取りいれた波心庭は、三玲の信念である「生きた庭」を体現し、時の流れや風雨、自然の営みの全てを取り込み、庭の美しさに花を添えるものとしている。<br>
+          ぜひ、時と季節を変えて幾度も訪れ、庭に秘された美を堪能して欲しい。<br>
+        </dd>
+      </dl>
     </section>
 
     <section id="news" class="news">
       <h2 class="animation-target">催し・お知らせ</h2>
       <ul>
-        <li class="wrapper animation-target">
-          <ul>
-            <li><time datetime="2023-04-15">2023年4月15</time>日～<time datetime="2023-05-14">5月14日</time></li>
-            <li>KYOTO GRAPHIE 2023&emsp;Coco Capitan&emsp;展示</li>
-          </ul>
+        <li class="animation-target">
+          <div class="date"><time datetime="2023-04-15">2023年4月15</time>日～<time datetime="2023-05-14">5月14日</time></div> 
+          <div class="contents">KYOTO GRAPHIE 2023&emsp;Coco Capitan&emsp;展示</div>
         </li>
-        <li class="wrapper animation-target">
-          <ul>
-            <li><time datetime="2023-04-16">2023年4月16日</time>（貸し切り）通常拜観は不可</li>
-            <li>KYOTO PHONIE&emsp;SALIF KEITA&emsp;special LIVE</li>
-          </ul>
+        <li class="animation-target">
+          <div class="date"><time datetime="2023-04-16">2023年4月16日</time>（貸し切り）通常拜観は不可</div>
+          <div class="contents">KYOTO PHONIE&emsp;SALIF KEITA&emsp;special LIVE</div>
         </li>
-        <li class="wrapper animation-target">
-          <ul>
-            <li><time datetime="2023-05-19">2023年5月19日</time>～<time datetime="2023-05-28">5月28</time>日</li>
-            <li>書家アーティスト&emsp;國廣沙織&emsp;個展</li>
-          </ul>
+        <li class="animation-target">
+          <div class="date"><time datetime="2023-05-19">2023年5月19日</time>～<time datetime="2023-05-28">5月28</time>日</div>
+          <div class="contents">書家アーティスト&emsp;國廣沙織&emsp;個展</div>
         </li>
-        <li class="wrapper animation-target">
-          <ul>
-            <li><time datetime="2023-06-03">2023年6月3日</time>～<time datetime="2023-06-16">6月16日</time></li>
-            <li>盆栽とビザールプランツの邂逅<br>『。、展』</li>
-          </ul>
+        <li class="animation-target">
+          <div class="date"><time datetime="2023-06-03">2023年6月3日</time>～<time datetime="2023-06-16">6月16日</time></div>
+          <div class="contents">盆栽とビザールプランツの邂逅<br>『。、展』</div>
         </li>
-        <li class="wrapper animation-target">
-          <ul>
-            <li><time datetime="2023-07-01">2023年7月1日</time>～<time datetime="2023-07-30">7月30日</time></li>
-            <li>畳職人 山田憲司 × 写真画家 丹地保堯 コラボレーション&emsp;『鶴の展覧会』</li>
-          </ul>
+        <li class="animation-target">
+          <div class="date"><time datetime="2023-07-01">2023年7月1日</time>～<time datetime="2023-07-30">7月30日</time></div>
+          <div class="contents">畳職人 山田憲司 × 写真画家 丹地保堯 コラボレーション&emsp;『鶴の展覧会』</div>
         </li>
-        <li class="wrapper animation-target">
-          <ul>
-            <li><time datetime="2023-09-01">2023年9月1日</time>～<time datetime="2023-09-24">9月24日</time></li>
-            <li>アーティスト TAKABATAKE SAYAKA&emsp;個展</li>
-          </ul>
+        <li class="animation-target">
+          <div class="date"><time datetime="2023-09-01">2023年9月1日</time>～<time datetime="2023-09-24">9月24日</time></div>
+          <div class="contents">アーティスト TAKABATAKE SAYAKA&emsp;個展</div>
         </li>
-        <li class="wrapper animation-target">
-          <ul>
-            <li><time datetime="2023-10-07">2023年10月7日</time>～<time datetime="2023-10-31">10月31日</time></li>
-            <li>漫画家 朝倉世界一、漫画家 寺田克也&emsp;二人展</li>
-          </ul>
+        <li class="animation-target">
+          <div class="date"><time datetime="2023-10-07">2023年10月7日</time>～<time datetime="2023-10-31">10月31日</time></div>
+          <div class="contents">漫画家 朝倉世界一、漫画家 寺田克也&emsp;二人展</div>
         </li>
-        <li class="wrapper animation-target">
-          <ul>
-            <li><time datetime="2023-11-03">2023年11月3日</time>～<time datetime="2023-11-05">11月5日</time></li>
-            <li>TROVE、MITTAN、RAKUJI&emsp;POPUP販売</li>
-          </ul>
+        <li class="animation-target">
+          <div class="date"><time datetime="2023-11-03">2023年11月3日</time>～<time datetime="2023-11-05">11月5日</time></div>
+          <div class="contents">TROVE、MITTAN、RAKUJI&emsp;POPUP販売</div>
         </li>
-        <li class="wrapper animation-target">
-          <ul>
-            <li><time datetime="2023-11">2023年11月</time>頃</li>
-            <li>光明院 襖絵 初公開イベント&emsp;絵師 日本画家 丹羽優太</li>
-          </ul>
+        <li class="animation-target">
+          <div class="date"><time datetime="2023-11">2023年11月</time>頃</div>
+          <div class="contents">光明院 襖絵 初公開イベント&emsp;絵師 日本画家 丹羽優太</div>
         </li>
-        <li class="wrapper animation-target">
-          <ul>
-            <li><time datetime="2024">2024年初旬</time></li>
-            <li>曼荼羅アーティスト&emsp;Aditya Pradhan&emsp;個展予定</li>
-          </ul>
+        <li class="animation-target">
+          <div class="date"><time datetime="2024">2024年初旬</time></div>
+          <div class="contents">曼荼羅アーティスト&emsp;Aditya Pradhan&emsp;個展予定</div>
         </li>
-        <li class="wrapper animation-target">
-          <ul>
-            <li><time datetime="2024-11-30日">2024年11月30日</time>～<time datetime="2024-12-15">12月15日</time></li>
-            <li>河井工房・河井亮輝&emsp;展</li>
-          </ul>
+        <li class="animation-target">
+          <div class="date"><time datetime="2024-11-30日">2024年11月30日</time>～<time datetime="2024-12-15">12月15日</time></div>
+          <div class="contents">河井工房・河井亮輝&emsp;展</div>
         </li>
       </ul>
     </section>
@@ -154,122 +137,96 @@
       <h3 class="animation-target">過去の企画展示</h3>
       <div class="slide-frame animation-target">
         <ul>
-          <li class="wrapper">
-            <ul>
-              <a href="#">
-                <li><img src="./assets/img/second_half/s-1612x1612_v-fms_webp_0d8995fe-bed4-4318-9835-9d04f3b440cf_small.webp" alt=""></li>
-                <li><time datetime="2023-03-10">2023年3月10</time>〜<time datetime="2023-04-09">4月9日</time></li>
-                <li>NELL SHIINA 個展『WHERE NOW IN OUR GAZE?』</li>
-              </a>
-            </ul>
+          <li>
+            <a href="#">
+              <div class="frame"><img src="./assets/img/second_half/s-1612x1612_v-fms_webp_0d8995fe-bed4-4318-9835-9d04f3b440cf_small.webp" alt=""></div>
+              <p class="date"><time datetime="2023-03-10">2023年3月10</time>〜<time datetime="2023-04-09">4月9日</time></p>
+              <p class="contents">NELL SHIINA 個展『WHERE NOW IN OUR GAZE?』</p>
+            </a>
           </li>
-          <li class="wrapper">
-            <ul>
-              <a href="#">
-                <li><img src="./assets/img/second_half/s-1242x1242_v-fms_webp_d750d358-1c1a-4ac0-96bf-355dda65acfa_small.webp" alt=""></li>
-                <li><time datetime="2023-02-01"></time>2023年2月1日</time>〜<time datetime="2023-02-26">2月26日</time></li>
-                <li>DAICHIRO SHINJO『DARUMA 60 seconds sereis2023』Solo exhibition （企画 桑原茂一）</li>
-              </a>
-            </ul>
+          <li>
+            <a href="#">
+              <div class="frame"><img src="./assets/img/second_half/s-1242x1242_v-fms_webp_d750d358-1c1a-4ac0-96bf-355dda65acfa_small.webp" alt=""></div>
+              <p class="date"><time datetime="2023-02-01"></time>2023年2月1日</time>〜<time datetime="2023-02-26">2月26日</time></p>
+              <p class="contents">DAICHIRO SHINJO『DARUMA 60 seconds sereis2023』Solo exhibition （企画 桑原茂一）?』</p>
+            </a>
           </li>
-          <li class="wrapper">
-            <ul>
-              <a href="#">
-                <li><img src="./assets/img/second_half/s-1242x1242_v-fms_webp_f86d5b7b-db44-48ec-b5bf-d414379fe127_small.webp" alt=""></li>
-                <li><time datetime="2023-01-09">2023年1月9日</time>〜<time datetime="2023-01-15">1月15日</time></li>
-                <li>フランス額装作家 向井理依子 個展『交錯』</li>
-              </a>
-            </ul>
+          <li>
+            <a href="#">
+              <div class="frame"><img src="./assets/img/second_half/s-1242x1242_v-fms_webp_f86d5b7b-db44-48ec-b5bf-d414379fe127_small.webp" alt=""></div>
+              <p class="date"><time datetime="2023-01-09">2023年1月9日</time>〜<time datetime="2023-01-15">1月15日</time></p>
+              <p class="contents">フランス額装作家 向井理依子 個展『交錯』?』</p>
+            </a>
           </li>
-          <li class="wrapper">
-            <ul>
-              <a href="#">
-                <li><img src="./assets/img/second_half/s-1242x1242_v-fms_webp_826e5a7a-ef1d-4a00-92b0-f68f58f945e7_small.webp" alt=""></li>
-                <li><time datetime="2022-12-03">2022年12月3日</time>〜<time datetime="2022-12-18">12月18日</time></li>
-                <li>画家 青木芳昭、画家 高 資婷、日本画家 丹羽優太 三人展『刻苦光明』</li>
-              </a>
-            </ul>
+          <li>
+            <a href="#">
+              <div class="frame"><img src="./assets/img/second_half/s-1242x1242_v-fms_webp_826e5a7a-ef1d-4a00-92b0-f68f58f945e7_small.webp" alt=""></div>
+              <p class="date"><time datetime="2022-12-03">2022年12月3日</time>〜<time datetime="2022-12-18">12月18日</time></p>
+              <p class="contents">画家 青木芳昭、画家 高 資婷、日本画家 丹羽優太 三人展『刻苦光明』?』</p>
+            </a>
           </li>
-          <li class="wrapper">
-            <ul>
-              <a href="#">
-                <li><img src="./assets/img/second_half/s-908x908_v-fs_webp_7dca794a-a02a-41d8-bd00-ba72794e5ea6_small.webp" alt=""></li>
-                <li><time datetime="2022-11-04">2022年11月4日</time>〜<time datetime="2022-11-13">11月13日</time></li>
-                <li>當間ローズ フラワーロスアレンジと陶器展<br>『天曜雫～花の輪廻～』</li>
-              </a>
-            </ul>
+          <li>
+            <a href="#">
+              <div class="frame"><img src="./assets/img/second_half/s-908x908_v-fs_webp_7dca794a-a02a-41d8-bd00-ba72794e5ea6_small.webp" alt=""></div>
+              <p class="date"><time datetime="2022-11-04">2022年11月4日</time>〜<time datetime="2022-11-13">11月13日</time></p>
+              <p class="contents">當間ローズ フラワーロスアレンジと陶器展<br>『天曜雫～花の輪廻～』?』</p>
+            </a>
           </li>
-          <li class="wrapper">
-            <ul>
-              <a href="#">
-                <li><img src="./assets/img/second_half/s-1242x1242_v-fms_webp_8d92e0d5-bba0-41b9-b2c7-376aef38d35d_small.webp" alt=""></li>
-                <li><time datetime="2022-10">2022年10月</time>〜<time datetime="2022-10-30">10月30日</time></li>
-                <li>曼荼羅アーティスト廣海充南子、写真家 John Einarsen、ピースマスクＭyonghee Kim 三人展『Openings』</li>
-              </a>
-            </ul>
+          <li>
+            <a href="#">
+              <div class="frame"><img src="./assets/img/second_half/s-1242x1242_v-fms_webp_8d92e0d5-bba0-41b9-b2c7-376aef38d35d_small.webp" alt=""></div>
+              <p class="date"><time datetime="2022-10">2022年10月</time>〜<time datetime="2022-10-30">10月30日</time></p>
+              <p class="contents">曼荼羅アーティスト廣海充南子、写真家 John Einarsen、ピースマスクＭyonghee Kim 三人展『Openings』?』</p>
+            </a>
           </li>
-          <li class="wrapper">
-            <ul>
-              <a href="#">
-                <li><img src="./assets/img/second_half/s-1182x1231_v-fms_webp_e5997dae-af80-4fd9-aa25-f087c39245d6_small.webp" alt=""></li>
-                <li><time datetime="2022-04-16">2022年4月16日</time>〜<time datetime="2022-05-15">5月15日</time></li>
-                <li>しりあがり寿 個展<br>『心頭滅却すれば火もまたCOOL!!』</li>
-              </a>
-            </ul>
+          <li>
+            <a href="#">
+              <div class="frame"><img src="./assets/img/second_half/s-1182x1231_v-fms_webp_e5997dae-af80-4fd9-aa25-f087c39245d6_small.webp" alt=""></div>
+              <p class="date"><time datetime="2022-04-16">2022年4月16日</time>〜<time datetime="2022-05-15">5月15日</time></p>
+              <p class="contents">しりあがり寿 個展<br>『心頭滅却すれば火もまたCOOL!!』?』</p>
+            </a>
           </li>
-          <li class="wrapper">
-            <ul>
-              <a href="#">
-                <li><img src="./assets/img/second_half/s-1440x1440_v-fms_webp_bfc60122-7457-4ba4-a37e-f44bf17b490f_small.webp" alt=""></li>
-                <li><time datetime="2022-04-22">2022年4月22日</time> 公開</li>
-                <li>ヒューマンビートボクサー SHOWｰGO『Silver』MV撮影</li>
-              </a>
-            </ul>
+          <li>
+            <a href="#">
+              <div class="frame"><img src="./assets/img/second_half/s-1440x1440_v-fms_webp_bfc60122-7457-4ba4-a37e-f44bf17b490f_small.webp" alt=""></div>
+              <p class="date"><time datetime="2022-04-22">2022年4月22日</time> 公開</p>
+              <p class="contents">ヒューマンビートボクサー SHOWｰGO『Silver』MV撮影?』</p>
+            </a>
           </li>
-          <li class="wrapper">
-            <ul>
-              <a href="#">
-                <li><img src="./assets/img/second_half/s-724x724_v-fs_webp_20823a19-06e2-47d1-b9b0-92f55495c8aa_small.webp" alt=""></li>
-                <li><time datetime="2021-11-27">2021年11月27日</time>〜<time datetime="2021-12-12">12月12日</time></li>
-                <li>Photographer 平林克己 写真展『灯』ｰAKASHIｰ</li>
-              </a>
-            </ul>
+          <li>
+            <a href="#">
+              <div class="frame"><img src="./assets/img/second_half/s-724x724_v-fs_webp_20823a19-06e2-47d1-b9b0-92f55495c8aa_small.webp" alt=""></div>
+              <p class="date"><time datetime="2021-11-27">2021年11月27日</time>〜<time datetime="2021-12-12">12月12日</time></p>
+              <p class="contents">Photographer 平林克己 写真展『灯』ｰAKASHIｰ?』</p>
+            </a>
           </li>
-          <li class="wrapper">
-            <ul>
-              <a href="#">
-                <li><img src="./assets/img/second_half/s-959x988_v-fs_webp_fd58d040-dbef-4e69-8754-7072eaee02a6_small.webp" alt=""></li>
-                <li><time datetime="2021-10-01">2021年10月1日</time>〜<time datetime="2021-10-31">10月31日</time></li>
-                <li>水墨画家 浦 正 個展『こころの動物たち/楽・覚・和・猛・遊・幽』</li>
-              </a>
-            </ul>
+          <li>
+            <a href="#">
+              <div class="frame"><img src="./assets/img/second_half/s-959x988_v-fs_webp_fd58d040-dbef-4e69-8754-7072eaee02a6_small.webp" alt=""></div>
+              <p class="date"><time datetime="2021-10-01">2021年10月1日</time>〜<time datetime="2021-10-31">10月31日</time></p>
+              <p class="contents">水墨画家 浦 正 個展『こころの動物たち/楽・覚・和・猛・遊・幽』?』</p>
+            </a>
           </li>
-          <li class="wrapper">
-            <ul>
-              <a href="#">
-                <li><img src="./assets/img/second_half/s-1884x1884_v-frms_webp_e2e9b293-cffb-4fbf-9367-46a70ca4ef9c_small.webp" alt=""></li>
-                <li><time datetime="2021-04-28">2021年4月28日</time>〜<time datetime="2021-05-05">5月5日</time></li>
-                <li>和紙アーティスト Sarah Brayer 個展『Inner Light 内なる光』</li>
-              </a>
-            </ul>
+          <li>
+            <a href="#">
+              <div class="frame"><img src="./assets/img/second_half/s-1884x1884_v-frms_webp_e2e9b293-cffb-4fbf-9367-46a70ca4ef9c_small.webp" alt=""></div>
+              <p class="date"><time datetime="2021-04-28">2021年4月28日</time>〜<time datetime="2021-05-05">5月5日</time></p>
+              <p class="contents">和紙アーティスト Sarah Brayer 個展『Inner Light 内なる光』?』</p>
+            </a>
           </li>
-          <li class="wrapper">
-            <ul>
-              <a href="#">
-                <li><img src="./assets/img/second_half/s-1180x1180_v-fs_webp_644535c6-4ad1-42a3-877c-3bcc79bad90a_small.webp" alt=""></li>
-                <li><time datetime="2021-04-02">2021年4月2日</time>〜<time datetime="2021-04-18">4月18日</time></li>
-                <li>日本画家 丹羽優太 初個展 第二部『鮎の光明』</li>
-              </a>
-            </ul>
+          <li>
+            <a href="#">
+              <div class="frame"><img src="./assets/img/second_half/s-1180x1180_v-fs_webp_644535c6-4ad1-42a3-877c-3bcc79bad90a_small.webp" alt=""></div>
+              <p class="date"><time datetime="2021-04-02">2021年4月2日</time>〜<time datetime="2021-04-18">4月18日</time></p>
+              <p class="contents">日本画家 丹羽優太 初個展 第二部『鮎の光明』?』</p>
+            </a>
           </li>
-          <li class="wrapper">
-            <ul>
-              <a href="#">
-                <li><img src="./assets/img/second_half/s-1014x1014_v-fs_webp_f3ec1461-409a-4e29-b9fc-65e2bd03fa1a_small.webp" alt=""></li>
-                <li><time datetime="2021-02-11">2021年2月11日</time>〜<time datetime="2021-03-30">3月30日</time></li>
-                <li>日本画家 丹羽優太 初個展 第一部『鯰の巧妙』</li>
-              </a>
-            </ul>
+          <li>
+            <a href="#">
+              <div class="frame"><img src="./assets/img/second_half/s-1014x1014_v-fs_webp_f3ec1461-409a-4e29-b9fc-65e2bd03fa1a_small.webp" alt=""></div>
+              <p class="date"><time datetime="2021-02-11">2021年2月11日</time>〜<time datetime="2021-03-30">3月30日</time></p>
+              <p class="contents">日本画家 丹羽優太 初個展 第一部『鯰の巧妙』?』</p>
+            </a>
           </li>
         </ul>
       </div>
@@ -283,27 +240,25 @@
     <p><small>※志納 300円程度</small></p> 
     <p class="map"><a href="http://www.hokuto-p.co.jp/" target="_blank">MAP</a></p>    
     <p class="zip">京都市東山区本町15丁目809</p> 
-    <p class="tel">075-561-7317</p> 
+    <a href="tel:075-561-7317">075-561-7317</a> 
+
     <nav id="footer-nav" class="footer-nav">
-      <ul>
-        <li>
-          <ul>
-            <li><i class="fa-brands fa-square-instagram"></i></li>
-            <li><i class="fa-brands fa-square-facebook"></i></li>
-            <li><i class="fa-brands fa-square-twitter"></i></li>
-          </ul>
-        </li>
-        <li class="twitter-time-line">
-          <a class="twitter-timeline" data-width="350" data-height="600"
+      <div class="first-nav">
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+      </div>
+      <div class="second-nav">
+        <div class="twitter-time-line">
+          <!-- defalut -->
+          <!-- <a class="twitter-timeline" data-width="350" data-height="600" -->
+          <a class="twitter-timeline" data-height="500"
           href="https://twitter.com/vivlioKumihan?ref_src=twsrc%5Etfw">Tweets by vivlioKumihan</a>
-          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        </li>
-        <li class="twitter-time-line">
-          <a class="twitter-timeline" data-width="350" data-height="600"
+        </div>
+        <div class="twitter-time-line">
+          <a class="twitter-timeline" data-height="500"
           href="https://twitter.com/vivlioKumihan?ref_src=twsrc%5Etfw">Tweets by vivlioKumihan</a>
-          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        </li>
-      </ul>
+      </div>
     </nav>
   </footer>
 </body>
