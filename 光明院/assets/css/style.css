@@ -16,40 +16,32 @@ html {
 
 body {
   font-family: "Noto Serif JP", serif;
-  color: #fff;
-  background-color: #000;
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
 }
 
-main h2,
-.mirei-shigemori dt,
-main h3 {
+main h2, main .mirei-shigemori dt, main h3 {
   margin-bottom: 35px;
   text-align: center;
   font-size: 20px;
   line-height: 1em;
   font-weight: 600;
 }
-
 main h3 {
   padding-left: 14px;
   text-align: left;
 }
-
 main p {
   font-weight: 400;
   line-height: 2;
 }
-
-.remove-letter-spacing {
+main .remove-letter-spacing {
   letter-spacing: 0;
 }
-
-a[href^=tel] {
+main a[href^=tel] {
   display: block;
 }
-
-/* class="animation" */
-.animation-target {
+main .animation-target {
   transition: 0.5s;
   transform: translateY(140px);
   visibility: hidden;
@@ -62,12 +54,10 @@ header {
   position: relative;
   height: 100vh;
 }
-
-.header-menu-button {
+header .header-menu-button {
   display: none;
 }
-
-.contents-links {
+header .contents-links {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -78,34 +68,32 @@ header {
   z-index: 3;
   mix-blend-mode: difference;
 }
-
-.contents-links li {
+header li {
   display: inline-block;
   font-weight: 600;
   line-height: 1em;
   letter-spacing: 0.25rem;
-  color: #fff;
+  color: rgb(255, 255, 255);
   transition: 0.5s;
 }
-.contents-links li.slide-left {
+header li.slide-left {
   transform: translateX(-2em);
   opacity: 0.7;
 }
-.contents-links li a {
+header li a {
   display: block;
   padding: 10px;
 }
-.contents-links li + li {
+header li + li {
   margin-top: 10px;
 }
-
-.main-nav-mask {
+header .main-nav-mask {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: #fff;
+  background-color: rgb(255, 255, 255);
   z-index: 4;
   visibility: visible;
   opacity: 1;
@@ -114,7 +102,10 @@ header {
   animation-duration: 4s;
   animation-fill-mode: forwards;
 }
-
+header .main-nav-mask.open {
+  visibility: hidden;
+  opacity: 0;
+}
 @keyframes fade-out {
   0% {
     visibility: visible;
@@ -125,12 +116,7 @@ header {
     opacity: 0;
   }
 }
-.main-nav-mask.open {
-  visibility: hidden;
-  opacity: 0;
-}
-
-header > .main-title {
+header .main-title {
   position: absolute;
   top: 50px;
   left: 50%;
@@ -144,7 +130,9 @@ header > .main-title {
   animation-duration: 5.3s;
   animation-fill-mode: forwards;
 }
-
+header .main-title img {
+  width: 100%;
+}
 @keyframes fade-in {
   0% {
     visibility: hidden;
@@ -157,11 +145,7 @@ header > .main-title {
     z-index: 5;
   }
 }
-.main-title img {
-  width: 100%;
-}
-
-header > .main-visual {
+header .main-visual {
   height: 100%;
   background-image: url("../img/first_half/s-1159x815_v-fs_webp_4e17a59e-2afc-4b78-b1c6-9639562f240f.webp");
   background-repeat: no-repeat;
@@ -170,7 +154,7 @@ header > .main-visual {
 }
 
 @media screen and (max-width: 600px) {
-  .header-menu-button {
+  header .header-menu-button {
     display: inline-block;
     position: fixed;
     top: 43px;
@@ -180,40 +164,40 @@ header > .main-visual {
     cursor: pointer;
     z-index: 4;
   }
-  .header-menu-button div {
+  header .header-menu-button div {
     position: absolute;
     width: 28px;
     height: 3px;
-    background-color: #fff;
+    background-color: rgb(255, 255, 255);
     transition: 0.2s;
     visibility: visible;
     opacity: 1;
   }
-  .header-menu-button div:nth-of-type(1) {
+  header .header-menu-button div:nth-of-type(1) {
     top: 22%;
     left: 50%;
     transform: translateX(-50%);
   }
-  .header-menu-button div:nth-of-type(2) {
+  header .header-menu-button div:nth-of-type(2) {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  .header-menu-button div:nth-of-type(3) {
+  header .header-menu-button div:nth-of-type(3) {
     top: 70%;
     left: 50%;
     transform: translateX(-50%);
   }
-  .header-menu-button div:nth-of-type(1).active {
+  header .header-menu-button.active div:nth-of-type(1) {
     top: 50%;
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
   }
-  .header-menu-button div:nth-of-type(2).active {
+  header .header-menu-button.active div:nth-of-type(2) {
     visibility: hidden;
     opacity: 0;
   }
-  .header-menu-button div:nth-of-type(3).active {
+  header .header-menu-button.active div:nth-of-type(3) {
     top: 50%;
     left: 50%;
     transform: translateX(-50%) rotate(-45deg);
@@ -224,7 +208,7 @@ header > .main-visual {
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: rgba(51, 51, 51, 0.8784313725);
+    background-color: rgba(50, 50, 50, 0.8);
     z-index: 2;
     transform: translateY(150px);
     transition: 0.5s;
@@ -232,13 +216,13 @@ header > .main-visual {
     opacity: 0;
     animation: none;
   }
-  .contents-links.pull-up,
+  header .contents-links.pull-up,
   header .main-nav-mask.pull-up {
     transform: translateY(0);
     visibility: visible;
     opacity: 1;
   }
-  header > .main-title {
+  header .main-title {
     top: 100px;
     width: 30%;
     visibility: visible;
@@ -246,22 +230,22 @@ header > .main-visual {
     animation: none;
     z-index: 1;
   }
-  .contents-links {
+  header .contents-links {
     top: 18%;
     left: 14px;
-    padding: 3rem 1rem;
-    border-top: 1px solid #fff;
+    padding: 3rem 0;
+    border-top: 1px solid rgb(255, 255, 255);
     transition: 0.5s;
     transform: translateY(30px);
     visibility: hidden;
     opacity: 0;
   }
-  .contents-links li {
+  header .contents-links li {
     font-size: 1.2rem;
     letter-spacing: 0.5rem;
   }
-  .contents-links li + li {
-    margin-top: 30px;
+  header .contents-links li + li {
+    margin-top: 10px;
   }
 }
 /* //////////////////// end <= header */
@@ -425,11 +409,9 @@ header > .main-visual {
 .archive .date {
   margin-bottom: 0.5em;
 }
-
 .archive a {
   display: block;
 }
-
 .archive h3.active {
   transform: translateY(0);
   visibility: visible;
@@ -437,20 +419,18 @@ header > .main-visual {
 }
 
 @media screen and (max-width: 600px) {
-  /* common use */
-  .mirei-shigemori,
-  .news {
-    margin: 58px auto 0;
-  }
   /* class="history" */
   main .history > p {
     padding: 45px 14px;
-    line-height: 1.8;
-    text-align: left;
+    font-size: 13.5px;
+    line-height: 2;
+    text-align: justify;
+  }
+  main .history > p .for-pc {
+    display: none;
   }
   /* class="gallery" */
-  .gallery,
-  .mirei-shigemori {
+  .gallery {
     padding: 0 15px;
   }
   .gallery .frame {
@@ -459,30 +439,64 @@ header > .main-visual {
   .gallery li {
     min-width: 40.5vw;
   }
+  /* class="mirei-shigemori" */
   .mirei-shigemori {
     max-width: 100%;
+    margin: 58px auto 0;
+    padding: 0 15px;
   }
-  .news,
+  .mirei-shigemori dt {
+    font-size: 18.5px;
+    font-weight: 900;
+  }
+  .mirei-shigemori dd {
+    font-size: 14px;
+  }
+  /* class="news"*/
+  .news {
+    margin: 65px auto 0;
+    padding: 0 35px;
+  }
+  .news li {
+    margin-bottom: 17px;
+    padding-bottom: 17px;
+  }
+  .news h2 {
+    margin-bottom: 45px;
+  }
+  .news .date {
+    font-size: 13.5px;
+  }
+  .news .contents {
+    font-size: 14.5px;
+  }
+  /* class="archive"*/
   .archive {
-    padding: 0 30px;
+    padding: 0 35px;
+    margin-top: 70px;
   }
-  .news .wrapper > ul > li:first-of-type,
-  .archive .wrapper > ul li:nth-of-type(2) {
-    margin-bottom: 0.6em;
+  .archive h3 {
+    padding-left: 0;
   }
-  .news .wrapper > ul > li:last-of-type,
-  .archive .wrapper > ul li:last-of-type {
+  .archive .slide-frame ul {
+    gap: 8px;
+  }
+  .archive .slide-frame ul li {
+    min-width: 34vw;
+    aspect-ratio: 1/3;
+  }
+  .archive .slide-frame ul li .frame {
+    height: 34vw;
+  }
+  .archive .slide-frame ul li .date {
+    margin-bottom: 0.3em;
+    font-size: 13px;
+    line-height: 1.3;
+    white-space: normal;
+  }
+  .archive .slide-frame ul li .contents {
     font-size: 15px;
-  }
-  .archive .wrapper {
-    min-width: 38vw;
-    aspect-ratio: 1/2;
-  }
-  .archive .slide-frame > ul {
-    gap: 10px;
-  }
-  .archive .wrapper > ul li:first-of-type {
-    height: 38vw;
+    font-weight: 300;
   }
 }
 /* //////////////////// end<= main */
@@ -491,7 +505,7 @@ footer {
   margin-top: 100px;
   padding-top: 50px;
   text-align: center;
-  border-top: 1px solid #fff;
+  border-top: 1px solid rgb(255, 255, 255);
 }
 footer.active {
   transform: translateY(0);
@@ -525,20 +539,20 @@ footer p.map a {
   padding: 7px 85px;
   font-size: 12px;
   line-height: 1em;
-  border: 1px solid #fff;
+  border: 1px solid rgb(255, 255, 255);
   border-radius: 13px;
   transition: 0.3s;
 }
 footer p.map a:hover {
   color: #333;
-  background-color: #fff;
+  background-color: rgb(255, 255, 255);
 }
 footer a[href^=tel] {
   display: inline-block;
   position: relative;
   margin-top: 15px;
   line-height: 1em;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid rgb(255, 255, 255);
 }
 footer a[href^=tel]::before {
   position: absolute;
@@ -557,7 +571,7 @@ footer .footer-nav {
   margin: 60px auto 0;
   padding: 60px 10px 60px 0;
   color: #333;
-  background-color: #fff;
+  background-color: rgb(255, 255, 255);
 }
 footer .footer-nav .first-nav {
   flex: 1;
@@ -603,22 +617,40 @@ footer .footer-nav .second-nav .twitter-time-line {
   footer {
     margin-top: 50px;
   }
-  .footer-nav {
-    padding: 30px;
+  footer .frame {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
   }
-  .footer-nav > ul > li:first-of-type {
-    margin-right: 0;
+  footer p {
+    font-size: 12.5px;
   }
-  /* .footer-nav > ul > li:nth-of-type(n+2) {} */
+  footer p > small {
+    font-size: 11.5px;
+  }
+  footer p:nth-of-type(3) {
+    margin-bottom: 8px;
+  }
+  footer p.map a {
+    padding: 7px 120px;
+  }
+  footer a[href^=tel] {
+    margin-top: 10px;
+  }
+  footer .footer-nav {
+    padding: 35px 0;
+  }
+  footer .footer-nav .first-nav {
+    gap: 55px;
+  }
+  footer .footer-nav .first-nav a::before {
+    font-size: 35px;
+  }
+  footer .footer-nav .first-nav a:nth-of-type(3)::before {
+    font-size: 30px;
+  }
   footer .footer-nav .second-nav {
-    width: 100%;
     display: none;
-  }
-  .footer-nav > ul > li > ul > li + li {
-    margin-left: 1rem;
-  }
-  .fa-brands {
-    font-size: 2.5rem;
   }
 }
 /* //////////////////// end <= footer *//*# sourceMappingURL=style.css.map */
