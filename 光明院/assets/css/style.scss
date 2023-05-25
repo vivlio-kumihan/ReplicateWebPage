@@ -20,6 +20,13 @@ html {
   scroll-margin-top: 45px;
 }
 
+.animation-target {
+  transition: .5s;
+  transform: translateY(140px);
+  visibility: hidden;
+  opacity: 0;
+}
+
 body {
   font-family: 'Noto Serif JP', serif;
   color: $color-white;
@@ -47,12 +54,6 @@ main {
   }
   a[href^="tel"] {
     display: block;
-  }
-  .animation-target {
-    transition: .5s;
-    transform: translateY(140px);
-    visibility: hidden;
-    opacity: 0;
   }
 }
 /* //////////////////// end <= 全体 */
@@ -224,7 +225,7 @@ header {
       left: 0;
       width: 100%;
       height: 100vh;
-      background-color: rgba(50, 50, 50, 0.8);dark grey Light gray
+      background-color: rgba(50, 50, 50, 0.8);
       z-index: 2;
       transform: translateY(150px);
       transition: .5s;
@@ -291,21 +292,24 @@ header {
 
 /* class="mirei-shigemori" */
 .mirei-shigemori {
-  dt
-  .mirei-shigemori dd {
-    font-size: 15px;
-    font-weight: 300;
-    line-height: 2;
-  }
-  dd {
-    .active {
+  dt {
+    &.active {
       transform: translateY(0);
       visibility: visible;
       opacity: 1;
     }
   }
-
-} 
+  dd {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 2;
+    &.active {
+      transform: translateY(0);
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
 
 /* class="gallery"*/
 .gallery,
@@ -331,21 +335,25 @@ header {
       opacity: 1;
     }
   }
-  .slide-frame img {
-    width: 100%;
+  .slide-frame {
+    img {
+      width: 100%;
+    }
   }
 }
 
-.slide-frame {
-  max-width: 100vw;
-  margin: 10px 0;
-  transition: 1s;
-  transform: translateX(100%);
-  overflow: hidden;
-  &.active {
-    transform: translateX(0);
-    visibility: visible;
-    opacity: 1;
+.gallery, .archive {
+  .slide-frame {
+    max-width: 100vw;
+    margin: 10px 0;
+    transition: 1s;
+    transform: translateX(100%);
+    overflow: hidden;
+    &.active {
+      transform: translateX(0);
+      visibility: visible;
+      opacity: 1;
+    }
   }
 }
 
