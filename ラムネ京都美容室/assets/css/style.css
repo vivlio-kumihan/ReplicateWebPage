@@ -132,8 +132,17 @@ header .main-nav ul li {
   line-height: 1;
   text-transform: uppercase;
 }
+header .main-nav ul li a {
+  transition: 0.3s;
+}
+header .main-nav ul li a:hover {
+  color: #4BBE92;
+}
 header .main-nav ul li .fa-brands {
   font-size: 28px;
+}
+header .main-nav ul li .fa-brands:hover {
+  color: #3C3835;
 }
 header .main-nav ul:last-of-type {
   margin-top: auto;
