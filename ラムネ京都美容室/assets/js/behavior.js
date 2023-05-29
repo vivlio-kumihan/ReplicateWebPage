@@ -1,28 +1,46 @@
 ////////////
 // gsap
-const scrollTriggers = document.querySelectorAll(".scroll-trigger")
-scrollTriggers.forEach(elem => {
-  gsap.from(elem, .5, {
+// const stGadeIn = document.querySelectorAll(".scroll-trigger.fade-in")
+// console.log(stGadeIn)
+// stGadeIn.forEach(elem => {
+  //   gsap.from(elem, .5, {
+    //     opacity: 0,
+    //     scale: .5,
+    //     ease: "power1.easeInOut",
+    //     scrollTrigger: {
+      //       trigger: elem,
+      //       start: "top 80%",
+      //       end: "50% 70%",
+      //       markers: true,
+      //       scaleX: 0,
+      //       scrub: .5,
+      //       // 一度アニメーションしたら終わり
+      //       // once: true
+      //     }
+      //   })
+      // })
+      
+// const scrollTriggers = document.querySelectorAll(".scroll-trigger")
+const stGadeIn = document.querySelectorAll(".fade-in")
+stGadeIn.forEach(elem => {
+  gsap.from(elem, 2, {
     opacity: 0,
-    y: 20,
-    scale: 0.7,
-    ease: "back",
     scrollTrigger: {
       trigger: elem,
       start: "top 80%",
-      end: "50% 70%",
+      end: "50% 80%",
       markers: true,
+      opacity: 1,
       scrub: .5,
       // 一度アニメーションしたら終わり
       // once: true
     }
   })
 })
-
-// const scrollTriggers = document.querySelectorAll(".scroll-trigger")
-// scrollTriggers.forEach(elem => {
+// const stGadeIn = document.querySelectorAll(".fade-in")
+// stGadeIn.forEach(elem => {
 //   gsap.from(elem, .5, {
-//     opacity: 0,
+//     opacity: 1,
 //     y: 20,
 //     scale: 0.7,
 //     ease: "back",

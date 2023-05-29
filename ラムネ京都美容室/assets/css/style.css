@@ -289,13 +289,24 @@ main section.about {
 .about .container .salon-vibe .visual:last-of-type {
   flex-direction: row-reverse;
 }
-.about .container .salon-vibe .visual video {
+.about .container .salon-vibe .visual .frame {
+  position: relative;
   overflow: hidden;
   flex: 1.55;
   aspect-ratio: 4/3;
   -o-object-fit: cover;
      object-fit: cover;
-  background-color: aliceblue;
+}
+.about .container .salon-vibe .visual .frame::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-color: #fff;
+  opacity: 0.9;
+  z-index: 1;
 }
 .about .container .salon-vibe .visual figcaption {
   flex: 1;
