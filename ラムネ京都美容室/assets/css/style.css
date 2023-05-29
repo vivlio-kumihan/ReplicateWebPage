@@ -232,6 +232,7 @@ main section .container .contents-title {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   counter-increment: section-title-num;
+  z-index: 5;
 }
 main section .container .contents-title::before {
   position: absolute;
@@ -289,7 +290,7 @@ main section.about {
 .about .container .salon-vibe .visual:last-of-type {
   flex-direction: row-reverse;
 }
-.about .container .salon-vibe .visual .video-wrapper {
+.about .container .salon-vibe .visual .media-wrapper {
   position: relative;
   overflow: hidden;
   flex: 1.55;
@@ -297,14 +298,15 @@ main section.about {
   -o-object-fit: cover;
      object-fit: cover;
 }
-.about .container .salon-vibe .visual .video-wrapper .curtains {
+.about .container .salon-vibe .visual .media-wrapper .curtains {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 105%;
   content: "";
   background-color: #fff;
+  z-index: 1;
 }
 .about .container .salon-vibe .visual figcaption {
   flex: 1;
@@ -344,11 +346,22 @@ main section.about {
 .about .container .access dl .dl-container:last-of-type {
   border-bottom: none;
 }
-.about .container .visual.map {
+.about .container .visual.map .media-wrapper {
+  position: relative;
   margin-top: 80px;
   aspect-ratio: 4/1.5;
 }
-.about .container .visual.map iframe {
+.about .container .visual.map .media-wrapper .curtains {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 105%;
+  content: "";
+  background-color: #fff;
+  z-index: 1;
+}
+.about .container .visual.map .media-wrapper iframe {
   width: 100%;
   height: 100%;
 }
@@ -398,6 +411,16 @@ main section.about {
   opacity: 0.6;
 }
 
+.menu .media-wrapper .curtains {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 105%;
+  content: "";
+  background-color: #fff;
+  z-index: 1;
+}
 .menu dl {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -437,12 +460,24 @@ main section.about {
   display: flex;
   align-items: center;
 }
-.recruit .container .join-our-team .visual video {
+.recruit .container .join-our-team .visual .media-wrapper {
+  position: relative;
+  overflow: hidden;
   overflow: hidden;
   flex: 1.55;
   aspect-ratio: 4/3;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.recruit .container .join-our-team .visual .media-wrapper .curtains {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 105%;
+  content: "";
+  background-color: #fff;
+  z-index: 1;
 }
 .recruit .container .join-our-team .visual figcaption {
   flex: 1;

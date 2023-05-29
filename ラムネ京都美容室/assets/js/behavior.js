@@ -1,16 +1,31 @@
 ////////////
 // gsap
 
+const listItems = Array.from(document.getElementById("one-after-another").children)
+console.log(listItems)
+listItems.forEach((elem, idx) => {
+  gsap.from(elem, 1,{
+    y: 100,
+    opacity: 0,
+    delay: idx * 0.3,
+    scrollTrigger: {
+      trigger: elem,
+      start: 'top 80%',
+      end: 'bottom 80%',
+      markers: true,
+      // scrub: .5,
+    },
+  })
+})
+
 // .curtains
 const curtains = document.querySelectorAll(".curtains")
 console.log(curtains)
 curtains.forEach(elem => {
-  gsap.to(elem, {
-    // opacity: 1,
-    // scaleX: 0,
-    x: -700,
+  gsap.to(elem, 5, {
+    x: -1000,
     transformOrigin: "left top",
-    ease: "power1.easeInOut",
+    ease: "power1.easeIn",
     scrollTrigger: {
       trigger: elem,
       start: "top 50%",
@@ -18,7 +33,7 @@ curtains.forEach(elem => {
       markers: true,
       scrub: .5,
       // 一度アニメーションしたら終わり
-      once: true
+      // once: true
     }
   })
 })     
@@ -36,7 +51,7 @@ stGadeIn.forEach(elem => {
       opacity: 1,
       scrub: .5,
       // 一度アニメーションしたら終わり
-      once: true
+      // once: true
     }
   })
 })

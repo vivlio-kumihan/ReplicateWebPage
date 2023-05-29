@@ -64,6 +64,17 @@
   }
 }
 
+@mixin scroll-trigger-curtains {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 105%;
+  content: "";
+  background-color: #fff;
+  z-index: 1;
+}
+
 @keyframes fade-out {
   0% {}
   100% {
@@ -288,6 +299,7 @@ main {
         letter-spacing: .1em;
         text-transform: uppercase;
         counter-increment: section-title-num;
+        z-index: 5;
         &::before {
           position: absolute;
           top: -60px;
@@ -329,11 +341,6 @@ main {
         right: -20px;
         @include caption-with-visual;
         font-size: 11px;
-        // writing-mode: vertical-rl;
-        // font-family: 'Lato', sans-serif;
-        // font-size: 11px;
-        // font-weight: 900;
-        // font-style: italic;
       }
       p {
         margin-top: 20px;
@@ -355,20 +362,14 @@ main {
         &:last-of-type {
           flex-direction: row-reverse;
         }
-        .video-wrapper {
+        .media-wrapper {
           position: relative;
           overflow: hidden;
           flex: 1.55;
           aspect-ratio: 4/3;
           object-fit: cover;
           .curtains {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            content: "";
-            background-color: #fff;
+            @include scroll-trigger-curtains;
           }
         }
         figcaption {
@@ -402,11 +403,17 @@ main {
       }
     }
     .visual.map {
-      margin-top: 80px;
-      aspect-ratio: 4/1.5;
-      iframe {
-        width: 100%;
-        height: 100%;
+      .media-wrapper {
+        position: relative;
+        margin-top: 80px;
+        aspect-ratio: 4/1.5;
+        .curtains {
+          @include scroll-trigger-curtains;
+        }
+        iframe {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }
@@ -458,6 +465,11 @@ main {
 }
 
 .menu {
+  .media-wrapper {
+    .curtains {
+      @include scroll-trigger-curtains;
+    }
+  }
   dl {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -491,11 +503,16 @@ main {
       .visual {
         display: flex;
         align-items: center;
-        video {
+        .media-wrapper {
+          position: relative;
+          overflow: hidden;
           overflow: hidden;
           flex: 1.55;
           aspect-ratio: 4/3;
           object-fit: cover;
+          .curtains {
+            @include scroll-trigger-curtains;
+          }
         }
         figcaption {
           flex: 1;
