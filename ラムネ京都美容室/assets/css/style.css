@@ -289,7 +289,7 @@ main section.about {
 .about .container .salon-vibe .visual:last-of-type {
   flex-direction: row-reverse;
 }
-.about .container .salon-vibe .visual .frame {
+.about .container .salon-vibe .visual .video-wrapper {
   position: relative;
   overflow: hidden;
   flex: 1.55;
@@ -297,7 +297,7 @@ main section.about {
   -o-object-fit: cover;
      object-fit: cover;
 }
-.about .container .salon-vibe .visual .frame::after {
+.about .container .salon-vibe .visual .video-wrapper .curtains {
   position: absolute;
   top: 0;
   left: 0;
@@ -305,8 +305,6 @@ main section.about {
   height: 100%;
   content: "";
   background-color: #fff;
-  opacity: 0.9;
-  z-index: 1;
 }
 .about .container .salon-vibe .visual figcaption {
   flex: 1;

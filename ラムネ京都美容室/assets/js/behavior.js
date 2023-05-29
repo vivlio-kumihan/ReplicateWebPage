@@ -1,44 +1,48 @@
 ////////////
 // gsap
-// const stGadeIn = document.querySelectorAll(".scroll-trigger.fade-in")
-// console.log(stGadeIn)
-// stGadeIn.forEach(elem => {
-  //   gsap.from(elem, .5, {
-    //     opacity: 0,
-    //     scale: .5,
-    //     ease: "power1.easeInOut",
-    //     scrollTrigger: {
-      //       trigger: elem,
-      //       start: "top 80%",
-      //       end: "50% 70%",
-      //       markers: true,
-      //       scaleX: 0,
-      //       scrub: .5,
-      //       // 一度アニメーションしたら終わり
-      //       // once: true
-      //     }
-      //   })
-      // })
-      
-// const scrollTriggers = document.querySelectorAll(".scroll-trigger")
+
+// .curtains
+const curtains = document.querySelectorAll(".curtains")
+console.log(curtains)
+curtains.forEach(elem => {
+  gsap.to(elem, {
+    // opacity: 1,
+    // scaleX: 0,
+    x: -700,
+    transformOrigin: "left top",
+    ease: "power1.easeInOut",
+    scrollTrigger: {
+      trigger: elem,
+      start: "top 50%",
+      end: "50% 50%",
+      markers: true,
+      scrub: .5,
+      // 一度アニメーションしたら終わり
+      once: true
+    }
+  })
+})     
+
+// .fade-in
 const stGadeIn = document.querySelectorAll(".fade-in")
 stGadeIn.forEach(elem => {
-  gsap.from(elem, 2, {
+  gsap.from(elem, .5, {
     opacity: 0,
     scrollTrigger: {
       trigger: elem,
       start: "top 80%",
-      end: "50% 80%",
+      end: "50% 50%",
       markers: true,
       opacity: 1,
       scrub: .5,
       // 一度アニメーションしたら終わり
-      // once: true
+      once: true
     }
   })
 })
-// const stGadeIn = document.querySelectorAll(".fade-in")
-// stGadeIn.forEach(elem => {
+
+// const scrollTrigger = document.querySelectorAll(".scroll-trigger")
+// scrollTrigger.forEach(elem => {
 //   gsap.from(elem, .5, {
 //     opacity: 1,
 //     y: 20,
