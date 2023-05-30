@@ -297,7 +297,7 @@ header {
         &.play {
           // display: none;
           &.active {
-            display: block;
+            // display: block;
             &::before {
               content: "\f028";
               font-family: "FontAwesome";
@@ -306,8 +306,8 @@ header {
         }
         &.stop {
           // display: none;
-          &.acive {
-            display: block;
+          &.active {
+            // display: block;
             &::before {
               content: "\f6a9";
               font-family: "FontAwesome";
