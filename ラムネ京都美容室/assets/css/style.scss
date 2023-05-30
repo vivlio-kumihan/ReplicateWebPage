@@ -260,6 +260,7 @@ header {
     display: flex;
     flex-direction: row-reverse;
     align-items: flex-end;
+    position: relative;
     video {
       flex: .73;
       width: min(400px, 100%);
@@ -276,7 +277,49 @@ header {
       line-height: 2.5;
       text-align: right;
     }
+    .bgm-play-stop {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      width: 36px;
+      height: 36px;
+      background-color: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+      .icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 16px;
+        color: $color-black;
+        &.play {
+          // display: none;
+          &.active {
+            display: block;
+            &::before {
+              content: "\f028";
+              font-family: "FontAwesome";
+            }
+          }
+        }
+        &.stop {
+          // display: none;
+          &.acive {
+            display: block;
+            &::before {
+              content: "\f6a9";
+              font-family: "FontAwesome";
+            }
+          }
+        }
+      }
+    }
   }
+}
+.active {
+  display: block;
 }
 
 // for section title
@@ -367,9 +410,14 @@ main {
           overflow: hidden;
           flex: 1.55;
           aspect-ratio: 4/3;
+          width: 100%;
+          height: 100%;
           object-fit: cover;
           .curtains {
             @include scroll-trigger-curtains;
+          }
+          video {
+            height: 100%;
           }
         }
         figcaption {
@@ -469,6 +517,11 @@ main {
     .curtains {
       @include scroll-trigger-curtains;
     }
+    img {
+      // どうしたらいいのか？
+      // width: 100%;
+      // height: 100%
+    }
   }
   dl {
     display: grid;
@@ -513,6 +566,9 @@ main {
           .curtains {
             @include scroll-trigger-curtains;
           }
+          video {
+            height: 100%;
+          }
         }
         figcaption {
           flex: 1;
@@ -555,6 +611,7 @@ footer {
     overflow: hidden;
     video {
       object-fit: cover;
+      // height: 100%;
     }
     figcaption {
       position: absolute;

@@ -107,7 +107,7 @@ items.forEach(elems => {
         trigger: elem,
         start: 'top 80%',
         end: 'bottom 80%',
-        markers: true,
+        // markers: true,
         // scrubすると次々出現の効果がなくなる。なぜ？
         // scrub: .5,
       },
@@ -127,7 +127,7 @@ listItems.forEach((elem, idx) => {
       trigger: elem,
       start: 'top 80%',
       end: 'bottom 80%',
-      markers: true,
+      // markers: true,
       // scrubすると次々出現の効果がなくなる。なぜ？
       // scrub: .5,
     },
@@ -138,14 +138,14 @@ listItems.forEach((elem, idx) => {
 const curtains = document.querySelectorAll(".curtains")
 curtains.forEach(elem => {
   gsap.to(elem, 1, {
-    x: -1000,
+    x: -2000,
     transformOrigin: "left top",
     ease: "power1.easeIn",
     scrollTrigger: {
       trigger: elem,
       start: "top 50%",
       end: "50% 50%",
-      markers: true,
+      // markers: true,
       // scrub: .5,
       // 一度アニメーションしたら終わり
       // once: true
@@ -162,7 +162,7 @@ stGadeIn.forEach(elem => {
       trigger: elem,
       start: "top 80%",
       end: "50% 50%",
-      markers: true,
+      // markers: true,
       opacity: 1,
       // scrub: .5,
       // 一度アニメーションしたら終わり
@@ -189,6 +189,31 @@ stGadeIn.forEach(elem => {
 //     }
 //   })
 // })
+
+
+////////////
+// < div class="bgm-play-stop" >
+const bgmPlayStop = document.getElementById("bgm-play-stop")
+const playIcon = document.getElementById("play-icon");
+const stopIcon = document.getElementById("stop-icon");
+const bgMusic = document.getElementById("bg-music");
+
+bgmPlayStop.addEventListener("click", () => {
+  if (bgMusic.paused) {
+    bgMusic.play();
+    playIcon.classList.remove("active")
+    stopIcon.classList.add("active")
+  } else {
+    bgMusic.pause();
+    playIcon.classList.add("active")
+    stopIcon.classList.remove("active")
+    // これもだめ
+    // audio.currentTime = 0
+  }
+})
+
+
+
 
 // ////////////
 // // 属性『letter-spacing: .5em;』を最後の文字だけ取り去る
