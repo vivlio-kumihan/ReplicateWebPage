@@ -75,15 +75,6 @@
   z-index: 1;
 }
 
-@keyframes fade-out {
-  0% {}
-  100% {
-    visibility: hidden;
-    opacity: 0;
-  }
-  
-}
-
 // colors
 $color-black: #3C3835;
 $color-gray: #DEDEDE;
@@ -101,14 +92,17 @@ body {
   color: $color-black;
 }
 
-#blog,
-#about,
-#staff,
-#menu,
-#style,
-#recruit {
+:target {
   scroll-margin-top: 10px;
 }
+// #blog,
+// #about,
+// #staff,
+// #menu,
+// #style,
+// #recruit {
+//   scroll-margin-top: 10px;
+// }
 
 .container {
   position: relative;
@@ -190,6 +184,14 @@ header {
       transform: translate(-50%, -50%);
       width: 100px;
       height: 100px;
+    }
+    @keyframes fade-out {
+      0% {}
+
+      100% {
+        visibility: hidden;
+        opacity: 0;
+      }
     }
     img {
       object-fit: contain;

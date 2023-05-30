@@ -1,32 +1,7 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;900&display=swap');
 
-@keyframes fade-out {
-  0% {
-    visibility: visible;
-    opacity: 1;
-  }
-  100% {
-    visibility: hidden;
-    opacity: 0;
-  }
-}
-
-@keyframes fade-in {
-  0% {
-    visibility: hidden;
-    opacity: 0;
-  }
-  100% {
-    visibility: visible;
-    opacity: 1;
-  }
-}
-
-$color-black: rgb(0, 0, 0);
-$color-darkGray: rgba(55, 45, 0, 1);
-$color-lightGray: rgba(50, 50, 50, 0.8);
-$color-white: rgb(255, 255, 255);
+$color-white: #fff;
 
 /* //////////////////// 全体 */
 html {
@@ -36,9 +11,7 @@ html {
 }
 
 /* 戻る位置の調整 */
-.mirei-shigemori,
-.news,
-.archive {
+:target {
   scroll-margin-top: 45px;
 }
 
@@ -52,7 +25,7 @@ html {
 body {
   font-family: 'Noto Serif JP', serif;
   color: $color-white;
-  background-color: $color-black;
+  background-color: #333;
 }
 
 main {
@@ -128,8 +101,14 @@ header {
     z-index: 4;
     visibility: visible;
     opacity: 1;
-    // 3秒後に3秒かけて消える。
+    // 2秒後に4秒かけて消える。
     animation: fade-out 4s 2s forwards;
+    @keyframes fade-out {
+      100% {
+        visibility: hidden;
+        opacity: 0;
+      }
+    }
     &.open {
       visibility: hidden;
       opacity: 0;
@@ -146,6 +125,16 @@ header {
     opacity: 0;
     // 1秒後に5秒かけて現れる。
     animation: fade-in 5.3s .7s forwards;
+    @keyframes fade-in {
+      0% {
+        visibility: hidden;
+        opacity: 0;
+      }
+      100% {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
     img {
       width: 100%;
     }
@@ -172,6 +161,7 @@ header {
       z-index: 4;
       div {
         position: absolute;
+        left: 50%;
         width: 28px;
         height: 3px;
         background-color: $color-white;
@@ -180,25 +170,25 @@ header {
         opacity: 1;
         &:nth-of-type(1) {
           top: 22%;
-          left: 50%;
+          
           transform: translateX(-50%)
         }
         &:nth-of-type(2) {
           top: 50%;
-          left: 50%;
+          // left: 50%;
           transform: translate(-50%, -50%);
         }
         &:nth-of-type(3) {
           top: 70%;
-          left: 50%;
+          // left: 50%;
           transform: translateX(-50%);
         }
       }
       &.active {
         div {
+          top: 50%;
+          left: 50%;
           &:nth-of-type(1) {
-            top: 50%;
-            left: 50%;
             transform: translateX(-50%) rotate(45deg);
           }
           &:nth-of-type(2) {
@@ -206,8 +196,6 @@ header {
             opacity: 0;
           }
           &:nth-of-type(3) {
-            top: 50%;
-            left: 50%;
             transform: translateX(-50%) rotate(-45deg);
           }
         }
@@ -219,7 +207,7 @@ header {
       left: 0;
       width: 100%;
       height: 100vh;
-      background-color: $color-lightGray;
+      background-color: rgba(50, 50, 50, 0.8);
       z-index: 2;
       transform: translateY(150px);
       transition: .5s;
@@ -253,7 +241,7 @@ header {
       li {
         font-size: 1.2rem;
         letter-spacing: .5rem;
-        &+li {
+        + li {
           margin-top: 10px;
         }
       }
@@ -365,7 +353,7 @@ header {
   li {
     min-width: 30vw;
     aspect-ratio: 1;
-    border: 1px solid $color-darkGray;
+    border: 1px solid #372d00;
     overflow: hidden;
     z-index: 2;
   }

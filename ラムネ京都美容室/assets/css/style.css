@@ -16,12 +16,6 @@
 /* Lato Italic */
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,100;1,300;1,400;1,700;1,900&display=swap");
 /* font-family: 'Lato', sans-serif; */
-@keyframes fade-out {
-  100% {
-    visibility: hidden;
-    opacity: 0;
-  }
-}
 /* //////////////////// 全体 */
 html {
   /* 本文: 14px */
@@ -34,12 +28,7 @@ body {
   color: #3C3835;
 }
 
-#blog,
-#about,
-#staff,
-#menu,
-#style,
-#recruit {
+:target {
   scroll-margin-top: 10px;
 }
 
@@ -123,6 +112,12 @@ header .loading .frame.gif-logo {
   transform: translate(-50%, -50%);
   width: 100px;
   height: 100px;
+}
+@keyframes fade-out {
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
 }
 header .loading img {
   -o-object-fit: contain;

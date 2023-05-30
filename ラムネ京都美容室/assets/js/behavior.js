@@ -201,12 +201,18 @@ const bgMusic = document.getElementById("bg-music");
 bgmPlayStop.addEventListener("click", () => {
   if (bgMusic.paused) {
     bgMusic.play();
-    playIcon.classList.remove("active")
-    stopIcon.classList.add("active")
+    bgmPlayStop.classList.remove("fa-volume-high")
+    bgmPlayStop.classList.add("fa-volume-xmark")
+    // playIcon.classList.remove("active")
+    // stopIcon.classList.add("active")
   } else {
     bgMusic.pause();
-    playIcon.classList.add("active")
-    stopIcon.classList.remove("active")
+    bgmPlayStop.classList.add("fa-volume-high")
+    bgmPlayStop.classList.remove
+    ("fa-volume-xmark")
+
+    // playIcon.classList.add("active")
+    // stopIcon.classList.remove("active")
     // これもだめ
     // audio.currentTime = 0
   }
