@@ -65,14 +65,16 @@
 }
 
 @mixin scroll-trigger-curtains {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 105%;
-  content: "";
-  background-color: #fff;
-  z-index: 1;
+  .curtains {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background-color: #fff;
+    z-index: 1;
+  }
 }
 
 // colors
@@ -128,14 +130,6 @@ figcaption {
   }
 }
 
-.visual {
-  width: 100%;
-  img {
-    width: 100%;
-    object-fit: cover;
-  }
-}
-
 .view-more {
   position: relative;
   text-align: center;
@@ -186,8 +180,6 @@ header {
       height: 100px;
     }
     @keyframes fade-out {
-      0% {}
-
       100% {
         visibility: hidden;
         opacity: 0;
@@ -268,9 +260,6 @@ header {
       width: min(400px, 100%);
       height: 100vh;
       object-fit: cover;
-      source {
-        height: 100%;
-      }
     }
     figcaption {
       flex: .27;
@@ -285,38 +274,11 @@ header {
       right: 30px;
       width: 36px;
       height: 36px;
+      padding: 8px 10px 8px 6px;
+      font-size: 20px;
       background-color: #fff;
       border-radius: 50%;
       cursor: pointer;
-      z-index: 10;
-      .icon {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 16px;
-        color: $color-black;
-        &.play {
-          // display: none;
-          &.active {
-            // display: block;
-            &::before {
-              content: "\f028";
-              font-family: "FontAwesome";
-            }
-          }
-        }
-        &.stop {
-          // display: none;
-          &.active {
-            // display: block;
-            &::before {
-              content: "\f6a9";
-              font-family: "FontAwesome";
-            }
-          }
-        }
-      }
     }
   }
 }
@@ -381,10 +343,10 @@ main {
         aspect-ratio: 1;
       }
       .date {
+        @include caption-with-visual;
         position: absolute;
         top: 0;
         right: -20px;
-        @include caption-with-visual;
         font-size: 11px;
       }
       p {
@@ -401,25 +363,21 @@ main {
 .about {
   .container {
     .salon-vibe {
-      .visual {
+      figure {
         display: flex;
         align-items: flex-end;
         &:last-of-type {
           flex-direction: row-reverse;
         }
         .media-wrapper {
+          @include scroll-trigger-curtains;
           position: relative;
-          overflow: hidden;
           flex: 1.55;
-          aspect-ratio: 4/3;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          .curtains {
-            @include scroll-trigger-curtains;
-          }
           video {
-            height: 100%;
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            overflow: hidden;
           }
         }
         figcaption {
@@ -452,17 +410,15 @@ main {
         }
       }
     }
-    .visual.map {
+    .map {
       .media-wrapper {
+        @include scroll-trigger-curtains;
         position: relative;
         margin-top: 80px;
+        width: 100%;
         aspect-ratio: 4/1.5;
-        .curtains {
-          @include scroll-trigger-curtains;
-        }
         iframe {
           width: 100%;
-          height: 100%;
         }
       }
     }
@@ -484,10 +440,10 @@ main {
     li {
       position: relative;
       .position {
+        @include caption-with-visual;
         position: absolute;
         top: 0;
         right: -25px;
-        @include caption-with-visual;
         font-size: 13px;
         font-weight: 700;
       }
@@ -516,14 +472,8 @@ main {
 
 .menu {
   .media-wrapper {
-    .curtains {
-      @include scroll-trigger-curtains;
-    }
-    img {
-      // どうしたらいいのか？
-      // width: 100%;
-      // height: 100%
-    }
+    @include scroll-trigger-curtains;
+    position: relative;
   }
   dl {
     display: grid;
@@ -555,22 +505,17 @@ main {
 .recruit {
   .container {
     .join-our-team {
-      .visual {
+      figure {
         display: flex;
         align-items: center;
         .media-wrapper {
-          position: relative;
-          overflow: hidden;
-          overflow: hidden;
           flex: 1.55;
+          position: relative;
+          width: 100%;
           aspect-ratio: 4/3;
           object-fit: cover;
-          .curtains {
-            @include scroll-trigger-curtains;
-          }
-          video {
-            height: 100%;
-          }
+          overflow: hidden;
+          @include scroll-trigger-curtains;
         }
         figcaption {
           flex: 1;
@@ -604,17 +549,16 @@ main {
   }
 }
 
+
+
 footer {
   margin-top: 200px;
   padding-right: 80px;
-  .visual {
+  video {
+    width: 100%;
     height: 50vh;
-    position: relative;
+    object-fit: cover;
     overflow: hidden;
-    video {
-      object-fit: cover;
-      // height: 100%;
-    }
     figcaption {
       position: absolute;
       bottom: 40px;
