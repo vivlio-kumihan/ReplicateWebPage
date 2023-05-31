@@ -201,12 +201,19 @@ oneAfterAnother.forEach(elem => {
 document.querySelectorAll('.media-wrapper').forEach(elem => {
   elem.insertAdjacentHTML('afterbegin', '<div class="curtains"></div>')
 })
+// here!!!!!!!!!
+document.querySelectorAll('.view-more a').forEach(elem => {
+  elem.insertAdjacentHTML('afterbegin', '<div class="view-more-curtains"></div>')
+  elem.insertAdjacentHTML('afterbegin', '<div class="over-green"><div class="frame">VIEW MORE</div></div>')
+})
 
 ////////////
 // .curtains　カーテン効果
-const curtains = document.querySelectorAll(".curtains")
+const curtains = Array.from(document.querySelectorAll(".curtains"))
+const viewMoreCurtains = Array.from(document.querySelectorAll(".view-more-curtains"))
+const curtainsAll = curtains.concat(viewMoreCurtains)
 
-curtains.forEach(elem => {
+curtainsAll.forEach(elem => {
   gsap.to(elem, 1, {
     // 要素をスクリーン外に隠したい場合に使う『left or right: 100％;』は『''』で囲む。
     // これでそれぞれの幅に対して『duration: 1;』で適宜効果がついていく。
@@ -222,6 +229,45 @@ curtains.forEach(elem => {
   })
 })
 
+const viewMore = document.querySelectorAll(".view-more")
+const overGreen = document.querySelectorAll('.over-green')
+
+viewMore.forEach(elem => {
+  elem.addEventListener('mouseenter', () => {
+    overGreen.forEach(el => {
+      gsap.fromTo(el, .3,
+        {
+          // left, rightどちらも同じ動き。なぜ？
+          transformOrigin: 'top left',
+          width: 0,
+          opacity: 1
+        },
+        { width: '100%',
+        opacity: 1,
+      })
+    })
+  })
+  elem.addEventListener('mouseleave', () => {
+    overGreen.forEach(el => {
+      gsap.fromTo(el, .3,
+        // left, rightどちらも同じ動き。なぜ？
+        { transformOrigin: 'top left' },
+        { width: 0,
+          opacity: 1 })
+    })
+  })
+})
+
+// overGreen.forEach(elem => {
+//   gsap.to(elem, 1, {
+//     x: '-51.5%'
+//   })
+// })
+// document.querySelectorAll(".over-green").forEach(elem => {
+//   // elem.style.transform.translateX = "-100%"
+//   elem.style.transform = "translate(-100%, -100%)"
+//   // elem.style.transform = "translateX(-100%)"
+// })
 
 
 
