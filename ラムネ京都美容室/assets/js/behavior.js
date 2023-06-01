@@ -1,110 +1,6 @@
 ////////////
 // gsap
 
-
-////////////
-// 一文字ずつ現れる
-function splitText(className) {
-  const textElement = document.querySelector(className)
-  let htmlContent = textElement.innerHTML
-  let result = ""
-  htmlContent.split('<br>').forEach((part, index, array) => {
-    Array.from(part).forEach((char) => {
-      result += `<span>${char}</span>`
-    })
-    // 最後の部分以外はbrタグを追加
-    if (index < array.length - 1) {
-      result += '<br>'
-    }
-  })
-
-  textElement.innerHTML = result;
-}
-splitText('.per-char')
-
-// const text = "あいうえおかきくけこ";
-// const textContainer = document.getElementById("text-container");
-
-// // 文字を1文字ずつ<span>要素で囲む
-// const spannedText = Array.from(text).map(char => `<span>${char}</span>`).join("");
-
-// // <div>要素に<span>で囲まれたテキストを設定する
-// textContainer.innerHTML = spannedText;
-
-// // <span>要素のアニメーション
-// const spans = document.querySelectorAll("#text-container span");
-// gsap.from(spans, {
-//   opacity: 0,
-//   y: 20,
-//   duration: 0.5,
-//   stagger: 0.1, // 要素ごとの遅延
-// });
-
-// const para = document.querySelectorAll(".per-char")
-// para.forEach(elem => {
-//   // const spannedText1 = Array.from(elem.textContent).map(char => `<span>${char}</span>`).join("")
-//   const arr = elem.textContent.split("")
-//   console.log(arr)
-//   arr.forEach(char => {
-//     // console.log(char)
-//     if (char === " ") {
-//       console.log("<br>")
-//     } else {
-//       console.log(`${ elem }`)
-//     }
-//   })
-
-// const spannedText2 = arr.forEach(char => {
-//   if (char === "<br>") {
-//     return "<span><br></span>"
-//   } else {
-//     return `<span>${ elem }</span>`
-//   }
-// }).join("")
-
-// console.log(spannedText1)
-// console.log(spannedText2)
-
-// elem.innerHTML = spannedText
-// const spans = document.querySelectorAll(".pre-char span")
-// spans.forEach(elem => {
-//   gsap.from(elem, {
-//     opacity: 0,
-//     y: 20,
-//     duration: 0.5,
-//     stagger: 0.1, // 要素ごとの遅延
-//   })
-// })
-
-// console.log(spannedText)
-// // console.log(elem.textContent)
-// Array.from(elem.textContent).forEach((char, idx) => {
-//   gsap.from(char[idx], .5, {
-//     x: -20,
-//     opacity: 0,
-//     delay: idx * 0.25,
-//     ease: "power1.easeOut",
-//     scrollTrigger: {
-//       trigger: char[idx],
-//       start: "top 50%",
-//       // end: "bottom 50%",
-//       // scrub: .5
-//       markers: true,
-//     }
-//   })
-// })
-
-
-// const text = "あいうえおかきくけこ";
-// const textContainer = document.getElementById("text-container");
-
-// // 文字列を1文字ずつ<span>要素で囲む
-// const spannedText = Array.from(text).map(char => `<span>${char}</span>`).join("");
-
-// // <div>要素に<span>で囲まれたテキストを設定する
-// textContainer.innerHTML = spannedText;
-
-
 ////////////
 // one-after-another　次々に出現　横バージョン
 
@@ -157,7 +53,7 @@ oneAfterAnotherRow.forEach(elem => {
 // one-after-another　次々に出現
 const oneAfterAnother = document.querySelectorAll("#one-after-another")
 oneAfterAnother.forEach(elem => {
-  gsap.from(elem.children, 1,{
+  gsap.from(elem.children, 1, {
     y: 100,
     opacity: 0,
     stagger: .25,
@@ -224,7 +120,7 @@ curtainsAll.forEach(elem => {
     scrollTrigger: {
       trigger: elem,
       start: "top 80%",
-      markers: true,
+      // markers: true,
     }
   })
 })
@@ -258,36 +154,6 @@ viewMore.forEach(elem => {
   })
 })
 
-// overGreen.forEach(elem => {
-//   gsap.to(elem, 1, {
-//     x: '-51.5%'
-//   })
-// })
-// document.querySelectorAll(".over-green").forEach(elem => {
-//   // elem.style.transform.translateX = "-100%"
-//   elem.style.transform = "translate(-100%, -100%)"
-//   // elem.style.transform = "translateX(-100%)"
-// })
-
-
-
-
-
-// const curtains = document.querySelectorAll(".curtains");
-
-// curtains.forEach((curtain, index) => {
-//   gsap.to(curtain, {
-//     x: "-100%",
-//     transformOrigin: "left top",
-//     ease: "power1.easeOut",
-//     scrollTrigger: {
-//       trigger: curtain.parentElement,
-//       start: "top 80%",
-//       markers: true,
-//     },
-//   });
-// });
-
 
 ////////////
 // .fade-in　徐々に現れる
@@ -299,24 +165,133 @@ stGadeIn.forEach(elem => {
       trigger: elem,
       start: "top 80%",
       opacity: 1,
-      // markers: true,
+      markers: true,
     }
   })
 })
 
-// const scrollTrigger = document.querySelectorAll(".scroll-trigger")
-// scrollTrigger.forEach(elem => {
-//   gsap.from(elem, .5, {
-//     opacity: 1,
-//     y: 20,
-//     scale: 0.7,
-//     ease: "back",
-//     scrollTrigger: {
-//       trigger: elem,
-//       start: "top 80%",
-//       markers: true,
+////////////
+// 一文字ずつ現れる
+
+// ドキュメント上の該当文章を一文字ごとにバラバラにしていく。
+
+function splitText(className) {
+  // const textElements = document.querySelectorAll(className)
+  className.forEach(elem => {
+    let htmlContent = elem.innerHTML
+    let result = ""
+    htmlContent.split('<br>').forEach((part, index, array) => {
+      Array.from(part).forEach((char) => {
+        result += `<span>${char}</span>`
+      })
+      // 最後の部分以外はbrタグを追加
+      if (index < array.length - 1) {
+        result += '<br>'
+      }
+    })
+    elem.innerHTML = result
+  })
+}
+const preCharAll = document.querySelectorAll('.per-char')
+splitText(preCharAll)
+
+preCharAll.forEach(elem => {
+  gsap.from(elem.children, {
+    opacity: 0,
+    stagger: .05,
+    scrollTrigger: {
+      trigger: elem,
+      start: 'top 90%',
+      // markers: true
+    }
+  })
+})
+
+
+
+
+
+const models = Array.from(document.querySelectorAll("#style ul > .frame"))
+const previewModels = document.querySelector(".preview-model")
+
+const numberOfPeople = models.length;
+const groupSize = Math.ceil(numberOfPeople / 12);
+const divideGroup = [];
+
+Array.from({ length: groupSize }).forEach((_, i) => {
+  const start = i * 12;
+  const end = Math.min(start + 12, numberOfPeople);
+  divideGroup.push(models.slice(start, end));
+});
+
+// 最初のグループを表示させておく。
+const firstGroup = divideGroup.shift()
+firstGroup.forEach(elem => {
+  elem.style.display = 'block'
+  elem.style.visibility = 'visible'
+  elem.style.opacity = '1'
+})
+
+// クリックしたら次のグループを表示させる。
+previewModels.addEventListener('click', () => {
+  const nextGroup = divideGroup.shift()
+  nextGroup.forEach(elem => {
+    // elem.style.display = 'block'
+    elem.classList.add('models-fade-in')
+  })
+})
+
+// divideGroup.forEach((group, idx) => {
+//   if (idx === 0) {
+//     // group.forEach(elem => {
+//     //   elem.style.display = 'block'
+//     // })
+//   } else {
+//     group.forEach(elem => {
+//       elem.style.display = 'none'
+//     })
+//     previewModels.addEventListener('click', () => {
+//       // console.log(idx)
+//       // console.log(group)
+//       // divideGroup[idx].forEach(elem => {
+//       //   elem.style.display = 'block'
+//       // })
+//     })
+//   }
+// })
+
+// console.log(models)
+// console.log(models.slice[0, 12])
+
+// let visibleCount = 12; // 表示する要素の初期数
+// const increment = 12; // さらに表示する要素の数
+
+// 最初の12個の要素を表示
+// for (let i = 0; i < visibleCount; i++) {
+//   models[i].style.display = 'block';
+  // models[i].style.visivlity = 'visible'
+  // models[i].style.opacity = '1'
+// }
+
+// models.forEach((elem, idx) => {
+  
+// })
+
+
+// previewModels.addEventListener("click", () => {
+//   // 表示する要素の数を更新
+//   visibleCount += increment;
+
+//   // 表示する要素の数に応じて要素を表示または非表示にする
+//   for (let i = 0; i < models.length; i++) {
+//     if (i < visibleCount) {
+//       // gsap.fromTo()
+//       models[i].style.display = 'block'
+//       models[i].style.opacity = '1'
+//     } else {
+//       models[i].style.display = 'none'
 //     }
-//   })
+//   }
 // })
 
 
@@ -328,7 +303,7 @@ const stopIcon = document.getElementById("stop-icon")
 const bgMusic = document.getElementById("bg-music")
 let userAction = false
 
-bgmPlayStop.addEventListener("click", function(e) {
+bgmPlayStop.addEventListener("click", function() {
   if (bgMusic.paused) {
     bgMusic.play()
     this.classList.remove("fa-volume-high")

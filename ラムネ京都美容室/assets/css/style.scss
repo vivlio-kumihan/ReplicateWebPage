@@ -537,8 +537,37 @@ main {
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 10px;
+    .frame {
+      transition: .5;
+      display: none;
+    }
+    a {
+      pointer-events: none;
+    }
   }
 }
+
+#style .models-fade-in {
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  animation: models-fade-in 3s ease-in-out .5s forwards;
+}
+@keyframes models-fade-in {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  10% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
 
 .recruit {
   margin-top: 180px;
@@ -562,6 +591,7 @@ main {
           flex: 1;
           line-height: 2.2;
           padding: 50px;
+          z-index: 1;
           dl {
             margin-top: 45px;
             .dl-container {

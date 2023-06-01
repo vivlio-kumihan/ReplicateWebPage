@@ -501,7 +501,35 @@ main section .container .contents-title::after {
   grid-template-rows: repeat(2, 1fr);
   gap: 10px;
 }
+.style .visual .frame {
+  transition: 0.5;
+  display: none;
+}
+.style .visual a {
+  pointer-events: none;
+}
 
+#style .models-fade-in {
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  animation: models-fade-in 3s ease-in-out 0.5s forwards;
+}
+
+@keyframes models-fade-in {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  10% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
 .recruit {
   margin-top: 180px;
 }
@@ -534,6 +562,7 @@ main section .container .contents-title::after {
   flex: 1;
   line-height: 2.2;
   padding: 50px;
+  z-index: 1;
 }
 .recruit .container .join-our-team figure figcaption dl {
   margin-top: 45px;
