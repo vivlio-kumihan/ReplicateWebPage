@@ -1,5 +1,14 @@
 ////////////
-// gsap
+// ローディング・アニメーション
+function loaded() {
+  const loading = document.getElementById("loading")
+  loading.classList.remove("keep")
+}
+// ウィンドウを読み込んで2秒後には次に遷移する。
+window.addEventListener('load', () => {
+  setTimeout(loaded, 2000)
+})
+
 
 ////////////
 // one-after-another　次々に出現　横バージョン

@@ -16,7 +16,7 @@
 <body>
 
 <header>
-  <div class='loading'>
+  <div id="loading" class='loading keep'>
     <div class='frame gif-logo'><img src='./assets/img/loading.gif' alt='色が次々と変化するラムネ美容室のローディング画面用ロゴ'></div>
   </div>
   <div class='frame logo'><img src='./assets/img/logo.svg' alt='ラムネ美容室のロゴ'></div>
@@ -36,13 +36,12 @@
   </nav>
   <div class='container'>
     <figure class='visual'>
-      <video playsinline autoplay loop muted> 
+      <video  playsinline autoplay loop muted> 
         <source src='./assets/img/movie/main.mp4' type='video/mp4'>
       </video>
       <figcaption class='per-char'>前を通れば目を引く大きな扉。<br>一歩入れば遊び心のある、<br>かわいい店内が広がります。<br>感性広がる空間で<br>「似合わせ」を大切にした、<br>ヘアスタイルをお楽しみください。</figcaption>
-      <div id='bgm-play-stop' class='bgm-play-stop fa-solid fa-volume-high'>
-      </div>
-      <audio id='bg-music' src='./assets/music/you wont see me.mp3'></audio>
+      <div id='bgm-play-stop' class='bgm-play-stop fa-solid fa-volume-high'></div>
+      <audio id='bg-music' src='./assets/music/you-wont-see-me.mp3' loop></audio>
     </figure>
   </div>
 </header>
