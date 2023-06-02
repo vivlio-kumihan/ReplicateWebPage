@@ -144,7 +144,7 @@ figcaption {
   font-size: 15px;
   font-weight: 500;
   font-feature-settings: "palt";
-  letter-spacing: .2em;
+  letter-spacing: .1em;
 }
 
 .frame {
@@ -175,6 +175,9 @@ figcaption {
     white-space: nowrap;
     transition: .5s;
     border-bottom: 3px solid $color-black;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
@@ -323,7 +326,7 @@ main {
         letter-spacing: .1em;
         text-transform: uppercase;
         counter-increment: section-title-num;
-        z-index: 5;
+        z-index: 3;
         &::before {
           position: absolute;
           top: -60px;
@@ -535,13 +538,11 @@ main {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: 10px;
+    gap: 6px;
     .frame {
       transition: .5;
       display: none;
-    }
-    a {
-      pointer-events: none;
+      cursor: pointer;
     }
   }
 }
@@ -550,7 +551,7 @@ main {
   display: block;
   visibility: hidden;
   opacity: 0;
-  animation: models-fade-in 1.5s ease-in-out .5s forwards;
+  animation: models-fade-in 1s ease-in-out .3s forwards;
 }
 @keyframes models-fade-in {
   0% {
@@ -567,6 +568,85 @@ main {
   }
 }
 
+
+#style .style-fade-in {
+  visibility: hidden;
+  opacity: 0;
+  animation: style-fade-in 1s ease-in-out .3s forwards;
+}
+
+@keyframes style-fade-in {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+// スライダーのモーダル以下
+.styling-view-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(50, 50, 50, .9);
+  transition: .5s;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 5;
+  button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    &::before {
+      content: '\f00d';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      font-size: 20px;
+      color: #eee;
+    }
+  }
+  .swiper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    max-width: 640px;
+    // height: 854px;
+    width: 100%;
+    li {
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+// スライダーの周辺機器
+.swiper-button-prev,
+.swiper-button-next {
+  top: 60%;
+  mix-blend-mode: difference;
+  &::after {
+    content: '\f177';
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 20px;
+    color: #ddd;
+  }
+}
+.swiper-button-next {
+  &::after {
+    content: '\f178';
+  }
+}
 
 .recruit {
   margin-top: 180px;

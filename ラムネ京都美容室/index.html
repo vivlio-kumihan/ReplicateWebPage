@@ -7,10 +7,14 @@
   <title>traceWebPage | ラムネ美容室</title>
   <link rel='stylesheet' href='./assets/css/destyle.css'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
   <link rel='stylesheet' href='./assets/css/style.css'>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js'></script>  
   <script src='./assets/js/behavior.js' defer></script>
+
+  
 </head>
 
 <body>
@@ -41,7 +45,7 @@
       </video>
       <figcaption class='per-char'>前を通れば目を引く大きな扉。<br>一歩入れば遊び心のある、<br>かわいい店内が広がります。<br>感性広がる空間で<br>「似合わせ」を大切にした、<br>ヘアスタイルをお楽しみください。</figcaption>
       <div id='bgm-play-stop' class='bgm-play-stop fa-solid fa-volume-high'></div>
-      <audio id='bg-music' src='./assets/music/you-wont-see-me.mp3' loop></audio>
+      <audio id='bg-music' src='./assets/music/ireland-120522.mp3' loop></audio>
     </figure>
   </div>
 </header>
@@ -233,7 +237,7 @@
   <section id='style' class='style'>
     <div class='container'>
       <h2 class='contents-title'>style</h2>
-      <ul class='visual fade-in'>
+      <ul id='style-sample' class='visual fade-in'>
         <li class='frame'><img src='./assets/img/model/0001-A9D81E4E-CB75-465D-9542-D68BD99E6DAE-300x380.jpeg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
         <li class='frame'><img src='./assets/img/model/0002-E4C4992C-D8E0-4AA3-AE6B-B35BF64871A9-300x380.jpeg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
         <li class='frame'><img src='./assets/img/model/0003-IMG_1664-300x380.jpg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
@@ -273,6 +277,59 @@
       </ul>
       <div class='view-more preview-model-btn'>
         <div class="wrapper">VIEW MORE</div>
+      </div>
+      <div id="styling-view-modal" class="styling-view-modal">
+        <button></button>
+        <!-- Slider main container -->
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <ul class="swiper-wrapper">
+            <!-- Slides -->
+            <li class='swiper-slide'><img src='./assets/img/model/0001-A9D81E4E-CB75-465D-9542-D68BD99E6DAE.jpeg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/0002-E4C4992C-D8E0-4AA3-AE6B-B35BF64871A9.jpeg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/0003-IMG_1664.jpg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/0004-4C0DD3D5-AD7D-43FC-8F72-5EC641152368.jpg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/0005-6DF84AAA-2EA3-4945-B8CB-7F1212D3ADDA.jpg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/0006-2F051FEA-EC4F-4367-BFA6-A6E08869B182.jpg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/0007-22975CBB-9022-4218-9F87-FBB63AC87C85.jpeg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/0008-77536D81-202B-44CB-8CD3-5DF9D98FC670.jpeg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/0009-35E77033-B5B6-49FF-95CA-E04AEFD43FF5.jpeg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/0010-849C219C-8004-4B76-9F7C-2CEFA5945FE9.jpeg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/0011-314C7165-5CA9-4BFF-AA4A-A16F0379E5D6.jpeg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/0012-96311AB5-7585-41B8-9C35-D537F4889E49.jpg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/0101-A9D81E4E-CB75-465D-9542-D68BD99E6DAE.jpeg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/0102-E4C4992C-D8E0-4AA3-AE6B-B35BF64871A9.jpeg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/0103-IMG_1664.jpg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/0104-4C0DD3D5-AD7D-43FC-8F72-5EC641152368.jpg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/0105-6DF84AAA-2EA3-4945-B8CB-7F1212D3ADDA.jpg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/0106-2F051FEA-EC4F-4367-BFA6-A6E08869B182.jpg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/0107-22975CBB-9022-4218-9F87-FBB63AC87C85.jpeg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/0108-77536D81-202B-44CB-8CD3-5DF9D98FC670.jpeg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/0109-35E77033-B5B6-49FF-95CA-E04AEFD43FF5.jpeg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/0110-849C219C-8004-4B76-9F7C-2CEFA5945FE9.jpeg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/0111-314C7165-5CA9-4BFF-AA4A-A16F0379E5D6.jpeg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/0112-96311AB5-7585-41B8-9C35-D537F4889E49.jpg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/1101-A9D81E4E-CB75-465D-9542-D68BD99E6DAE.jpeg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/1102-E4C4992C-D8E0-4AA3-AE6B-B35BF64871A9.jpeg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/1103-IMG_1664.jpg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/1104-4C0DD3D5-AD7D-43FC-8F72-5EC641152368.jpg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/1105-6DF84AAA-2EA3-4945-B8CB-7F1212D3ADDA.jpg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/1106-2F051FEA-EC4F-4367-BFA6-A6E08869B182.jpg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/1107-22975CBB-9022-4218-9F87-FBB63AC87C85.jpeg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/1108-77536D81-202B-44CB-8CD3-5DF9D98FC670.jpeg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/1109-35E77033-B5B6-49FF-95CA-E04AEFD43FF5.jpeg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/1110-849C219C-8004-4B76-9F7C-2CEFA5945FE9.jpeg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/1111-314C7165-5CA9-4BFF-AA4A-A16F0379E5D6.jpeg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+            <li class='swiper-slide'><img src='./assets/img/model/1112-96311AB5-7585-41B8-9C35-D537F4889E49.jpg' alt='これまで手がけたスタイリングの見本としてお店で撮影したモデルの写真'></li>
+          </ul>
+          <!-- If we need pagination -->
+          <!-- <div class="swiper-pagination"></div> -->
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <!-- If we need scrollbar -->
+          <!-- <div class="swiper-scrollbar"></div> -->
+        </div>
       </div>
     </div>
   </section>

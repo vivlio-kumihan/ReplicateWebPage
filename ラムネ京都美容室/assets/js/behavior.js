@@ -180,7 +180,7 @@ stGadeIn.forEach(elem => {
       trigger: elem,
       start: "top 80%",
       opacity: 1,
-      markers: true,
+      // markers: true,
     }
   })
 })
@@ -228,7 +228,6 @@ preCharAll.forEach(elem => {
 
 const models = Array.from(document.querySelectorAll("#style ul > .frame"))
 const previewModelBtn = document.querySelector(".preview-model-btn")
-
 const numberOfPeople = models.length;
 const groupSize = Math.ceil(numberOfPeople / 12);
 const divideGroup = [];
@@ -243,16 +242,50 @@ Array.from({ length: groupSize }).forEach((_, i) => {
 const firstGroup = divideGroup.shift()
 firstGroup.forEach(elem => {
   elem.style.display = 'block'
-  elem.style.visibility = 'visible'
-  elem.style.opacity = '1'
 })
 
 // クリックしたら次のグループを表示させる。
 previewModelBtn.addEventListener('click', () => {
   const nextGroup = divideGroup.shift()
   nextGroup.forEach(elem => {
-    // elem.style.display = 'block'
     elem.classList.add('models-fade-in')
+  })
+})
+
+// styleのスタイリングの見本
+const stylingViewModal = document.getElementById('styling-view-modal')
+const closedBtn = stylingViewModal.firstElementChild
+
+models.forEach((elem, idx) => {
+  elem.addEventListener('click', () => {
+    // stylingViewModal.style.display = 'block'
+    stylingViewModal.classList.add('style-fade-in')
+    new Swiper('.swiper', {
+      // Optional parameters
+      // direction: 'horizon',
+      loop: true,
+      // 何番目のスライドから始めるかを指定するオプション
+      initialSlide: idx,
+    
+      // If we need pagination
+      // pagination: {
+      //   el: '.swiper-pagination',
+      // },
+    
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    
+      // And if we need scrollbar
+      // scrollbar: {
+      //   el: '.swiper-scrollbar',
+      // },
+    })
+    closedBtn.addEventListener('click', () => {
+      stylingViewModal.classList.remove('style-fade-in')
+    })
   })
 })
 
@@ -277,12 +310,6 @@ bgmPlayStop.addEventListener("click", function() {
     bgMusic.currentTime = 0
   }
 })
-
-// 怒られた
-// bgMusic.addEventListener("ended", function () {
-//   bgMusic.currentTime = 0;
-//   bgMusic.play();
-// })
 
 
 // ////////////
