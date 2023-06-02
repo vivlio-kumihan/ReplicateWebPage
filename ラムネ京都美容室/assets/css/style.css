@@ -52,7 +52,7 @@ figcaption {
 .view-more {
   position: relative;
 }
-.view-more a {
+.view-more .wrapper {
   display: inline-block;
   position: absolute;
   top: 0;
@@ -69,7 +69,7 @@ figcaption {
   transition: 0.5s;
   border-bottom: 3px solid #3C3835;
 }
-.view-more a .view-more-curtains {
+.view-more .wrapper .view-more-curtains {
   position: absolute;
   top: 0;
   left: 50%;
@@ -80,7 +80,7 @@ figcaption {
   background-color: #fff;
   z-index: 1;
 }
-.view-more a .over-green {
+.view-more .wrapper .over-green {
   position: absolute;
   top: 0;
   left: 0%;
@@ -90,7 +90,7 @@ figcaption {
   z-index: 1;
   overflow: hidden;
 }
-.view-more a .over-green .frame {
+.view-more .wrapper .over-green .frame {
   white-space: nowrap;
   color: #4BBE92;
 }
@@ -513,7 +513,7 @@ main section .container .contents-title::after {
   display: block;
   visibility: hidden;
   opacity: 0;
-  animation: models-fade-in 3s ease-in-out 0.5s forwards;
+  animation: models-fade-in 1.5s ease-in-out 0.5s forwards;
 }
 
 @keyframes models-fade-in {

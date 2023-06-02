@@ -14,6 +14,7 @@
 // デフォルトでアニメーションされたら終わるから。
       // once: true
 
+
 // staggerについて
 // 要素の子要素にアニメーションを『次々』につけたい場合、
 // forEachで回して、ついてくるindex番号に延滞させる秒数を掛ける作戦はいいのだけれど、
@@ -22,7 +23,7 @@
 //   Array.from(elems.children).forEach((elem, idx) => {
 //     gsap.from(elem, .7,{
 //       opacity: ...,
-//       delay: idx * 0.25,
+//       delay: idx * 0.25,  // <= ここがかっこいいポイントだったけど。。。
 //       ease: "...",
 //       scrollTrigger: {
 //         trigger: elem,
@@ -32,13 +33,14 @@
 //   })
 // })
 
+
 const oneAfterAnotherRow = document.querySelectorAll("#one-after-another-row")
 oneAfterAnotherRow.forEach(elem => {
   // 要素の子要素へアクセスはこれだけ。超絶賢い。
   gsap.from(elem.children, .7, {
     opacity: 0,
     ease: "power3.easeOut",
-    // 0.25秒ずつ延滞させて処理する。これだけ。
+    // ↓ 0.25秒ずつ延滞させて処理する。これだけ。
     stagger: .25,
     scrollTrigger: {
       trigger: elem,
@@ -72,8 +74,8 @@ oneAfterAnother.forEach(elem => {
 // // 第二引数で指定するテキストを HTML または XML としてパースし、
 // // その結果であるノードを DOM ツリー内の指定された位置（第一引数で指定）に挿入する。
 // // これは挿入先の要素を再度パースするものではないため、既存の要素や要素内部の破壊を伴わない。
-// // 余分なシリアル化のステップを回避できる分、 innerHTML への代入による直接的な操作よりも
-// // はるかに高速な動作となる。
+// // 余分なシリアル化のステップを回避できる分、innerHTMLへの代入による直接的な操作よりも
+// // はるかに『高速な動作』となる。
 
 // // 引数の意味
 // //    "beforebegin"  要素の直前に追加
@@ -97,8 +99,8 @@ oneAfterAnother.forEach(elem => {
 document.querySelectorAll('.media-wrapper').forEach(elem => {
   elem.insertAdjacentHTML('afterbegin', '<div class="curtains"></div>')
 })
-// here!!!!!!!!!
-document.querySelectorAll('.view-more a').forEach(elem => {
+// insertAdjacentHTMLを使っているところ。カーテン効果のための下準備としてHTML構造を変更する。
+document.querySelectorAll('.view-more .wrapper').forEach(elem => {
   elem.insertAdjacentHTML('afterbegin', '<div class="view-more-curtains"></div>')
   elem.insertAdjacentHTML('afterbegin', '<div class="over-green"><div class="frame">VIEW MORE</div></div>')
 })
@@ -125,31 +127,35 @@ curtainsAll.forEach(elem => {
   })
 })
 
+
+////////////
+//  view-moreボタン
 const viewMore = document.querySelectorAll(".view-more")
 const overGreen = document.querySelectorAll('.over-green')
 
 viewMore.forEach(elem => {
   elem.addEventListener('mouseenter', () => {
     overGreen.forEach(el => {
-      gsap.fromTo(el, .3,
-        {
-          // left, rightどちらも同じ動き。なぜ？
-          transformOrigin: 'top left',
-          width: 0,
-          opacity: 1
-        },
-        { width: '100%',
+      gsap.fromTo(el, .3, {
+        // left, rightどちらも同じ動き。なぜ？？？？？？？
+        transformOrigin: 'top left',
+        width: 0,
+        opacity: 1
+      }, {
+        width: '100%',
         opacity: 1,
       })
     })
   })
   elem.addEventListener('mouseleave', () => {
     overGreen.forEach(el => {
-      gsap.fromTo(el, .3,
-        // left, rightどちらも同じ動き。なぜ？
-        { transformOrigin: 'top left' },
-        { width: 0,
-          opacity: 1 })
+      gsap.fromTo(el, .3, {
+        // left, rightどちらも同じ動き。なぜ？？？？？？？？？
+        transformOrigin: 'top left'
+      }, { 
+        width: 0,
+        opacity: 1 
+      })
     })
   })
 })
@@ -208,11 +214,11 @@ preCharAll.forEach(elem => {
 })
 
 
-
-
+////////////
+// スタイル・モデルの写真リストの表示管理
 
 const models = Array.from(document.querySelectorAll("#style ul > .frame"))
-const previewModels = document.querySelector(".preview-model")
+const previewModelBtn = document.querySelector(".preview-model-btn")
 
 const numberOfPeople = models.length;
 const groupSize = Math.ceil(numberOfPeople / 12);
@@ -233,66 +239,13 @@ firstGroup.forEach(elem => {
 })
 
 // クリックしたら次のグループを表示させる。
-previewModels.addEventListener('click', () => {
+previewModelBtn.addEventListener('click', () => {
   const nextGroup = divideGroup.shift()
   nextGroup.forEach(elem => {
     // elem.style.display = 'block'
     elem.classList.add('models-fade-in')
   })
 })
-
-// divideGroup.forEach((group, idx) => {
-//   if (idx === 0) {
-//     // group.forEach(elem => {
-//     //   elem.style.display = 'block'
-//     // })
-//   } else {
-//     group.forEach(elem => {
-//       elem.style.display = 'none'
-//     })
-//     previewModels.addEventListener('click', () => {
-//       // console.log(idx)
-//       // console.log(group)
-//       // divideGroup[idx].forEach(elem => {
-//       //   elem.style.display = 'block'
-//       // })
-//     })
-//   }
-// })
-
-// console.log(models)
-// console.log(models.slice[0, 12])
-
-// let visibleCount = 12; // 表示する要素の初期数
-// const increment = 12; // さらに表示する要素の数
-
-// 最初の12個の要素を表示
-// for (let i = 0; i < visibleCount; i++) {
-//   models[i].style.display = 'block';
-  // models[i].style.visivlity = 'visible'
-  // models[i].style.opacity = '1'
-// }
-
-// models.forEach((elem, idx) => {
-  
-// })
-
-
-// previewModels.addEventListener("click", () => {
-//   // 表示する要素の数を更新
-//   visibleCount += increment;
-
-//   // 表示する要素の数に応じて要素を表示または非表示にする
-//   for (let i = 0; i < models.length; i++) {
-//     if (i < visibleCount) {
-//       // gsap.fromTo()
-//       models[i].style.display = 'block'
-//       models[i].style.opacity = '1'
-//     } else {
-//       models[i].style.display = 'none'
-//     }
-//   }
-// })
 
 
 ////////////

@@ -83,7 +83,6 @@
   }
 }
 
-// here!!!!!!!!!
 @mixin over-green {
   .over-green {
     position: absolute;
@@ -155,10 +154,10 @@ figcaption {
     object-fit: cover;
   }
 }
-// here!!!!!!!!
+
 .view-more {
   position: relative;
-  a {
+  .wrapper {
     @include view-more-curtains;
     @include over-green;
     display: inline-block;
@@ -551,7 +550,7 @@ main {
   display: block;
   visibility: hidden;
   opacity: 0;
-  animation: models-fade-in 3s ease-in-out .5s forwards;
+  animation: models-fade-in 1.5s ease-in-out .5s forwards;
 }
 @keyframes models-fade-in {
   0% {
