@@ -215,55 +215,58 @@ header {
     left: 40px;
     width: 80px;
   }
-  .main-nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .previous-container {
 
-    position: fixed;
-    top: 28px;
-    right: 0;
-
-    width: 80px;
-    height: 100vh;
-    z-index: 1;
-    ul {
+    .main-nav {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      writing-mode: vertical-rl;
-      gap: 15.5px;
-      li {
-        font-family: 'Lato', sans-serif;
-        font-weight: 700;
-        font-size: 13px;
-        line-height: 1;
-        text-transform: uppercase;
-        @include anchor-hover;
-        .fa-brands {
-          font-size: 28px;
-          &:hover {
-            color: $color-black;
+  
+      position: fixed;
+      top: 28px;
+      right: 0;
+  
+      width: 80px;
+      height: 100vh;
+      z-index: 1;
+      ul {
+        display: flex;
+        align-items: center;
+        writing-mode: vertical-rl;
+        gap: 15.5px;
+        li {
+          font-family: 'Lato', sans-serif;
+          font-weight: 700;
+          font-size: 13px;
+          line-height: 1;
+          text-transform: uppercase;
+          @include anchor-hover;
+          .fa-brands {
+            font-size: 28px;
+            &:hover {
+              color: $color-black;
+            }
           }
         }
-      }
-      &:last-of-type {
-        margin-top: auto;
-        margin-bottom: 55px;
-        gap: 15px;
-        li {
-          &:first-of-type {
-            position: relative;
-            padding: 0 5px 15px;
-            border-bottom: 1px solid $color-black;
-            &::before {
-              position: absolute;
-              top: -28px;
-              left: 50%;
-              transform: translateX(-50%);
-              font-family: "Font Awesome 6 Free";
-              content: "\f133";
-              font-size: 20px;
-              font-weight: 100;
+        &:last-of-type {
+          margin-top: auto;
+          margin-bottom: 55px;
+          gap: 15px;
+          li {
+            &:first-of-type {
+              position: relative;
+              padding: 0 5px 15px;
+              border-bottom: 1px solid $color-black;
+              &::before {
+                position: absolute;
+                top: -28px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-family: "Font Awesome 6 Free";
+                content: "\f133";
+                font-size: 20px;
+                font-weight: 100;
+              }
             }
           }
         }
@@ -304,6 +307,57 @@ header {
 }
 .active {
   display: block;
+}
+
+@media screen and (max-width: 700px) {
+  header {
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: center;
+    height: 60px;
+    background-color: #eee;
+    .loading {
+      display: none;
+    }
+    .previous-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      padding: 0 20px;
+      .frame.logo {
+        position: unset;
+        width: 60px;
+      }
+      .box {
+        width: 20px;
+        height: 20px;
+        background-color: #333;
+      }
+      .main-nav {
+        display: block;
+        position: unset;
+        width: 100%;
+        height: 100%;
+        background-color: red;
+        ul {
+          writing-mode: horizontal-tb;
+          &:last-of-type {
+            li:first-of-type {
+              position: unset;
+              padding: 0;
+              border: none;
+            }
+          }
+          li {
+            display: inline;
+          }
+        }
+      }
+    }
+
+  }
+  
 }
 
 // for section title
