@@ -134,7 +134,7 @@ header .logo {
   left: 40px;
   width: 80px;
 }
-header .previous-container .main-nav {
+header .main-nav {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -145,42 +145,45 @@ header .previous-container .main-nav {
   height: 100vh;
   z-index: 1;
 }
-header .previous-container .main-nav ul {
+header .main-nav .to-section-link-btn {
+  display: block;
+}
+header .main-nav ul {
   display: flex;
   align-items: center;
   writing-mode: vertical-rl;
   gap: 15.5px;
 }
-header .previous-container .main-nav ul li {
+header .main-nav ul li {
   font-family: "Lato", sans-serif;
   font-weight: 700;
   font-size: 13px;
   line-height: 1;
   text-transform: uppercase;
 }
-header .previous-container .main-nav ul li a {
+header .main-nav ul li a {
   transition: 0.3s;
 }
-header .previous-container .main-nav ul li a:hover {
+header .main-nav ul li a:hover {
   color: #4BBE92;
 }
-header .previous-container .main-nav ul li .fa-brands {
+header .main-nav ul li .fa-brands {
   font-size: 28px;
 }
-header .previous-container .main-nav ul li .fa-brands:hover {
+header .main-nav ul li .fa-brands:hover {
   color: #3C3835;
 }
-header .previous-container .main-nav ul:last-of-type {
+header .main-nav ul:last-of-type {
   margin-top: auto;
   margin-bottom: 55px;
   gap: 15px;
 }
-header .previous-container .main-nav ul:last-of-type li:first-of-type {
+header .main-nav ul:last-of-type li:first-of-type {
   position: relative;
   padding: 0 5px 15px;
   border-bottom: 1px solid #3C3835;
 }
-header .previous-container .main-nav ul:last-of-type li:first-of-type::before {
+header .main-nav ul:last-of-type li:first-of-type::before {
   position: absolute;
   top: -28px;
   left: 50%;
@@ -230,7 +233,8 @@ header .visual .bgm-play-stop {
 @media screen and (max-width: 700px) {
   header {
     height: 60px;
-    background-color: #eee;
+    z-index: 6;
+    background-color: #fff;
   }
   header .loading {
     display: none;
@@ -244,27 +248,119 @@ header .visual .bgm-play-stop {
   }
   header .previous-container .frame.logo {
     position: unset;
-    width: 60px;
+    width: 75px;
   }
   header .previous-container .box {
     width: 20px;
     height: 20px;
-    background-color: #333;
+    background-color: #3C3835;
   }
   header .previous-container .main-nav {
-    display: block;
+    flex-direction: row-reverse;
+    align-items: center;
     position: unset;
     width: 100%;
     height: 100%;
-    background-color: red;
+  }
+  header .previous-container .main-nav .to-section-link-btn {
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    right: 0px;
+    width: 60px;
+    height: 60px;
+    border-left: 1px solid #ddd;
+    cursor: pointer;
+  }
+  header .previous-container .main-nav .to-section-link-btn div {
+    position: absolute;
+    left: 50%;
+    width: 30px;
+    height: 1px;
+    background-color: #3C3835;
+    transition: 0.2s;
+    visibility: visible;
+    opacity: 1;
+  }
+  header .previous-container .main-nav .to-section-link-btn div:nth-of-type(1) {
+    top: 33%;
+    transform: translateX(-50%);
+  }
+  header .previous-container .main-nav .to-section-link-btn div:nth-of-type(2) {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  header .previous-container .main-nav .to-section-link-btn div:nth-of-type(3) {
+    top: 67%;
+    transform: translateX(-50%);
+  }
+  header .previous-container .main-nav .to-section-link-btn.active div {
+    top: 50%;
+    left: 50%;
+  }
+  header .previous-container .main-nav .to-section-link-btn.active div:nth-of-type(1) {
+    transform: translateX(-50%) rotate(45deg);
+  }
+  header .previous-container .main-nav .to-section-link-btn.active div:nth-of-type(2) {
+    visibility: hidden;
+    opacity: 0;
+  }
+  header .previous-container .main-nav .to-section-link-btn.active div:nth-of-type(3) {
+    transform: translateX(-50%) rotate(-45deg);
   }
   header .previous-container .main-nav ul {
+    height: 100%;
+    margin-right: 60px;
     writing-mode: horizontal-tb;
+  }
+  header .previous-container .main-nav ul:first-of-type {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    line-height: 1;
+    background-color: #fff;
+    z-index: 1;
+    transition: 0.3s;
+    visibility: hidden;
+    opacity: 0;
+  }
+  header .previous-container .main-nav ul:first-of-type li {
+    display: block;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-size: 24px;
+    border-bottom: 1px solid #F2F2F2;
+  }
+  header .previous-container .main-nav ul:first-of-type li:first-of-type {
+    border-top: 1px solid #F2F2F2;
+  }
+  header .previous-container .main-nav ul:first-of-type li a {
+    display: block;
+  }
+  header .previous-container .main-nav ul:last-of-type {
+    gap: 0;
   }
   header .previous-container .main-nav ul:last-of-type li:first-of-type {
     position: unset;
     padding: 0;
     border: none;
+  }
+  header .previous-container .main-nav ul:last-of-type li:first-of-type::before {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 49.5%;
+  }
+  header .previous-container .main-nav ul:last-of-type li:last-of-type {
+    margin-left: 15px;
+    padding-left: 15px;
+    border-left: 1px solid #3C3835;
   }
   header .previous-container .main-nav ul li {
     display: inline;
