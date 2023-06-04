@@ -3,6 +3,21 @@
 
 $color-white: #fff;
 
+// 紐付けたい要素を変数名にして配列に格納する。
+// sp-main-title => z-index: 1;
+// sp-main-nav-mask => z-index: 2;
+// gallery-archive-li => z-index: 2;
+// contents-links => z-index: 3;
+// header-menu-button => z-index: 4;
+// main-nav-mask => z-index: 4;
+// main-title => z-index: 5;
+$index-map: sp-main-title, sp-main-nav-mask, gallery-archive-li, contents-links, header-menu-button, main-nav-mask, main-title;
+// z-index属性へ代入する関数を定義する。
+// 配列と値の名称を引数とする。
+@function get_index($name) {
+  @return index($index-map, $name)
+}
+
 /* //////////////////// 全体 */
 html {
   /* 本文: 14px */
@@ -69,7 +84,7 @@ header {
     position: fixed;
     top: 43%;
     right: 20px;
-    z-index: 3;
+    z-index: get_index(contents-links);
     mix-blend-mode: difference;
   }
   li {
@@ -98,7 +113,7 @@ header {
     width: 100%;
     height: 100vh;
     background-color: $color-white;
-    z-index: 4;
+    z-index: get_index(main-nav-mask);
     visibility: visible;
     opacity: 1;
     // 2秒後に4秒かけて消える。
@@ -120,7 +135,7 @@ header {
     left: 50%;
     transform: translateX(-50%);
     width: 180px;
-    z-index: 5;
+    z-index: get_index(main-title);
     visibility: hidden;
     opacity: 0;
     // 1秒後に5秒かけて現れる。
@@ -158,7 +173,7 @@ header {
       width: 45px;
       height: 30px;
       cursor: pointer;
-      z-index: 4;
+      z-index: get_index(header-menu-button);
       div {
         position: absolute;
         left: 50%;
@@ -208,7 +223,7 @@ header {
       width: 100%;
       height: 100vh;
       background-color: rgba(50, 50, 50, 0.8);
-      z-index: 2;
+      z-index: get_index(sp-main-nav-mask);
       transform: translateY(150px);
       transition: .5s;
       visibility: hidden;
@@ -227,7 +242,7 @@ header {
       visibility: visible;
       opacity: 1;
       animation: none;
-      z-index: 1;
+      z-index: get_index(sp-main-title);
     }
     .contents-links {
       top: 18%;
@@ -355,7 +370,7 @@ header {
     aspect-ratio: 1;
     border: 1px solid #372d00;
     overflow: hidden;
-    z-index: 2;
+    z-index: get_index(gallery-archive-li);
   }
 }
 
