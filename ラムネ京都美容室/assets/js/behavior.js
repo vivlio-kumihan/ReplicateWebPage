@@ -11,25 +11,23 @@ window.addEventListener('load', () => {
 
 // // behavior page top
 const toSectionLinkBtn = document.getElementById("to-section-link-btn")
-// const contentsLinks = document.getElementById("contents-links")
+const contentsLinks = document.getElementById("contents-links")
+const linksLi = document.getElementById("contents-links").children
+// console.log(contentsLinks)
 // const mainNavMask = document.getElementById("main-nav-mask")
 
 // メニューの切り替え
 toSectionLinkBtn.addEventListener("click", function () {
   this.classList.toggle("active")
   this.nextElementSibling.classList.toggle("appear")
-  // .classList.toggle("active")
-  // contentsLinks.classList.toggle("pull-up")
-  // mainNavMask.classList.toggle("pull-up")
 })
 
 //////////////////////////////////// メニューをクリックしたら閉じるができてない。
 // ページ内スクロールの際に、メニューを閉じる
-document.querySelectorAll('#to-section-link-btn a').forEach(el => {
+Array.from(linksLi).forEach(el => {
   el.addEventListener('click', () => {
-    to-section-link-btn.classList.remove('active')
-    // contentsLinks.classList.remove("pull-up")
-    // mainNavMask.classList.remove("pull-up")
+    toSectionLinkBtn.classList.remove('active')
+    contentsLinks.classList.remove("appear")
   })
 })
 

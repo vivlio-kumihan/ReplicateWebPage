@@ -468,9 +468,11 @@ main {
   flex-direction: row-reverse;
   align-items: flex-end;
   position: relative;
+  margin-right: 80px;
   video {
     flex: .73;
-    width: min(400px, 100%);
+    min-width: 400px;
+    width: 100%;
     height: 100vh;
     object-fit: cover;
   }
@@ -497,44 +499,48 @@ main {
 }
 
 .blog {
-  ul {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 45px;
-
-    li {
-      position: relative;
-      width: 90%;
-      a {
-        display: block;
-        &:hover {
-          color: $color-green
-        }
-        .frame {
-          aspect-ratio: 1;
-        }
-        .date {
-          @include caption-with-visual;
-          position: absolute;
-          top: 0;
-          right: -20px;
-          font-size: 11px;
-        }
-        p {
-          margin-top: 20px;
-          font-family: inherit;
-          font-size: 13px;
-          line-height: 1.2;
-          font-feature-settings: "palt";
+  .container {
+    position: relative;
+    ul {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 45px;
+  
+      li {
+        position: relative;
+        width: 90%;
+        a {
+          display: block;
+          &:hover {
+            color: $color-green
+          }
+          .frame {
+            aspect-ratio: 1;
+          }
+          .date {
+            @include caption-with-visual;
+            position: absolute;
+            top: 0;
+            right: -20px;
+            font-size: 11px;
+          }
+          p {
+            margin-top: 20px;
+            font-family: inherit;
+            font-size: 13px;
+            line-height: 1.2;
+            font-feature-settings: "palt";
+          }
         }
       }
     }
-  }
+  }  
 }
 
 .about {
   margin-top: 200px;
   .container {
+    position: relative;
     .salon-vibe {
       figure {
         display: flex;
@@ -619,38 +625,41 @@ main {
 
 .staff {
   margin-top: 100px;
-  ul {
-    display: flex;
-    gap: 75px;
-    // justify-content: space-between;
-    margin-right: 25px;
-    li {
-      position: relative;
-      .position {
-        @include caption-with-visual;
-        position: absolute;
-        top: 0;
-        right: -25px;
-        font-size: 13px;
-        font-weight: 700;
-      }
-      .name {
+  .container {
+    position: relative;
+    ul {
+      display: flex;
+      gap: 75px;
+      // justify-content: space-between;
+      margin-right: 25px;
+      li {
         position: relative;
-        padding-top: 25px;
-        font-family: "Noto Sans JP", sans-serif;
-        font-weight: 500;
-        font-size: 15px;
-        letter-spacing: .1em;
-        text-align: right;
-        span {
+        .position {
+          @include caption-with-visual;
           position: absolute;
-          top: 15px;
-          left: 0;
-          font-family: "Lato", sans-serif;
-          font-weight: 300;
-          font-size: 28px;
-          text-align: left;
-          opacity: .6;
+          top: 0;
+          right: -25px;
+          font-size: 13px;
+          font-weight: 700;
+        }
+        .name {
+          position: relative;
+          padding-top: 25px;
+          font-family: "Noto Sans JP", sans-serif;
+          font-weight: 500;
+          font-size: 15px;
+          letter-spacing: .1em;
+          text-align: right;
+          span {
+            position: absolute;
+            top: 15px;
+            left: 0;
+            font-family: "Lato", sans-serif;
+            font-weight: 300;
+            font-size: 28px;
+            text-align: left;
+            opacity: .6;
+          }
         }
       }
     }
@@ -659,23 +668,26 @@ main {
 
 .menu {
   margin-top: 150px;
-  .media-wrapper {
-    @include scroll-trigger-curtains;
+  .container {
     position: relative;
-  }
-  dl {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 60px;
-    margin-top: 50px;
-    .dl-container {
-      display: flex;
-      @include dl-container;
-      dt {
-        width: 35%;
-      }
-      dd {
-        width: 65%;
+    .media-wrapper {
+      @include scroll-trigger-curtains;
+      position: relative;
+    }
+    dl {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 60px;
+      margin-top: 50px;
+      .dl-container {
+        display: flex;
+        @include dl-container;
+        dt {
+          width: 35%;
+        }
+        dd {
+          width: 65%;
+        }
       }
     }
   }
@@ -683,15 +695,18 @@ main {
 
 .style {
   margin-top: 100px;
-  .visual {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 6px;
-    .frame {
-      transition: .5;
-      display: none;
-      cursor: pointer;
+  .container {
+    position: relative;
+    .visual {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 6px;
+      .frame {
+        transition: .5;
+        display: none;
+        cursor: pointer;
+      }
     }
   }
 }
@@ -717,13 +732,11 @@ main {
   }
 }
 
-
 #style .style-fade-in {
   visibility: hidden;
   opacity: 0;
   animation: style-fade-in 1s ease-in-out .3s forwards;
 }
-
 @keyframes style-fade-in {
   0% {
     visibility: hidden;
@@ -734,7 +747,6 @@ main {
     opacity: 1;
   }
 }
-
 // スライダーのモーダル以下
 .styling-view-modal {
   position: fixed;
@@ -777,7 +789,6 @@ main {
     }
   }
 }
-
 // スライダーの周辺機器
 .swiper-button-prev,
 .swiper-button-next {
@@ -800,14 +811,14 @@ main {
 .recruit {
   margin-top: 180px;
   .container {
+    position: relative;
     .join-our-team {
       figure {
         display: flex;
         align-items: center;
         .media-wrapper {
           @include scroll-trigger-curtains;
-          flex: 1.55;
-          width: 100%;
+          width: 50%;
           aspect-ratio: 4/3;
           video {
             width: 100%;
@@ -816,9 +827,9 @@ main {
           }
         }
         figcaption {
-          flex: 1;
+          width: 50%;
           line-height: 2.2;
-          padding: 50px;
+          padding-left: 50px;
           z-index: 1;
           dl {
             margin-top: 45px;
@@ -869,7 +880,7 @@ main {
           left: 0;
           padding-left: 60px;
           writing-mode: horizontal-tb;
-          font-size: 25px;
+          font-size: 26px;
           &:before {
             top: 0;
             left: 0;
@@ -890,7 +901,7 @@ main {
 
   .view-more {
     .wrapper {
-      margin-top: 25px;
+      margin-top: 30px;
       font-size: 14px;
       border-bottom: 2px solid $color-black;
       .view-more-curtains {
@@ -900,13 +911,27 @@ main {
     }
   }
 
+  :target {
+    scroll-margin-top: 70px;
+  }
+
   .main-visual {
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin-top: 60px;
-    video {
-      width: 100%;
-      aspect-ratio: 1/1.225;
+    margin: 60px 0px 0 0;
+    .media-wrapper {
+      position: relative;
+      aspect-ratio: 1/1.5;
+      overflow: hidden;
+      video {
+        height: 100%;
+        object-fit: cover;
+      }
+      .bgm-play-stop {
+        bottom: 15px;
+        right: 15px;
+      }
     }
     figcaption {
       padding: 0;
@@ -915,33 +940,30 @@ main {
       font-size: 14px;
       line-height: 2;
     }
-    .bgm-play-stop {
-      top: 68%;
-      transform: translateY(-50%);
-      right: 15px;
-    }
   }
 
   .blog {
     margin-top: 80px;
     padding: 0 0 145px;
-    ul {
-      grid-template-columns: repeat(2, 1fr);
-      row-gap: 30px;
-      column-gap: 50px;
-      margin-top: 20px;
-      padding-right: 20px;
-      li {
-        width: 100%;
-        &:nth-of-type(5) {
-          display: none;
-        }
-        a {
-          .frame {
-            img {
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
+    .container {
+      ul {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 30px;
+        column-gap: 50px;
+        margin-top: 20px;
+        padding-right: 20px;
+        li {
+          width: 100%;
+          &:nth-of-type(5) {
+            display: none;
+          }
+          a {
+            .frame {
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
             }
           }
         }
@@ -1014,26 +1036,29 @@ main {
 
   .staff {
     margin-top: 35px;
-    ul {
-      flex-wrap: wrap;
-      column-gap: 45px;
-      row-gap: 35px;
-      margin: 25px 15px 0 0;
-      li {
-        flex: 0 0 43%;
-        .position {
-          font-size: 13px;
-        }
-        .name {
-          p {
-            margin-top: 3px;
-            font-size: 14px;
-            span {
-              top: 10px;
+    .container {
+      ul {
+        flex-wrap: wrap;
+        column-gap: 45px;
+        row-gap: 35px;
+        margin: 25px 15px 0 0;
+        li {
+          width: 42%;
+          // flex: 0 0 43%;
+          .position {
+            font-size: 13px;
+          }
+          .name {
+            p {
+              margin-top: 3px;
               font-size: 14px;
-              letter-spacing: 0;
-              br {
-                display: none;
+              span {
+                top: 10px;
+                font-size: 14px;
+                letter-spacing: 0;
+                br {
+                  display: none;
+                }
               }
             }
           }
@@ -1041,6 +1066,7 @@ main {
       }
     }
   }
+
   .menu {
     margin-top: 40px;
     .container {
@@ -1057,7 +1083,50 @@ main {
         }
       }
     }
+  }
 
+  .style {
+    margin-top: 50px;
+    .container {
+      .visual {
+        margin-top: 20px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+      }
+    }
+  }
+  
+  .recruit {
+    margin-top: 95px;
+    .container {
+      .join-our-team {
+        margin-top: 20px;
+        figure {
+          flex-direction: column;
+          .media-wrapper {
+            width: 100%;
+            aspect-ratio: 3/2.1;
+          }
+          figcaption {
+            width: 100%;
+            margin-top: 15px;
+            padding: 0;
+            text-align: center;
+            dl {
+              margin-top: 20px;
+              .dl-container {
+                &:first-of-type {
+                  margin-bottom: 15px;
+                }
+                dt, dd {
+                  font-size: 16px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -1083,4 +1152,23 @@ footer {
     color: #fff;
     letter-spacing: 0;
   }
+}
+
+@media screen and (max-width: 700px) {
+  footer {
+    margin-top: 115px;
+    padding: 0;
+    height: 35vh;
+    .visual {
+      height: 100%;
+      video {
+        height: 100%;
+        object-fit: cover;
+      }
+      figcaption {
+        bottom: 30px;
+        white-space: nowrap;
+      }
+    }
+  } 
 }

@@ -381,10 +381,12 @@ main section .container .contents-title::after {
   flex-direction: row-reverse;
   align-items: flex-end;
   position: relative;
+  margin-right: 80px;
 }
 .main-visual video {
   flex: 0.73;
-  width: min(400px, 100%);
+  min-width: 400px;
+  width: 100%;
   height: 100vh;
   -o-object-fit: cover;
      object-fit: cover;
@@ -409,25 +411,28 @@ main section .container .contents-title::after {
   cursor: pointer;
 }
 
-.blog ul {
+.blog .container {
+  position: relative;
+}
+.blog .container ul {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 45px;
 }
-.blog ul li {
+.blog .container ul li {
   position: relative;
   width: 90%;
 }
-.blog ul li a {
+.blog .container ul li a {
   display: block;
 }
-.blog ul li a:hover {
+.blog .container ul li a:hover {
   color: #4BBE92;
 }
-.blog ul li a .frame {
+.blog .container ul li a .frame {
   aspect-ratio: 1;
 }
-.blog ul li a .date {
+.blog .container ul li a .date {
   writing-mode: vertical-rl;
   font-family: "Lato", sans-serif;
   font-weight: 900;
@@ -437,7 +442,7 @@ main section .container .contents-title::after {
   right: -20px;
   font-size: 11px;
 }
-.blog ul li a p {
+.blog .container ul li a p {
   margin-top: 20px;
   font-family: inherit;
   font-size: 13px;
@@ -447,6 +452,9 @@ main section .container .contents-title::after {
 
 .about {
   margin-top: 200px;
+}
+.about .container {
+  position: relative;
 }
 .about .container .salon-vibe figure {
   display: flex;
@@ -557,15 +565,18 @@ main section .container .contents-title::after {
 .staff {
   margin-top: 100px;
 }
-.staff ul {
+.staff .container {
+  position: relative;
+}
+.staff .container ul {
   display: flex;
   gap: 75px;
   margin-right: 25px;
 }
-.staff ul li {
+.staff .container ul li {
   position: relative;
 }
-.staff ul li .position {
+.staff .container ul li .position {
   writing-mode: vertical-rl;
   font-family: "Lato", sans-serif;
   font-weight: 900;
@@ -576,7 +587,7 @@ main section .container .contents-title::after {
   font-size: 13px;
   font-weight: 700;
 }
-.staff ul li .name {
+.staff .container ul li .name {
   position: relative;
   padding-top: 25px;
   font-family: "Noto Sans JP", sans-serif;
@@ -585,7 +596,7 @@ main section .container .contents-title::after {
   letter-spacing: 0.1em;
   text-align: right;
 }
-.staff ul li .name span {
+.staff .container ul li .name span {
   position: absolute;
   top: 15px;
   left: 0;
@@ -599,10 +610,13 @@ main section .container .contents-title::after {
 .menu {
   margin-top: 150px;
 }
-.menu .media-wrapper {
+.menu .container {
   position: relative;
 }
-.menu .media-wrapper .curtains {
+.menu .container .media-wrapper {
+  position: relative;
+}
+.menu .container .media-wrapper .curtains {
   position: absolute;
   top: 0;
   left: 0;
@@ -612,44 +626,47 @@ main section .container .contents-title::after {
   background-color: #fff;
   z-index: 1;
 }
-.menu dl {
+.menu .container dl {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   -moz-column-gap: 60px;
        column-gap: 60px;
   margin-top: 50px;
 }
-.menu dl .dl-container {
+.menu .container dl .dl-container {
   display: flex;
   display: flex;
   margin-bottom: 12px;
   padding-bottom: 12px;
   border-bottom: 1px dotted #DEDEDE;
 }
-.menu dl .dl-container dt, .menu dl .dl-container dd {
+.menu .container dl .dl-container dt, .menu .container dl .dl-container dd {
   font-weight: 300;
   line-height: 1.7;
 }
-.menu dl .dl-container dt {
+.menu .container dl .dl-container dt {
   min-width: 85px;
 }
-.menu dl .dl-container dt {
+.menu .container dl .dl-container dt {
   width: 35%;
 }
-.menu dl .dl-container dd {
+.menu .container dl .dl-container dd {
   width: 65%;
 }
 
 .style {
   margin-top: 100px;
 }
-.style .visual {
+.style .container {
+  position: relative;
+}
+.style .container .visual {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 6px;
 }
-.style .visual .frame {
+.style .container .visual .frame {
   transition: 0.5;
   display: none;
   cursor: pointer;
@@ -753,13 +770,15 @@ main section .container .contents-title::after {
 .recruit {
   margin-top: 180px;
 }
+.recruit .container {
+  position: relative;
+}
 .recruit .container .join-our-team figure {
   display: flex;
   align-items: center;
 }
 .recruit .container .join-our-team figure .media-wrapper {
-  flex: 1.55;
-  width: 100%;
+  width: 50%;
   aspect-ratio: 4/3;
 }
 .recruit .container .join-our-team figure .media-wrapper .curtains {
@@ -779,9 +798,9 @@ main section .container .contents-title::after {
      object-fit: cover;
 }
 .recruit .container .join-our-team figure figcaption {
-  flex: 1;
+  width: 50%;
   line-height: 2.2;
-  padding: 50px;
+  padding-left: 50px;
   z-index: 1;
 }
 .recruit .container .join-our-team figure figcaption dl {
@@ -834,7 +853,7 @@ main section .container .contents-title::after {
     left: 0;
     padding-left: 60px;
     writing-mode: horizontal-tb;
-    font-size: 25px;
+    font-size: 26px;
   }
   main section .container .contents-title:before {
     top: 0;
@@ -850,21 +869,35 @@ main section .container .contents-title::after {
     border-left: 1px solid #3C3835;
   }
   .view-more .wrapper {
-    margin-top: 25px;
+    margin-top: 30px;
     font-size: 14px;
     border-bottom: 2px solid #3C3835;
   }
   .view-more .wrapper .view-more-curtains {
     left: 0;
   }
+  :target {
+    scroll-margin-top: 70px;
+  }
   .main-visual {
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin-top: 60px;
+    margin: 60px 0px 0 0;
   }
-  .main-visual video {
-    width: 100%;
-    aspect-ratio: 1/1.225;
+  .main-visual .media-wrapper {
+    position: relative;
+    aspect-ratio: 1/1.5;
+    overflow: hidden;
+  }
+  .main-visual .media-wrapper video {
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .main-visual .media-wrapper .bgm-play-stop {
+    bottom: 15px;
+    right: 15px;
   }
   .main-visual figcaption {
     padding: 0;
@@ -873,16 +906,11 @@ main section .container .contents-title::after {
     font-size: 14px;
     line-height: 2;
   }
-  .main-visual .bgm-play-stop {
-    top: 68%;
-    transform: translateY(-50%);
-    right: 15px;
-  }
   .blog {
     margin-top: 80px;
     padding: 0 0 145px;
   }
-  .blog ul {
+  .blog .container ul {
     grid-template-columns: repeat(2, 1fr);
     row-gap: 30px;
     -moz-column-gap: 50px;
@@ -890,13 +918,13 @@ main section .container .contents-title::after {
     margin-top: 20px;
     padding-right: 20px;
   }
-  .blog ul li {
+  .blog .container ul li {
     width: 100%;
   }
-  .blog ul li:nth-of-type(5) {
+  .blog .container ul li:nth-of-type(5) {
     display: none;
   }
-  .blog ul li a .frame img {
+  .blog .container ul li a .frame img {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
@@ -958,29 +986,29 @@ main section .container .contents-title::after {
   .staff {
     margin-top: 35px;
   }
-  .staff ul {
+  .staff .container ul {
     flex-wrap: wrap;
     -moz-column-gap: 45px;
          column-gap: 45px;
     row-gap: 35px;
     margin: 25px 15px 0 0;
   }
-  .staff ul li {
-    flex: 0 0 43%;
+  .staff .container ul li {
+    width: 42%;
   }
-  .staff ul li .position {
+  .staff .container ul li .position {
     font-size: 13px;
   }
-  .staff ul li .name p {
+  .staff .container ul li .name p {
     margin-top: 3px;
     font-size: 14px;
   }
-  .staff ul li .name p span {
+  .staff .container ul li .name p span {
     top: 10px;
     font-size: 14px;
     letter-spacing: 0;
   }
-  .staff ul li .name p span br {
+  .staff .container ul li .name p span br {
     display: none;
   }
   .menu {
@@ -997,6 +1025,42 @@ main section .container .contents-title::after {
     font-size: 13px;
     margin-bottom: 14px;
     padding-bottom: 14px;
+  }
+  .style {
+    margin-top: 50px;
+  }
+  .style .container .visual {
+    margin-top: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+  .recruit {
+    margin-top: 95px;
+  }
+  .recruit .container .join-our-team {
+    margin-top: 20px;
+  }
+  .recruit .container .join-our-team figure {
+    flex-direction: column;
+  }
+  .recruit .container .join-our-team figure .media-wrapper {
+    width: 100%;
+    aspect-ratio: 3/2.1;
+  }
+  .recruit .container .join-our-team figure figcaption {
+    width: 100%;
+    margin-top: 15px;
+    padding: 0;
+    text-align: center;
+  }
+  .recruit .container .join-our-team figure figcaption dl {
+    margin-top: 20px;
+  }
+  .recruit .container .join-our-team figure figcaption dl .dl-container:first-of-type {
+    margin-bottom: 15px;
+  }
+  .recruit .container .join-our-team figure figcaption dl .dl-container dt, .recruit .container .join-our-team figure figcaption dl .dl-container dd {
+    font-size: 16px;
   }
 }
 footer {
@@ -1022,4 +1086,24 @@ footer figcaption {
   font-size: 12px;
   color: #fff;
   letter-spacing: 0;
+}
+
+@media screen and (max-width: 700px) {
+  footer {
+    margin-top: 115px;
+    padding: 0;
+    height: 35vh;
+  }
+  footer .visual {
+    height: 100%;
+  }
+  footer .visual video {
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  footer .visual figcaption {
+    bottom: 30px;
+    white-space: nowrap;
+  }
 }/*# sourceMappingURL=style.css.map */
