@@ -23,14 +23,15 @@ toSectionLinkBtn.addEventListener("click", function () {
   // mainNavMask.classList.toggle("pull-up")
 })
 
-// // ページ内スクロールの際に、メニューを閉じる
-// document.querySelectorAll('#contents-links a').forEach(el => {
-//   el.addEventListener('click', () => {
-//     headerMenuBtn.classList.remove('active')
-//     contentsLinks.classList.remove("pull-up")
-//     mainNavMask.classList.remove("pull-up")
-//   })
-// })
+//////////////////////////////////// メニューをクリックしたら閉じるができてない。
+// ページ内スクロールの際に、メニューを閉じる
+document.querySelectorAll('#to-section-link-btn a').forEach(el => {
+  el.addEventListener('click', () => {
+    to-section-link-btn.classList.remove('active')
+    // contentsLinks.classList.remove("pull-up")
+    // mainNavMask.classList.remove("pull-up")
+  })
+})
 
 
 // ////////////
@@ -276,56 +277,56 @@ Array.from({ length: groupSize }).forEach((_, i) => {
   divideGroup.push(models.slice(start, end));
 });
 
-// // 最初のグループを表示させておく。
-// const firstGroup = divideGroup.shift()
-// firstGroup.forEach(elem => {
-//   elem.style.display = 'block'
-// })
+// 最初のグループを表示させておく。
+const firstGroup = divideGroup.shift()
+firstGroup.forEach(elem => {
+  elem.style.display = 'block'
+})
 
-// // クリックしたら次のグループを表示させる。
-// previewModelBtn.addEventListener('click', () => {
-//   const nextGroup = divideGroup.shift()
-//   nextGroup.forEach(elem => {
-//     elem.classList.add('models-fade-in')
-//   })
-// })
+// クリックしたら次のグループを表示させる。
+previewModelBtn.addEventListener('click', () => {
+  const nextGroup = divideGroup.shift()
+  nextGroup.forEach(elem => {
+    elem.classList.add('models-fade-in')
+  })
+})
 
-// // styleのスタイリングの見本
-// const stylingViewModal = document.getElementById('styling-view-modal')
-// const closedBtn = stylingViewModal.firstElementChild
+// styleのスタイリングの見本
+const stylingViewModal = document.getElementById('styling-view-modal')
+const closedBtn = stylingViewModal.firstElementChild
 
-// models.forEach((elem, idx) => {
-//   elem.addEventListener('click', () => {
-//     // stylingViewModal.style.display = 'block'
-//     stylingViewModal.classList.add('style-fade-in')
-//     new Swiper('.swiper', {
-//       // Optional parameters
-//       // direction: 'horizon',
-//       loop: true,
-//       // 何番目のスライドから始めるかを指定するオプション
-//       initialSlide: idx,
+models.forEach((elem, idx) => {
+  elem.addEventListener('click', () => {
+    // stylingViewModal.style.display = 'block'
+    stylingViewModal.classList.add('style-fade-in')
+    new Swiper('.swiper', {
+      // Optional parameters
+      // direction: 'horizon',
+      loop: true,
+      // 何番目のスライドから始めるかを指定するオプション
+      initialSlide: idx,
     
-//       // If we need pagination
-//       // pagination: {
-//       //   el: '.swiper-pagination',
-//       // },
+      // If we need pagination
+      // pagination: {
+      //   el: '.swiper-pagination',
+      // },
     
-//       // Navigation arrows
-//       navigation: {
-//         nextEl: '.swiper-button-next',
-//         prevEl: '.swiper-button-prev',
-//       },
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
     
-//       // And if we need scrollbar
-//       // scrollbar: {
-//       //   el: '.swiper-scrollbar',
-//       // },
-//     })
-//     closedBtn.addEventListener('click', () => {
-//       stylingViewModal.classList.remove('style-fade-in')
-//     })
-//   })
-// })
+      // And if we need scrollbar
+      // scrollbar: {
+      //   el: '.swiper-scrollbar',
+      // },
+    })
+    closedBtn.addEventListener('click', () => {
+      stylingViewModal.classList.remove('style-fade-in')
+    })
+  })
+})
 
 
 ////////////

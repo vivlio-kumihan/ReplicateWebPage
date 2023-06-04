@@ -948,6 +948,7 @@ main {
       }
     }
   }
+
   .about {
     margin-top: 0;
     padding-top: 0;
@@ -956,27 +957,107 @@ main {
         margin-top: 20px;
         figure {
           flex-direction: column;
-          text-align: left;
-
+          align-items: flex-start;
           &:last-of-type {
-              
-              .media-wrapper {
-                
-
-              }
-            }
-          .media-wrapper {
-            width: 80%;
+            flex-direction: column;
+            align-items: flex-end;
+            margin-top: 45px;
           }
+          .media-wrapper {
+              width: 80%;
+            }
           figcaption {
             margin-top: 20px;
             padding: 0;
             font-size: 14px;
             line-height: 1.7;
+            // text-align: left;
           }
         }
       }
     }
+    .visual {
+      grid-template-columns: repeat(2, 1fr);
+      width: 100%;
+      margin-top: 60px;
+    }
+    .container {
+      .access {
+        flex-direction: column;
+        margin-top: 60px;
+        .frame {
+          img {
+            height: 100%;
+          }
+        }
+        dl {
+          margin-top: 30px;
+          margin-left: 0;
+          .dl-container {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            dt, dd {
+              font-size: 13px;
+              line-height: 1.5;
+            }
+          }
+        }
+      }
+      .map {
+        .media-wrapper {
+          margin-top: 10px;
+          aspect-ratio: 1/0.9;
+        }
+      }
+    }
+  }
+
+  .staff {
+    margin-top: 35px;
+    ul {
+      flex-wrap: wrap;
+      column-gap: 45px;
+      row-gap: 35px;
+      margin: 25px 15px 0 0;
+      li {
+        flex: 0 0 43%;
+        .position {
+          font-size: 13px;
+        }
+        .name {
+          p {
+            margin-top: 3px;
+            font-size: 14px;
+            span {
+              top: 10px;
+              font-size: 14px;
+              letter-spacing: 0;
+              br {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .menu {
+    margin-top: 40px;
+    .container {
+      .frame {
+        margin-top: 20px;
+      }
+      dl {
+        grid-template-columns: repeat(1, 1fr);
+        margin-top: 30px;
+        .dl-container {
+          font-size: 13px;
+          margin-bottom: 14px;
+          padding-bottom: 14px;
+        }
+      }
+    }
+
   }
 }
 

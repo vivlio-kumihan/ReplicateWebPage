@@ -911,7 +911,12 @@ main section .container .contents-title::after {
   }
   .about .container .salon-vibe figure {
     flex-direction: column;
-    text-align: left;
+    align-items: flex-start;
+  }
+  .about .container .salon-vibe figure:last-of-type {
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 45px;
   }
   .about .container .salon-vibe figure .media-wrapper {
     width: 80%;
@@ -921,6 +926,77 @@ main section .container .contents-title::after {
     padding: 0;
     font-size: 14px;
     line-height: 1.7;
+  }
+  .about .visual {
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    margin-top: 60px;
+  }
+  .about .container .access {
+    flex-direction: column;
+    margin-top: 60px;
+  }
+  .about .container .access .frame img {
+    height: 100%;
+  }
+  .about .container .access dl {
+    margin-top: 30px;
+    margin-left: 0;
+  }
+  .about .container .access dl .dl-container {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+  }
+  .about .container .access dl .dl-container dt, .about .container .access dl .dl-container dd {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .about .container .map .media-wrapper {
+    margin-top: 10px;
+    aspect-ratio: 1/0.9;
+  }
+  .staff {
+    margin-top: 35px;
+  }
+  .staff ul {
+    flex-wrap: wrap;
+    -moz-column-gap: 45px;
+         column-gap: 45px;
+    row-gap: 35px;
+    margin: 25px 15px 0 0;
+  }
+  .staff ul li {
+    flex: 0 0 43%;
+  }
+  .staff ul li .position {
+    font-size: 13px;
+  }
+  .staff ul li .name p {
+    margin-top: 3px;
+    font-size: 14px;
+  }
+  .staff ul li .name p span {
+    top: 10px;
+    font-size: 14px;
+    letter-spacing: 0;
+  }
+  .staff ul li .name p span br {
+    display: none;
+  }
+  .menu {
+    margin-top: 40px;
+  }
+  .menu .container .frame {
+    margin-top: 20px;
+  }
+  .menu .container dl {
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 30px;
+  }
+  .menu .container dl .dl-container {
+    font-size: 13px;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
   }
 }
 footer {
