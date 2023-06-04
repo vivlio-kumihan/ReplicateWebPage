@@ -385,9 +385,6 @@ header {
               font-weight: 300;
               font-size: 24px;
               border-bottom: 1px solid $color-light-gray;
-              &:first-of-type {
-                // border-top: 1px solid $color-light-gray;
-              }
               a {
                 display: block;
               }
@@ -505,7 +502,6 @@ main {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 45px;
-  
       li {
         position: relative;
         width: 90%;
@@ -1038,13 +1034,12 @@ main {
     margin-top: 35px;
     .container {
       ul {
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         column-gap: 45px;
         row-gap: 35px;
         margin: 25px 15px 0 0;
         li {
-          width: 42%;
-          // flex: 0 0 43%;
           .position {
             font-size: 13px;
           }
@@ -1071,6 +1066,8 @@ main {
     margin-top: 40px;
     .container {
       .frame {
+        width: 100%;
+        aspect-ratio: 1/0.75;
         margin-top: 20px;
       }
       dl {
@@ -1158,7 +1155,7 @@ footer {
   footer {
     margin-top: 115px;
     padding: 0;
-    height: 35vh;
+    height: 40vh;
     .visual {
       height: 100%;
       video {

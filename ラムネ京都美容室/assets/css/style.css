@@ -987,14 +987,12 @@ main section .container .contents-title::after {
     margin-top: 35px;
   }
   .staff .container ul {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     -moz-column-gap: 45px;
          column-gap: 45px;
     row-gap: 35px;
     margin: 25px 15px 0 0;
-  }
-  .staff .container ul li {
-    width: 42%;
   }
   .staff .container ul li .position {
     font-size: 13px;
@@ -1015,6 +1013,8 @@ main section .container .contents-title::after {
     margin-top: 40px;
   }
   .menu .container .frame {
+    width: 100%;
+    aspect-ratio: 1/0.75;
     margin-top: 20px;
   }
   .menu .container dl {
@@ -1092,7 +1092,7 @@ footer figcaption {
   footer {
     margin-top: 115px;
     padding: 0;
-    height: 35vh;
+    height: 40vh;
   }
   footer .visual {
     height: 100%;

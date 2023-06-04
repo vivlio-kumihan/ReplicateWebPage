@@ -6,7 +6,7 @@ function loaded() {
 }
 // ウィンドウを読み込んで2秒後には次に遷移する。
 window.addEventListener('load', () => {
-  setTimeout(loaded, 2000)
+  setTimeout(loaded, 1500)
 })
 
 // // behavior page top
@@ -30,21 +30,6 @@ Array.from(linksLi).forEach(el => {
     contentsLinks.classList.remove("appear")
   })
 })
-
-
-// ////////////
-// // nav menu
-// Array.from(contentsLinks.children).forEach(elem => {
-//   elem.addEventListener("mouseenter", function() {
-//     this.classList.add("slide-left")
-//   })
-//   elem.addEventListener("mouseleave", function() {
-//     this.classList.remove("slide-left")
-//   })
-// })
-
-
-
 
 
 ////////////
