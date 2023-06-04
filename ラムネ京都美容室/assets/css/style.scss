@@ -148,7 +148,7 @@ figcaption {
   img {
     width: 100%;
     height: 100%; 
-    object-fit: cover;
+    object-fit: contain;
   }
 }
 
@@ -277,6 +277,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
     height: 60px;
     z-index: 6;
     background-color: #fff;
@@ -285,13 +286,13 @@ header {
     }
     .previous-container {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      height: 100%;
+      height: inherit;
       padding: 0 20px;
       .frame.logo {
         position: unset;
-        width: 75px;
+        width: 80px;
+        height: 40px;
       }
       .box {
         width: 20px;
@@ -299,11 +300,12 @@ header {
         background-color: $color-black;
       }
       .main-nav {
-        flex-direction: row-reverse;
-        align-items: center;
+        flex-direction: row;
+        justify-content: flex-end;
         position: unset;
+        margin-right: 60px;
         width: 100%;
-        height: 100%;
+        height: inherit;
         .to-section-link-btn {
           display: inline-block;
           position: fixed;
@@ -395,14 +397,17 @@ header {
           }
           &:last-of-type {
             gap: 0;
+            height: inherit;
+            margin: 0;
             li:first-of-type {
-              position: unset;
+              position: relative;
               padding: 0;
               border: none;
               &::before {
+                position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
-                left: 42%;
+                left: -25px;
               }
             }
             li:last-of-type {
@@ -418,7 +423,6 @@ header {
       }
     }
   }
-
 }
 
 // for section title
@@ -863,15 +867,20 @@ main {
     flex-direction: column;
     align-items: center;
     video {
-      flex: 1;
       width: 100%;
       aspect-ratio: 1/1.225;
     }
     figcaption {
-      flex: 1;
       padding: 0;
+      padding-top: 30px;
       text-align: center;
-      line-height: 1.7;
+      font-size: 14px;
+      line-height: 2;
+    }
+    .bgm-play-stop {
+      top: 50%;
+      transform: translateY(-50%);
+      right: 15px;
     }
   }
 }
