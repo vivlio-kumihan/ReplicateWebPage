@@ -132,11 +132,8 @@ body {
 }
 
 .container {
-  position: relative;
   width: calc(100% - 160px);
   margin: 0 auto;
-  // bg for debug
-  // background-color: aliceblue;
 }
 
 figcaption {
@@ -182,7 +179,6 @@ figcaption {
 }
 
 header {
-  height: 100vh;
   position: relative;
   .loading {
     position: absolute;
@@ -271,37 +267,6 @@ header {
       }
     }
   }
-  .visual {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: flex-end;
-    position: relative;
-    video {
-      flex: .73;
-      width: min(400px, 100%);
-      height: 100vh;
-      object-fit: cover;
-    }
-    figcaption {
-      flex: .27;
-      min-width: 350px;
-      padding: 0 60px 60px 0;
-      line-height: 2.5;
-      text-align: right;
-    }
-    .bgm-play-stop {
-      position: absolute;
-      bottom: 30px;
-      right: 30px;
-      width: 36px;
-      height: 36px;
-      padding: 8px 10px 8px 6px;
-      font-size: 20px;
-      background-color: #fff;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-  }
 }
 .active {
   display: block;
@@ -309,6 +274,9 @@ header {
 
 @media screen and (max-width: 700px) {
   header {
+    position: fixed;
+    top: 0;
+    left: 0;
     height: 60px;
     z-index: 6;
     background-color: #fff;
@@ -401,9 +369,13 @@ header {
             line-height: 1;
             background-color: #fff;
             z-index: 1;
-            transition: .3s;
+            transition: .5s;
             visibility: hidden;
             opacity: 0;
+            &.appear {
+              visibility: visible;
+              opacity: 1;
+            }
             li {
               display: block;
               width: 100%;
@@ -430,7 +402,7 @@ header {
               &::before {
                 top: 50%;
                 transform: translateY(-50%);
-                left: 49.5%;
+                left: 42%;
               }
             }
             li:last-of-type {
@@ -446,6 +418,7 @@ header {
       }
     }
   }
+
 }
 
 // for section title
@@ -486,6 +459,39 @@ main {
         }
       }
     }
+  }
+}
+
+.main-visual {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+  position: relative;
+  video {
+    flex: .73;
+    width: min(400px, 100%);
+    height: 100vh;
+    object-fit: cover;
+  }
+  figcaption {
+    flex: .27;
+    min-width: 350px;
+    padding: 0 60px 60px 0;
+    line-height: 2.5;
+    text-align: right;
+  }
+
+  .bgm-play-stop {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 36px;
+    height: 36px;
+    padding: 8px 10px 8px 6px;
+    font-size: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
   }
 }
 
@@ -843,6 +849,29 @@ main {
           }
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    width: 100%;
+    height: 100vh;
+    margin-top: 60px;
+  }
+  .main-visual {
+    flex-direction: column;
+    align-items: center;
+    video {
+      flex: 1;
+      width: 100%;
+      aspect-ratio: 1/1.225;
+    }
+    figcaption {
+      flex: 1;
+      padding: 0;
+      text-align: center;
+      line-height: 1.7;
     }
   }
 }

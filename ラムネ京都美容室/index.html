@@ -13,12 +13,9 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js'></script>  
   <script src='./assets/js/behavior.js' defer></script>
-
-  
 </head>
 
 <body>
-
 <header>
   <div id="loading" class='loading keep'>
     <div class='frame gif-logo'><img src='./assets/img/loading.gif' alt='色が次々と変化するラムネ美容室のローディング画面用ロゴ'></div>
@@ -26,7 +23,7 @@
   <div class="previous-container">
     <div class='frame logo'><img src='./assets/img/logo.svg' alt='ラムネ美容室のロゴ'></div>
     <nav class='main-nav'>
-      <div class="to-section-link-btn">
+      <div id="to-section-link-btn" class="to-section-link-btn">
         <div></div>
         <div></div>
         <div></div>
@@ -45,8 +42,10 @@
       </ul>
     </nav>
   </div>
-  <div class='container'>
-    <figure class='visual'>
+</header>
+<main>
+  <div class="container">
+    <figure class='main-visual'>
       <video  playsinline autoplay loop muted> 
         <source src='./assets/img/movie/main.mp4' type='video/mp4'>
       </video>
@@ -55,8 +54,6 @@
       <audio id='bg-music' src='./assets/music/ireland-120522.mp3' loop></audio>
     </figure>
   </div>
-</header>
-<main>
   <section id='blog' class='blog'>
     <div class='container'>
       <h2 class='contents-title'>blog</h2>
@@ -211,7 +208,7 @@
   </section>
 
   <!-- 域外に広がって体裁を崩すので一時消す。 -->
-  <!-- <section id='menu' class='menu'>
+  <section id='menu' class='menu'>
     <div class='container'>
       <h2 class='contents-title'>menu</h2>
       <div class="frame media-wrapper">
@@ -240,7 +237,7 @@
         </div>
       </dl>
     </div>
-  </section> -->
+  </section>
 
   <section id='style' class='style'>
     <div class='container'>

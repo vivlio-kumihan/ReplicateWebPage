@@ -10,17 +10,18 @@ window.addEventListener('load', () => {
 })
 
 // // behavior page top
-// const headerMenuBtn = document.getElementById("header-menu-button")
+const toSectionLinkBtn = document.getElementById("to-section-link-btn")
 // const contentsLinks = document.getElementById("contents-links")
 // const mainNavMask = document.getElementById("main-nav-mask")
 
-// // メニューの切り替え
-// headerMenuBtn.addEventListener("click", function () {
-//   console.log(headerMenuBtn)
-//   this.classList.toggle("active")
-//   contentsLinks.classList.toggle("pull-up")
-//   mainNavMask.classList.toggle("pull-up")
-// })
+// メニューの切り替え
+toSectionLinkBtn.addEventListener("click", function () {
+  this.classList.toggle("active")
+  this.nextElementSibling.classList.toggle("appear")
+  // .classList.toggle("active")
+  // contentsLinks.classList.toggle("pull-up")
+  // mainNavMask.classList.toggle("pull-up")
+})
 
 // // ページ内スクロールの際に、メニューを閉じる
 // document.querySelectorAll('#contents-links a').forEach(el => {
