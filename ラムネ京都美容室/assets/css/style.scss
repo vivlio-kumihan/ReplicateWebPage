@@ -17,6 +17,7 @@
 /* font-family: 'Lato', sans-serif; */
 
 
+
 @mixin caption-with-visual {
   writing-mode: vertical-rl;
   font-family: 'Lato', sans-serif;
@@ -65,7 +66,7 @@
     height: 100%;
     content: "";
     background-color: #fff;
-    z-index: 1;
+    z-index: get_index(curtains);
   }
 }
 
@@ -78,7 +79,7 @@
     height: 180%;
     content: "";
     background-color: #fff;
-    z-index: 1;
+    z-index: get_index(view-more-curtains);
   }
 }
 
@@ -90,7 +91,7 @@
     padding-bottom: 10px;
     border-bottom: 3px solid $color-green;
     opacity: 0;
-    z-index: 1;
+    z-index: get_index(over-green);
     overflow: hidden;
     .frame {
       white-space: nowrap;
@@ -104,6 +105,25 @@ $color-black: #3C3835;
 $color-gray: #DEDEDE;
 $color-light-gray: #F2F2F2;
 $color-green: #4BBE92;
+
+// 紐付けたい要素を変数名にして配列に格納する。
+// curtains+1
+// view-more-curtains+1
+// over-green+1
+// main-nav+1
+// about-salon-vibe-last+1
+// recruit-figcaption+1
+// sp-main-nav-ul+1
+// contents-title+3
+// sp-header+10
+// styling-view-modal+11
+// loading+11
+$index-map: curtains, view-more-curtains, over-green, main-nav, about-salon-vibe-last, recruit-figcaption, sp-main-nav-ul, contents-title, sp-header, styling-view-modal, loading;
+// z-index属性へ代入する関数を定義する。
+// 配列と値の名称を引数とする。
+@function get_index($name) {
+  @return index($index-map, $name)
+}
 
 /* //////////////////// 全体 */
 html {
@@ -187,7 +207,7 @@ figcaption {
   transition: 1.5s;
   visibility: hidden;
   opacity: 0;
-  z-index: 11;
+  z-index: get_index(loading);
   &.keep {
     visibility: visible;
     opacity: 1;
@@ -222,7 +242,7 @@ header {
     right: 0;
     width: 80px;
     height: 100vh;
-    z-index: 1;
+    z-index: get_index(main-nav);
     .to-section-link-btn {
       display: block;
     }
@@ -283,7 +303,7 @@ header {
     height: 60px;
     background-color: #fff;
     border-bottom: 1px solid $color-light-gray;
-    z-index: 10;
+    z-index: get_index(sp-header);
     .previous-container {
       display: flex;
       align-items: center;
@@ -368,7 +388,7 @@ header {
             width: 100%;
             line-height: 1;
             background-color: #fff;
-            z-index: 1;
+            z-index: get_index(sp-main-nav-ul);
             transition: .5s;
             visibility: hidden;
             opacity: 0;
@@ -439,7 +459,7 @@ main {
         letter-spacing: .1em;
         text-transform: uppercase;
         counter-increment: section-title-num;
-        z-index: 3;
+        z-index: get_index(contents-title);
         &::before {
           position: absolute;
           top: -60px;
@@ -543,6 +563,11 @@ main {
         align-items: flex-end;
         &:last-of-type {
           flex-direction: row-reverse;
+          margin-top: 120px;
+          figcaption {
+            text-align: right;
+            z-index: get_index(about-salon-vibe-last);
+          }
         }
         .media-wrapper {
           @include scroll-trigger-curtains;
@@ -559,13 +584,6 @@ main {
           flex: 1;
           line-height: 2.2;
           padding: 50px;
-        }
-        &:last-of-type {
-          margin-top: 120px;
-          figcaption {
-            text-align: right;
-            z-index: 1;
-          }
         }
       }
     }
@@ -750,11 +768,11 @@ main {
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(50, 50, 50, .9);
+  background-color: #000;
   transition: .5s;
   visibility: hidden;
   opacity: 0;
-  z-index: 5;
+  z-index: get_index(styling-view-modal);
   button {
     position: absolute;
     top: 20px;
@@ -826,7 +844,7 @@ main {
           width: 50%;
           line-height: 2.2;
           padding-left: 50px;
-          z-index: 1;
+          z-index: get_index(recruit-figcaption);
           dl {
             margin-top: 45px;
             .dl-container {
@@ -894,7 +912,6 @@ main {
       }
     }
   }
-
   .view-more {
     .wrapper {
       margin-top: 30px;
@@ -906,21 +923,22 @@ main {
       }
     }
   }
-
   :target {
     scroll-margin-top: 70px;
   }
-
   .main-visual {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 60px 0px 0 0;
+    width: 100%;
+    margin: 60px 0 0 0;
     .media-wrapper {
       position: relative;
+      width: 100%;
       aspect-ratio: 1/1.5;
       overflow: hidden;
       video {
+        width: 100%;
         height: 100%;
         object-fit: cover;
       }
@@ -1091,6 +1109,23 @@ main {
         grid-template-rows: repeat(4, 1fr);
       }
     }
+  }
+  #styling-view-modal .swiper-button-prev,
+  #styling-view-modal .swiper-button-next {
+    top: 50%;
+    width: 38px;
+    height: 38px;
+    background-color: rgba(50, 50, 50, 0.75);
+    mix-blend-mode: normal;
+    &::after {
+      font-size: 14px;
+    }
+  }
+  #styling-view-modal .swiper-button-prev {
+    left: 1.5%;
+  }
+  #styling-view-modal .swiper-button-next {
+    right: 1.5%;
   }
   
   .recruit {

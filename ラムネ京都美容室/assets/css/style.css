@@ -76,7 +76,7 @@ figcaption {
   height: 180%;
   content: "";
   background-color: #fff;
-  z-index: 1;
+  z-index: 2;
 }
 .view-more .wrapper .over-green {
   position: absolute;
@@ -85,7 +85,7 @@ figcaption {
   padding-bottom: 10px;
   border-bottom: 3px solid #4BBE92;
   opacity: 0;
-  z-index: 1;
+  z-index: 3;
   overflow: hidden;
 }
 .view-more .wrapper .over-green .frame {
@@ -143,7 +143,7 @@ header .main-nav {
   right: 0;
   width: 80px;
   height: 100vh;
-  z-index: 1;
+  z-index: 4;
 }
 header .main-nav .to-section-link-btn {
   display: block;
@@ -207,7 +207,7 @@ header .main-nav ul:last-of-type li:first-of-type::before {
     height: 60px;
     background-color: #fff;
     border-bottom: 1px solid #F2F2F2;
-    z-index: 10;
+    z-index: 9;
   }
   header .previous-container {
     display: flex;
@@ -293,7 +293,7 @@ header .main-nav ul:last-of-type li:first-of-type::before {
     width: 100%;
     line-height: 1;
     background-color: #fff;
-    z-index: 1;
+    z-index: 7;
     transition: 0.5s;
     visibility: hidden;
     opacity: 0;
@@ -358,7 +358,7 @@ main section .container .contents-title {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   counter-increment: section-title-num;
-  z-index: 3;
+  z-index: 8;
 }
 main section .container .contents-title::before {
   position: absolute;
@@ -462,6 +462,11 @@ main section .container .contents-title::after {
 }
 .about .container .salon-vibe figure:last-of-type {
   flex-direction: row-reverse;
+  margin-top: 120px;
+}
+.about .container .salon-vibe figure:last-of-type figcaption {
+  text-align: right;
+  z-index: 5;
 }
 .about .container .salon-vibe figure .media-wrapper {
   position: relative;
@@ -488,13 +493,6 @@ main section .container .contents-title::after {
   flex: 1;
   line-height: 2.2;
   padding: 50px;
-}
-.about .container .salon-vibe figure:last-of-type {
-  margin-top: 120px;
-}
-.about .container .salon-vibe figure:last-of-type figcaption {
-  text-align: right;
-  z-index: 1;
 }
 .about .container .access {
   display: flex;
@@ -715,11 +713,11 @@ main section .container .contents-title::after {
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(50, 50, 50, 0.9);
+  background-color: #000;
   transition: 0.5s;
   visibility: hidden;
   opacity: 0;
-  z-index: 5;
+  z-index: 10;
 }
 .styling-view-modal button {
   position: absolute;
@@ -801,7 +799,7 @@ main section .container .contents-title::after {
   width: 50%;
   line-height: 2.2;
   padding-left: 50px;
-  z-index: 1;
+  z-index: 6;
 }
 .recruit .container .join-our-team figure figcaption dl {
   margin-top: 45px;
@@ -883,14 +881,17 @@ main section .container .contents-title::after {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 60px 0px 0 0;
+    width: 100%;
+    margin: 60px 0 0 0;
   }
   .main-visual .media-wrapper {
     position: relative;
+    width: 100%;
     aspect-ratio: 1/1.5;
     overflow: hidden;
   }
   .main-visual .media-wrapper video {
+    width: 100%;
     height: 100%;
     -o-object-fit: cover;
        object-fit: cover;
@@ -1033,6 +1034,24 @@ main section .container .contents-title::after {
     margin-top: 20px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
+  }
+  #styling-view-modal .swiper-button-prev,
+  #styling-view-modal .swiper-button-next {
+    top: 50%;
+    width: 38px;
+    height: 38px;
+    background-color: rgba(50, 50, 50, 0.75);
+    mix-blend-mode: normal;
+  }
+  #styling-view-modal .swiper-button-prev::after,
+  #styling-view-modal .swiper-button-next::after {
+    font-size: 14px;
+  }
+  #styling-view-modal .swiper-button-prev {
+    left: 1.5%;
+  }
+  #styling-view-modal .swiper-button-next {
+    right: 1.5%;
   }
   .recruit {
     margin-top: 95px;
