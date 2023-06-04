@@ -44,8 +44,8 @@ figcaption {
 .frame img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .view-more {
@@ -71,8 +71,7 @@ figcaption {
 .view-more .wrapper .view-more-curtains {
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0%;
   width: 110%;
   height: 180%;
   content: "";
@@ -97,24 +96,23 @@ figcaption {
   cursor: pointer;
 }
 
-header {
-  position: relative;
-}
-header .loading {
-  position: absolute;
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
   background-color: #fff;
   transition: 1.5s;
   visibility: hidden;
   opacity: 0;
-  z-index: 2;
+  z-index: 11;
 }
-header .loading.keep {
+.loading.keep {
   visibility: visible;
   opacity: 1;
 }
-header .loading .frame.gif-logo {
+.loading .frame.gif-logo {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -122,9 +120,13 @@ header .loading .frame.gif-logo {
   width: 100px;
   height: 100px;
 }
-header .loading img {
+.loading img {
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+header {
+  position: relative;
 }
 header .logo {
   position: absolute;
@@ -203,11 +205,9 @@ header .main-nav ul:last-of-type li:first-of-type::before {
     left: 0;
     width: 100%;
     height: 60px;
-    z-index: 6;
     background-color: #fff;
-  }
-  header .loading {
-    display: none;
+    border-bottom: 1px solid #F2F2F2;
+    z-index: 10;
   }
   header .previous-container {
     display: flex;
@@ -220,10 +220,9 @@ header .main-nav ul:last-of-type li:first-of-type::before {
     width: 80px;
     height: 40px;
   }
-  header .previous-container .box {
-    width: 20px;
-    height: 20px;
-    background-color: #3C3835;
+  header .previous-container .frame.logo img {
+    -o-object-fit: contain;
+       object-fit: contain;
   }
   header .previous-container .main-nav {
     flex-direction: row;
@@ -313,9 +312,6 @@ header .main-nav ul:last-of-type li:first-of-type::before {
     font-size: 24px;
     border-bottom: 1px solid #F2F2F2;
   }
-  header .previous-container .main-nav ul:first-of-type li:first-of-type {
-    border-top: 1px solid #F2F2F2;
-  }
   header .previous-container .main-nav ul:first-of-type li a {
     display: block;
   }
@@ -355,9 +351,8 @@ main section .container .contents-title {
   position: absolute;
   top: 60px;
   left: -50px;
-  content: "";
   writing-mode: vertical-rl;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   font-size: 22px;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -831,12 +826,41 @@ main section .container .contents-title::after {
 @media screen and (max-width: 700px) {
   .container {
     width: 100%;
-    height: 100vh;
-    margin-top: 60px;
+    padding: 0 20px;
+  }
+  main section .container .contents-title {
+    position: relative;
+    top: 0;
+    left: 0;
+    padding-left: 60px;
+    writing-mode: horizontal-tb;
+    font-size: 25px;
+  }
+  main section .container .contents-title:before {
+    top: 0;
+    left: 0;
+  }
+  main section .container .contents-title::after {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 45px;
+    width: 0;
+    height: 18px;
+    border-top: none;
+    border-left: 1px solid #3C3835;
+  }
+  .view-more .wrapper {
+    margin-top: 25px;
+    font-size: 14px;
+    border-bottom: 2px solid #3C3835;
+  }
+  .view-more .wrapper .view-more-curtains {
+    left: 0;
   }
   .main-visual {
     flex-direction: column;
     align-items: center;
+    margin-top: 60px;
   }
   .main-visual video {
     width: 100%;
@@ -850,9 +874,53 @@ main section .container .contents-title::after {
     line-height: 2;
   }
   .main-visual .bgm-play-stop {
-    top: 50%;
+    top: 68%;
     transform: translateY(-50%);
     right: 15px;
+  }
+  .blog {
+    margin-top: 80px;
+    padding: 0 0 145px;
+  }
+  .blog ul {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 30px;
+    -moz-column-gap: 50px;
+         column-gap: 50px;
+    margin-top: 20px;
+    padding-right: 20px;
+  }
+  .blog ul li {
+    width: 100%;
+  }
+  .blog ul li:nth-of-type(5) {
+    display: none;
+  }
+  .blog ul li a .frame img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .about {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  .about .container .salon-vibe {
+    margin-top: 20px;
+  }
+  .about .container .salon-vibe figure {
+    flex-direction: column;
+    text-align: left;
+  }
+  .about .container .salon-vibe figure .media-wrapper {
+    width: 80%;
+  }
+  .about .container .salon-vibe figure figcaption {
+    margin-top: 20px;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.7;
   }
 }
 footer {
